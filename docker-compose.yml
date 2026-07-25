@@ -1,0 +1,42 @@
+# Local/production-style stack: PostgreSQL + API.
+# Frontend is a static build — serve `frontend/dist` from any web server / reverse proxy.
+services:
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-postgres}
+      POSTGRES_DB: bs_smart_solution
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d bs_smart_solution"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  api:
+    build: ./backend
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      NODE_ENV: production
+      PORT: 5000
+      DATABASE_URL: postgresql://postgres:${DB_PASSWORD:-postgres}@db:5432/bs_smart_solution?schema=public
+      JWT_ACCESS_SECRET: ${JWT_ACCESS_SECRET:?set in .env}
+      JWT_REFRESH_SECRET: ${JWT_REFRESH_SECRET:?set in .env}
+      CORS_ORIGINS: ${CORS_ORIGINS:-http://localhost:5173}
+      WHATSAPP_NUMBER: ${WHATSAPP_NUMBER:?set in .env}
+      SEED_ADMIN_EMAIL: ${SEED_ADMIN_EMAIL:?set in .env}
+      SEED_ADMIN_PASSWORD: ${SEED_ADMIN_PASSWORD:?set in .env}
+    ports:
+      - "5000:5000"
+    volumes:
+      - uploads:/app/uploads
+
+volumes:
+  pgdata:
+  uploads:

@@ -1,0 +1,9 @@
+node_modules/
+.pg/
+*.log
+.env
+dist/
+
+# uploaded images are runtime data, keep the folder only
+backend/uploads/*
+!backend/uploads/.gitkeep
