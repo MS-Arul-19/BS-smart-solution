@@ -142,7 +142,7 @@ export const ServicesPage: React.FC = () => {
                   className="inline-flex items-center space-x-2 text-sm font-heading font-semibold text-brand-primary hover:text-brand-secondary transition-colors"
                 >
                   <ArrowLeft className="w-4 h-4" />
-                  <span>← Back to All Service Sectors</span>
+                  <span>Back to All Service Sectors</span>
                 </button>
 
                 <div className="flex items-center gap-3">

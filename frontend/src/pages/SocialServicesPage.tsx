@@ -136,7 +136,7 @@ export const SocialServicesPage: React.FC = () => {
                   className="inline-flex items-center space-x-2 text-sm font-heading font-semibold text-brand-primary hover:text-emerald-600 transition-colors"
                 >
                   <ArrowLeft className="w-4 h-4" />
-                  <span>← Back to All Social Causes</span>
+                  <span>Back to All Social Causes</span>
                 </button>
 
                 <div className="flex items-center gap-3">
