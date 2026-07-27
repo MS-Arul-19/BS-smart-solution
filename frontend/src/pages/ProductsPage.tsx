@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { Search, ArrowLeft, Package, Sparkles } from 'lucide-react';
+import { Search, ArrowLeft, Package, Grid, Filter } from 'lucide-react';
 import { Category, Product } from '../types';
 import { api } from '../api/client';
 import { ProductCard } from '../components/cards/ProductCard';
+import { GlassCard } from '../components/ui/GlassCard';
 
 export const ProductsPage: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -21,180 +22,163 @@ export const ProductsPage: React.FC = () => {
       setCategories(cats);
 
       const prods = await api.getProducts({
+        category: selectedCategorySlug || undefined,
         search: searchQuery || undefined,
       });
       setProducts(prods);
       setLoading(false);
     }
     loadData();
-  }, [searchQuery]);
+  }, [selectedCategorySlug, searchQuery]);
 
   const handleSelectCategory = (slug: string | null) => {
-    if (slug && slug !== 'all') {
+    if (slug) {
       setSearchParams({ category: slug });
     } else {
       setSearchParams({});
     }
   };
 
-  // Group products category-wise
-  const displayCategories = selectedCategorySlug && selectedCategorySlug !== 'all'
-    ? categories.filter(c => c.slug === selectedCategorySlug)
-    : categories;
+  const activeCategoryObj = categories.find(c => c.slug === selectedCategorySlug);
 
   return (
     <div className="pt-32 pb-20 bg-brand-light min-h-screen">
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-[1280px] mx-auto space-y-10">
           
-          {/* Header Banner */}
+          {/* Header */}
           <div className="text-center max-w-3xl mx-auto space-y-3">
-            <span className="px-3.5 py-1.5 rounded-full bg-brand-primary/10 text-brand-primary text-xs font-heading font-semibold uppercase tracking-wider inline-flex items-center gap-1.5">
-              <Package className="w-3.5 h-3.5" /> B2B Wholesale Catalogue
+            <span className="px-3.5 py-1.5 rounded-full bg-brand-primary/10 text-brand-primary text-xs font-heading font-semibold uppercase tracking-wider">
+              Product Catalogue
             </span>
             <h1 className="text-4xl sm:text-5xl font-extrabold font-heading text-brand-primary tracking-tight">
-              Wholesale Products Category-Wise
+              B2B Industrial Supplies & Materials
             </h1>
             <p className="text-base text-brand-muted">
-              Browse bulk products organized category by category for e-commerce, factories, offices, and contractors.
+              Select a category to browse wholesale bulk products with minimum order quantities & verified specifications.
             </p>
           </div>
 
-          {/* Search & Category Quick Filter Bar */}
-          <div className="bg-white p-4 sm:p-6 rounded-3xl border border-brand-border shadow-soft space-y-4">
-            
-            {/* Search Box */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
-              <div className="relative flex-1">
-                <Search className="w-4 h-4 text-brand-muted absolute left-4 top-3.5" />
-                <input
-                  type="text"
-                  placeholder="Search products across all categories (e.g. Corrugated boxes, Gloves, LED...)"
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-11 pr-4 py-2.5 text-sm rounded-2xl border border-brand-border font-body focus:outline-none focus:border-brand-primary"
-                />
+          {/* Step 1: 11 Large Option Cards (shown when no category is selected, or as filter bar) */}
+          {!selectedCategorySlug ? (
+            <div className="space-y-6">
+              <div className="flex items-center justify-between">
+                <h3 className="text-xl font-bold font-heading text-brand-primary flex items-center gap-2">
+                  <Grid className="w-5 h-5 text-brand-secondary" /> Select Product Category
+                </h3>
+                <span className="text-xs text-brand-muted">10 Categories Available</span>
               </div>
 
-              {selectedCategorySlug && (
-                <button
-                  onClick={() => handleSelectCategory(null)}
-                  className="inline-flex items-center justify-center space-x-2 px-4 py-2.5 rounded-2xl bg-brand-light text-brand-primary font-heading font-semibold text-xs hover:bg-brand-primary hover:text-white transition-colors"
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                {/* Option Card 1: All Products */}
+                <GlassCard
+                  onClick={() => handleSelectCategory('all')}
+                  className="cursor-pointer group hover:border-brand-secondary/50 p-6 flex flex-col justify-between"
                 >
-                  <ArrowLeft className="w-3.5 h-3.5" />
-                  <span>Show All Categories</span>
-                </button>
-              )}
-            </div>
-
-            {/* Category Quick Filter Pills */}
-            <div className="flex items-center gap-2 overflow-x-auto pt-2 pb-1 scrollbar-none">
-              <button
-                onClick={() => handleSelectCategory(null)}
-                className={`px-4 py-2 rounded-xl text-xs font-heading font-semibold whitespace-nowrap transition-all ${
-                  !selectedCategorySlug || selectedCategorySlug === 'all'
-                    ? 'bg-brand-primary text-white shadow-sm'
-                    : 'bg-brand-light text-brand-muted hover:bg-brand-primary/10 hover:text-brand-primary'
-                }`}
-              >
-                All Categories (10)
-              </button>
-              {categories.map((cat) => (
-                <button
-                  key={cat.id}
-                  onClick={() => handleSelectCategory(cat.slug)}
-                  className={`px-4 py-2 rounded-xl text-xs font-heading font-semibold whitespace-nowrap transition-all ${
-                    selectedCategorySlug === cat.slug
-                      ? 'bg-brand-primary text-white shadow-sm'
-                      : 'bg-brand-light text-brand-muted hover:bg-brand-primary/10 hover:text-brand-primary'
-                  }`}
-                >
-                  {cat.name}
-                </button>
-              ))}
-            </div>
-
-          </div>
-
-          {/* Category-Wise Products Listing */}
-          {loading ? (
-            <div className="space-y-12">
-              {[1, 2].map((i) => (
-                <div key={i} className="space-y-4">
-                  <div className="h-10 w-64 bg-slate-200 rounded-xl animate-pulse" />
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                    {[1, 2, 3, 4].map((j) => (
-                      <div key={j} className="h-72 bg-slate-200 rounded-2xl animate-pulse" />
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
-          ) : displayCategories.length > 0 ? (
-            <div className="space-y-14">
-              {displayCategories.map((cat) => {
-                const catProducts = products.filter((p) => p.categorySlug === cat.slug);
-                if (catProducts.length === 0 && searchQuery) return null;
-
-                return (
-                  <section key={cat.id} className="space-y-6 pt-4 border-t border-brand-border/60 first:border-0 first:pt-0">
-                    
-                    {/* Category Header Card */}
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-white p-5 rounded-2xl border border-brand-border/80 shadow-soft">
-                      <div className="flex items-center space-x-3.5">
-                        <div className="w-10 h-10 rounded-xl bg-brand-primary text-white flex items-center justify-center font-bold shadow-sm">
-                          <Package className="w-5 h-5" />
-                        </div>
-                        <div>
-                          <h2 className="text-xl font-bold font-heading text-brand-primary flex items-center gap-2">
-                            {cat.name}
-                          </h2>
-                          <p className="text-xs text-brand-muted leading-relaxed">
-                            {cat.description}
-                          </p>
-                        </div>
-                      </div>
-
-                      <div className="flex items-center space-x-2 self-start sm:self-auto">
-                        <span className="px-3 py-1 rounded-full bg-brand-primary/10 text-brand-primary text-xs font-semibold font-heading">
-                          {catProducts.length} Items Available
-                        </span>
-                        <button
-                          onClick={() => handleSelectCategory(cat.slug)}
-                          className="text-xs font-heading font-semibold text-brand-secondary hover:underline pl-2"
-                        >
-                          Focus Category →
-                        </button>
-                      </div>
+                  <div className="space-y-3">
+                    <div className="w-12 h-12 rounded-xl bg-brand-primary text-white flex items-center justify-center font-bold text-xl group-hover:bg-brand-secondary transition-colors">
+                      <Package className="w-6 h-6" />
                     </div>
+                    <h4 className="text-lg font-bold font-heading text-brand-primary group-hover:text-brand-secondary transition-colors">
+                      All Products
+                    </h4>
+                    <p className="text-xs text-brand-muted leading-relaxed">
+                      View all 55+ industrial products across all categories.
+                    </p>
+                  </div>
+                  <div className="pt-4 text-xs font-semibold font-heading text-brand-secondary flex items-center justify-end group-hover:translate-x-1 transition-transform">
+                    Browse All →
+                  </div>
+                </GlassCard>
 
-                    {/* Products Grid for this Category */}
-                    {catProducts.length > 0 ? (
-                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                        {catProducts.map((prod) => (
-                          <ProductCard key={prod.id} product={prod} />
-                        ))}
+                {/* 10 Product Category Cards */}
+                {categories.map((cat) => (
+                  <GlassCard
+                    key={cat.id}
+                    onClick={() => handleSelectCategory(cat.slug)}
+                    className="cursor-pointer group hover:border-brand-secondary/50 p-6 flex flex-col justify-between"
+                  >
+                    <div className="space-y-3">
+                      <div className="w-12 h-12 rounded-xl bg-brand-primary/5 text-brand-primary flex items-center justify-center font-bold group-hover:bg-brand-primary group-hover:text-white transition-colors">
+                        <Package className="w-6 h-6" />
                       </div>
-                    ) : (
-                      <div className="p-8 text-center bg-white/60 rounded-2xl border border-dashed border-brand-border text-xs text-brand-muted">
-                        No products available under {cat.name} matching search "{searchQuery}".
-                      </div>
-                    )}
-
-                  </section>
-                );
-              })}
+                      <h4 className="text-lg font-bold font-heading text-brand-primary group-hover:text-brand-secondary transition-colors">
+                        {cat.name}
+                      </h4>
+                      <p className="text-xs text-brand-muted leading-relaxed line-clamp-2">
+                        {cat.description}
+                      </p>
+                    </div>
+                    <div className="pt-4 flex items-center justify-between text-xs font-semibold font-heading">
+                      <span className="text-brand-muted">{cat.productCount || 6} Items</span>
+                      <span className="text-brand-secondary group-hover:translate-x-1 transition-transform">Explore →</span>
+                    </div>
+                  </GlassCard>
+                ))}
+              </div>
             </div>
           ) : (
-            <div className="text-center py-16 bg-white rounded-3xl border border-brand-border space-y-3">
-              <Sparkles className="w-8 h-8 text-brand-muted mx-auto" />
-              <p className="text-base font-bold font-heading text-brand-primary">No categories or products found</p>
-              <button
-                onClick={() => { setSearchQuery(''); handleSelectCategory(null); }}
-                className="px-4 py-2 bg-brand-primary text-white text-xs font-semibold rounded-xl"
-              >
-                Reset Filters
-              </button>
+            /* Step 2: Category Product Grid with Search & Back Button */
+            <div className="space-y-6">
+              
+              {/* Filter Toolbar */}
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 bg-white p-4 rounded-2xl border border-brand-border shadow-soft">
+                
+                <button
+                  onClick={() => handleSelectCategory(null)}
+                  className="inline-flex items-center space-x-2 text-sm font-heading font-semibold text-brand-primary hover:text-brand-secondary"
+                >
+                  <ArrowLeft className="w-4 h-4" />
+                  <span>← All Categories</span>
+                </button>
+
+                <div className="flex items-center gap-3">
+                  {/* Category Pill Indicator */}
+                  <span className="hidden md:inline-flex px-3 py-1 rounded-full bg-brand-primary/10 text-brand-primary text-xs font-semibold font-heading">
+                    {activeCategoryObj?.name || 'All Products'}
+                  </span>
+
+                  {/* Search Box */}
+                  <div className="relative flex-1 sm:w-80">
+                    <Search className="w-4 h-4 text-brand-muted absolute left-3.5 top-3" />
+                    <input
+                      type="text"
+                      placeholder="Search products by name..."
+                      value={searchQuery}
+                      onChange={(e) => setSearchQuery(e.target.value)}
+                      className="w-full pl-10 pr-4 py-2 text-sm rounded-xl border border-brand-border font-body focus:outline-none focus:border-brand-primary"
+                    />
+                  </div>
+                </div>
+
+              </div>
+
+              {/* Product Grid */}
+              {loading ? (
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 py-12">
+                  {[1, 2, 3, 4].map((i) => (
+                    <div key={i} className="h-80 rounded-2xl bg-slate-200 animate-pulse" />
+                  ))}
+                </div>
+              ) : products.length > 0 ? (
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                  {products.map((prod) => (
+                    <ProductCard key={prod.id} product={prod} />
+                  ))}
+                </div>
+              ) : (
+                <div className="text-center py-16 bg-white rounded-2xl border border-brand-border space-y-3">
+                  <p className="text-base font-bold font-heading text-brand-primary">No products found matching your search</p>
+                  <p className="text-xs text-brand-muted">Try clearing the search filter or select another category.</p>
+                  <button
+                    onClick={() => { setSearchQuery(''); handleSelectCategory(null); }}
+                    className="px-4 py-2 bg-brand-primary text-white text-xs font-semibold rounded-xl"
+                  >
+                    Reset Filters
+                  </button>
+                </div>
+              )}
+
             </div>
           )}
 
