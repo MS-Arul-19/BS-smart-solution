@@ -5,6 +5,7 @@ import { Footer } from './components/layout/Footer';
 
 // Pages
 import { HomePage } from './pages/HomePage';
+import { AboutPage } from './pages/AboutPage';
 import { ProductsPage } from './pages/ProductsPage';
 import { ProductDetailPage } from './pages/ProductDetailPage';
 import { ServicesPage } from './pages/ServicesPage';
@@ -30,9 +31,6 @@ function ScrollToTop() {
 }
 
 export function App() {
-  const location = useLocation();
-  const isAdminRoute = location.pathname.startsWith('/admin');
-
   return (
     <div className="min-h-screen flex flex-col bg-brand-light font-body text-brand-text antialiased">
       <ScrollToTop />
@@ -42,8 +40,9 @@ export function App() {
 
       <main className="flex-grow">
         <Routes>
-          {/* 7 Public Routes */}
+          {/* Public Routes */}
           <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<AboutPage />} />
           <Route path="/products" element={<ProductsPage />} />
           <Route path="/products/:slug" element={<ProductDetailPage />} />
           <Route path="/services" element={<ServicesPage />} />
@@ -51,7 +50,7 @@ export function App() {
           <Route path="/social-service" element={<SocialServicesPage />} />
           <Route path="/enquiry" element={<EnquiryPage />} />
 
-          {/* 7 Admin Routes */}
+          {/* Admin Routes */}
           <Route path="/admin/login" element={<AdminLogin />} />
           <Route path="/admin" element={<AdminDashboard />} />
           <Route path="/admin/leads" element={<AdminLeads />} />
