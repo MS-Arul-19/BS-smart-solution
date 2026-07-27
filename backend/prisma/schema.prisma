@@ -1,0 +1,190 @@
+// BS Smart Solution — database schema
+// See docs/02-DATABASE.md for the design rationale.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ---------- Enums ----------
+
+enum AdminRole {
+  SUPER_ADMIN
+  ADMIN
+}
+
+enum PriceType {
+  FIXED
+  STARTING_FROM
+  ON_INSPECTION
+}
+
+enum EnquiryType {
+  PRODUCT
+  SERVICE
+  GENERAL
+}
+
+enum LeadStatus {
+  NEW
+  CONTACTED
+  IN_PROGRESS
+  CONVERTED
+  CLOSED
+}
+
+// Business services vs social/community initiatives — both share the
+// ServiceCategory + Service tables but are shown on different pages.
+enum CategoryKind {
+  SERVICE
+  SOCIAL
+}
+
+// ---------- Models ----------
+
+model Admin {
+  id          Int       @id @default(autoincrement())
+  name        String
+  email       String    @unique
+  password    String // bcrypt hash — excluded from all API selects
+  role        AdminRole @default(ADMIN)
+  isActive    Boolean   @default(true)
+  lastLoginAt DateTime?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  @@map("admins")
+}
+
+model Category {
+  id          Int       @id @default(autoincrement())
+  name        String    @unique
+  slug        String    @unique
+  description String?
+  image       String?
+  isActive    Boolean   @default(true)
+  sortOrder   Int       @default(0)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  products    Product[]
+
+  @@map("categories")
+}
+
+model Product {
+  id               Int       @id @default(autoincrement())
+  name             String
+  slug             String    @unique
+  description      String
+  shortDescription String?
+  specifications   Json?
+  minOrderQty      String?
+  priceRange       String?
+  unit             String?
+  image            String?
+  categoryId       Int
+  category         Category  @relation(fields: [categoryId], references: [id], onDelete: Restrict)
+  isActive         Boolean   @default(true)
+  isFeatured       Boolean   @default(false)
+  sortOrder        Int       @default(0)
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
+  leads            Lead[]
+  gallery          Gallery[]
+
+  @@index([categoryId])
+  @@index([isActive, isFeatured])
+  @@map("products")
+}
+
+model ServiceCategory {
+  id          Int          @id @default(autoincrement())
+  name        String       @unique
+  slug        String       @unique
+  description String?
+  kind        CategoryKind @default(SERVICE)
+  isActive    Boolean      @default(true)
+  sortOrder   Int          @default(0)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  services    Service[]
+
+  @@map("service_categories")
+}
+
+model Service {
+  id               Int              @id @default(autoincrement())
+  name             String
+  slug             String           @unique
+  description      String
+  shortDescription String?
+  priceType        PriceType        @default(ON_INSPECTION)
+  priceValue       String?
+  coverageArea     String?
+  image            String?
+  categoryId       Int?
+  category         ServiceCategory? @relation(fields: [categoryId], references: [id], onDelete: SetNull)
+  isActive         Boolean          @default(true)
+  isFeatured       Boolean          @default(false)
+  sortOrder        Int              @default(0)
+  createdAt        DateTime         @default(now())
+  updatedAt        DateTime         @updatedAt
+  leads            Lead[]
+  gallery          Gallery[]
+
+  @@index([categoryId])
+  @@index([isActive, isFeatured])
+  @@map("services")
+}
+
+model Lead {
+  id          Int         @id @default(autoincrement())
+  name        String
+  phone       String
+  email       String?
+  message     String?
+  enquiryType EnquiryType
+  productId   Int?
+  product     Product?    @relation(fields: [productId], references: [id], onDelete: SetNull)
+  serviceId   Int?
+  service     Service?    @relation(fields: [serviceId], references: [id], onDelete: SetNull)
+  quantity    String?
+  status      LeadStatus  @default(NEW)
+  adminNote   String?
+  source      String      @default("website")
+  ipAddress   String?
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+
+  @@index([status])
+  @@index([enquiryType])
+  @@index([createdAt])
+  @@map("leads")
+}
+
+model Gallery {
+  id        Int      @id @default(autoincrement())
+  title     String?
+  image     String
+  productId Int?
+  product   Product? @relation(fields: [productId], references: [id], onDelete: Cascade)
+  serviceId Int?
+  service   Service? @relation(fields: [serviceId], references: [id], onDelete: Cascade)
+  sortOrder Int      @default(0)
+  createdAt DateTime @default(now())
+
+  @@map("gallery")
+}
+
+model Settings {
+  id        Int      @id @default(autoincrement())
+  key       String   @unique
+  value     String
+  updatedAt DateTime @updatedAt
+
+  @@map("settings")
+}
