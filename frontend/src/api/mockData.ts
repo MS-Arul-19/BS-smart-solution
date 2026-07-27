@@ -8,33 +8,33 @@ export const INITIAL_SETTINGS: PublicSettings = {
   business_phone: '+91 98765 43210',
 };
 
-// ==========================================
-// 1. PRODUCT CATEGORIES & ITEMS
-// ==========================================
+// ============================================================================
+// 1. WHOLESALE PRODUCTS (10 CATEGORIES & 54 INDIVIDUAL PRODUCTS)
+// ============================================================================
 export const PRODUCT_CATEGORIES: Category[] = [
-  { id: 'cat-1', name: 'Packaging Materials', slug: 'packaging-materials', description: 'Corrugated boxes, courier bags, bubble wrap, stretch film & paper bags for e-commerce and warehouses.', productCount: 7, icon: 'Package' },
-  { id: 'cat-2', name: 'Safety Products', slug: 'safety-products', description: 'Safety gloves, helmets, reflective jackets, safety shoes & face masks for construction & factories.', productCount: 5, icon: 'ShieldCheck' },
-  { id: 'cat-3', name: 'Cleaning & Housekeeping Supplies', slug: 'cleaning-housekeeping-supplies', description: 'Cleaning chemicals, floor cleaners, toilet cleaners, mops, brooms & garbage bags for hotels & offices.', productCount: 6, icon: 'Droplets' },
-  { id: 'cat-4', name: 'Electrical Products', slug: 'electrical-products', description: 'LED lights, switches, wires, extension boards & fans for builders, contractors & electricians.', productCount: 5, icon: 'Zap' },
-  { id: 'cat-5', name: 'Plumbing Materials', slug: 'plumbing-materials', description: 'PVC pipes, taps, valves & bathroom fittings for plumbers and construction contractors.', productCount: 4, icon: 'Wrench' },
-  { id: 'cat-6', name: 'Office Supplies', slug: 'office-supplies', description: 'Printer paper, pens, files, registers & toners for corporate offices and educational institutes.', productCount: 5, icon: 'Monitor' },
-  { id: 'cat-7', name: 'Hotel & Restaurant Supplies', slug: 'hotel-restaurant-supplies', description: 'Disposable cups, food containers, tissues, kitchen gloves & food packaging supplies.', productCount: 5, icon: 'Gift' },
-  { id: 'cat-8', name: 'Industrial Tools', slug: 'industrial-tools', description: 'Drill machines, hand tools, measuring tools, fasteners & industrial lubricants for workshops.', productCount: 5, icon: 'Hammer' },
-  { id: 'cat-9', name: 'Promotional & Corporate Products', slug: 'promotional-corporate-products', description: 'Custom printed T-shirts, caps, mugs, pens, ID cards & corporate gifting items.', productCount: 6, icon: 'Gift' },
-  { id: 'cat-10', name: 'Furniture & Interior Products', slug: 'furniture-interior-products', description: 'Ergonomic office chairs, tables, modular workstations, window blinds & decorative panels.', productCount: 5, icon: 'Building' },
+  { id: 'cat-1', name: 'Packaging Materials', slug: 'packaging-materials', description: 'Corrugated boxes, courier bags, bubble wrap, stretch film, tapes & paper bags.', productCount: 7, icon: 'Package' },
+  { id: 'cat-2', name: 'Safety Products', slug: 'safety-products', description: 'Safety gloves, helmets, reflective jackets, safety shoes & face masks.', productCount: 5, icon: 'ShieldCheck' },
+  { id: 'cat-3', name: 'Cleaning & Housekeeping Supplies', slug: 'cleaning-housekeeping-supplies', description: 'Cleaning chemicals, floor cleaners, toilet cleaners, mops, brooms & garbage bags.', productCount: 6, icon: 'Droplets' },
+  { id: 'cat-4', name: 'Electrical Products', slug: 'electrical-products', description: 'LED lights, switches, wires, extension boards & fans.', productCount: 5, icon: 'Zap' },
+  { id: 'cat-5', name: 'Plumbing Materials', slug: 'plumbing-materials', description: 'PVC pipes, taps, valves & bathroom fittings.', productCount: 4, icon: 'Wrench' },
+  { id: 'cat-6', name: 'Office Supplies', slug: 'office-supplies', description: 'Printer paper, pens, files, registers & toners.', productCount: 5, icon: 'Monitor' },
+  { id: 'cat-7', name: 'Hotel & Restaurant Supplies', slug: 'hotel-restaurant-supplies', description: 'Disposable cups, food containers, tissues, kitchen gloves & cleaning supplies.', productCount: 5, icon: 'Gift' },
+  { id: 'cat-8', name: 'Industrial Tools', slug: 'industrial-tools', description: 'Drill machines, hand tools, measuring tools, fasteners & lubricants.', productCount: 5, icon: 'Hammer' },
+  { id: 'cat-9', name: 'Promotional & Corporate Products', slug: 'promotional-corporate-products', description: 'T-shirts, caps, pens, mugs, ID cards & corporate gift items.', productCount: 6, icon: 'Gift' },
+  { id: 'cat-10', name: 'Furniture & Interior Products', slug: 'furniture-interior-products', description: 'Office chairs, tables, modular furniture, blinds & decorative panels.', productCount: 5, icon: 'Building' },
 ];
 
 export const MOCK_PRODUCTS: Product[] = [
-  // --- Packaging Materials ---
+  // --- 1. Packaging Materials ---
   {
-    id: 'prod-101',
+    id: 'p-1',
     slug: 'corrugated-boxes',
-    name: 'Heavy Duty Corrugated Shipping Boxes',
+    name: 'Corrugated Boxes',
     category: 'Packaging Materials',
     categorySlug: 'packaging-materials',
-    shortDescription: 'Industrial grade 3-ply and 7-ply corrugated boxes engineered for high burst strength and heavy shipments.',
-    description: 'Our corrugated boxes are crafted from top-grade kraft paper. Designed to withstand stacking pressure during warehousing and logistics. Target Customers: E-commerce sellers, manufacturers, warehouses.',
-    specifications: { 'Target Customers': 'E-commerce sellers, manufacturers, warehouses', 'Ply Rating': '3-Ply, 5-Ply & 7-Ply', 'Recyclable': '100% Eco-friendly' },
+    shortDescription: 'Industrial grade 3-ply and 7-ply heavy duty shipping & packing boxes.',
+    description: 'High burst strength corrugated shipping boxes for e-commerce sellers, manufacturers, and warehouses.',
+    specifications: { 'Target Customers': 'E-commerce sellers, manufacturers, warehouses', 'Ply Rating': '3-Ply, 5-Ply, 7-Ply', 'Recyclable': '100% Eco-Friendly' },
     moq: 'Bulk Supply',
     priceRange: 'Quote on Request',
     unit: 'Box',
@@ -42,14 +42,14 @@ export const MOCK_PRODUCTS: Product[] = [
     featured: true
   },
   {
-    id: 'prod-102',
+    id: 'p-2',
     slug: 'courier-bags',
-    name: 'Tamper Evident Courier Bags & Poly Mailers',
+    name: 'Courier Bags',
     category: 'Packaging Materials',
     categorySlug: 'packaging-materials',
-    shortDescription: 'Self-adhesive tamper-proof courier mailer bags for secure e-commerce product dispatch.',
-    description: 'High-tensile poly mailers with strong peel-and-seal adhesive strip. Water-resistant and tear-proof protection for online parcel shipping.',
-    specifications: { 'Target Customers': 'E-commerce sellers, logistics partners', 'Adhesive': 'Permanent hot-melt tape', 'Waterproof': 'Yes' },
+    shortDescription: 'Tamper-evident poly mailer courier bags with self-adhesive strip.',
+    description: 'Tear-proof waterproof mailing envelopes for online parcel dispatch.',
+    specifications: { 'Target Customers': 'E-commerce sellers, warehouses', 'Feature': 'Tamper-Evident Seal', 'Waterproof': 'Yes' },
     moq: 'Bulk Supply',
     priceRange: 'Quote on Request',
     unit: 'Pack',
@@ -57,14 +57,14 @@ export const MOCK_PRODUCTS: Product[] = [
     featured: false
   },
   {
-    id: 'prod-103',
+    id: 'p-3',
     slug: 'bubble-wrap',
-    name: 'Shock Absorbent Air Bubble Wrap Roll',
+    name: 'Bubble Wrap',
     category: 'Packaging Materials',
     categorySlug: 'packaging-materials',
-    shortDescription: 'High cushioning air bubble roll for fragile goods, electronics, and glassware protection.',
-    description: 'Heavy duty polyethylene air bubble film providing maximum impact absorption during transit and handling.',
-    specifications: { 'Target Customers': 'Warehouses, glass & electronics shippers', 'Roll Width': '1 Meter / 1.5 Meters', 'Feature': 'High Air Retention' },
+    shortDescription: 'High-cushion air bubble wrap rolls for fragile items & electronics protection.',
+    description: 'Heavy duty air bubble film protecting glassware and delicate cargo during transit.',
+    specifications: { 'Target Customers': 'Manufacturers, warehouses, e-commerce', 'Roll Width': '1M / 1.5M', 'Protection': 'High Impact Cushioning' },
     moq: 'Bulk Supply',
     priceRange: 'Quote on Request',
     unit: 'Roll',
@@ -72,14 +72,14 @@ export const MOCK_PRODUCTS: Product[] = [
     featured: true
   },
   {
-    id: 'prod-104',
+    id: 'p-4',
     slug: 'stretch-film',
-    name: 'Machine Grade Pallet Stretch Film Wrap',
+    name: 'Stretch Film',
     category: 'Packaging Materials',
     categorySlug: 'packaging-materials',
-    shortDescription: 'High-stretch LLDPE pallet wrapping film for cargo unitization and moisture resistance.',
-    description: 'Superior puncture resistance stretch film designed for wrapping heavy pallets in industrial plants and freight depots.',
-    specifications: { 'Thickness': '23 Micron', 'Stretchability': 'Up to 300%', 'Material': 'Cast LLDPE' },
+    shortDescription: 'Machine and hand grade pallet stretch wrap film.',
+    description: 'High tensile LLDPE stretch film for cargo unitization and pallet binding.',
+    specifications: { 'Thickness': '23 Micron', 'Stretch': 'Up to 300%', 'Material': 'Cast LLDPE' },
     moq: 'Bulk Supply',
     priceRange: 'Quote on Request',
     unit: 'Roll',
@@ -87,14 +87,14 @@ export const MOCK_PRODUCTS: Product[] = [
     featured: false
   },
   {
-    id: 'prod-105',
+    id: 'p-5',
     slug: 'packing-tape',
-    name: 'BOPP Self Adhesive Industrial Packaging Tape',
+    name: 'Packing Tape',
     category: 'Packaging Materials',
     categorySlug: 'packaging-materials',
-    shortDescription: 'High tack acrylic adhesive BOPP carton sealing tapes in brown, transparent, and custom printed logo formats.',
-    description: 'Durable tape with excellent holding power across hot and cold storage conditions.',
-    specifications: { 'Width': '48 mm / 72 mm', 'Adhesive': 'Water-based Acrylic', 'Colors': 'Brown, Clear, Custom Logo' },
+    shortDescription: 'Self-adhesive BOPP carton sealing tapes in clear, brown & printed styles.',
+    description: 'Heavy tack packaging tapes for sealing corrugated cartons.',
+    specifications: { 'Width': '48mm / 72mm', 'Adhesive': 'High Tack Acrylic', 'Colors': 'Clear, Brown, Custom Printed' },
     moq: 'Bulk Supply',
     priceRange: 'Quote on Request',
     unit: 'Box',
@@ -102,14 +102,14 @@ export const MOCK_PRODUCTS: Product[] = [
     featured: false
   },
   {
-    id: 'prod-106',
+    id: 'p-6',
     slug: 'paper-bags',
-    name: 'Eco-Friendly Kraft Paper Shopping Bags',
+    name: 'Paper Bags',
     category: 'Packaging Materials',
     categorySlug: 'packaging-materials',
-    shortDescription: 'Biodegradable brown and white kraft paper bags with twisted handle for retail & takeaway.',
-    description: 'Sustainable packaging solution for retail stores, boutiques, and eco-conscious businesses.',
-    specifications: { 'GSM': '120 - 150 GSM Kraft Paper', 'Handles': 'Twisted Paper Handle', 'Eco Rating': '100% Recyclable' },
+    shortDescription: 'Eco-friendly brown kraft paper shopping bags with twisted handles.',
+    description: 'Sustainable retail paper bags for stores, bakeries, and corporate giveaways.',
+    specifications: { 'GSM': '120-150 GSM Kraft', 'Handles': 'Twisted Paper Cord', 'Biodegradable': '100%' },
     moq: 'Bulk Supply',
     priceRange: 'Quote on Request',
     unit: 'Pack',
@@ -117,14 +117,14 @@ export const MOCK_PRODUCTS: Product[] = [
     featured: false
   },
   {
-    id: 'prod-107',
+    id: 'p-7',
     slug: 'zip-lock-pouches',
-    name: 'Resealable Transparent Zip-Lock Pouches',
+    name: 'Zip-Lock Pouches',
     category: 'Packaging Materials',
     categorySlug: 'packaging-materials',
-    shortDescription: 'Heavy-duty airtight zip-lock polythene bags for hardware parts, food, and small items.',
-    description: 'Re-closable seal pouches keeping moisture out and contents securely organized.',
-    specifications: { 'Material': 'Food-Grade LDPE', 'Seal Type': 'Press & Lock Zipper', 'Transparency': 'High Clarity' },
+    shortDescription: 'Airtight resealable transparent zip pouches for food and small components.',
+    description: 'Food-grade re-closable polythene bags for hardware parts and food packaging.',
+    specifications: { 'Material': 'Food-Grade LDPE', 'Seal': 'Press & Lock Zipper', 'Transparency': 'High' },
     moq: 'Bulk Supply',
     priceRange: 'Quote on Request',
     unit: 'Pack',
@@ -132,16 +132,16 @@ export const MOCK_PRODUCTS: Product[] = [
     featured: false
   },
 
-  // --- Safety Products ---
+  // --- 2. Safety Products ---
   {
-    id: 'prod-201',
+    id: 'p-8',
     slug: 'safety-gloves',
-    name: 'Cut Resistant Nitrile Coated Safety Gloves',
+    name: 'Safety Gloves',
     category: 'Safety Products',
     categorySlug: 'safety-products',
-    shortDescription: 'High-grip anti-slip safety work gloves for industrial assembly, handling, and construction.',
-    description: 'Ergonomic hand protection with oil-resistant nitrile palm coating. Target Customers: Construction companies, factories, warehouses.',
-    specifications: { 'Target Customers': 'Construction companies, factories, warehouses', 'Coating': 'Nitrile / PU', 'Rating': 'EN388 Cut Level 3/5' },
+    shortDescription: 'Nitrile & PU coated cut-resistant industrial safety gloves.',
+    description: 'High-grip hand safety gloves for construction, factories, and material handling.',
+    specifications: { 'Target Customers': 'Construction companies, factories, warehouses', 'Rating': 'EN388 Level 3', 'Coating': 'Nitrile Palm' },
     moq: 'Bulk Supply',
     priceRange: 'Quote on Request',
     unit: 'Pair',
@@ -149,14 +149,14 @@ export const MOCK_PRODUCTS: Product[] = [
     featured: true
   },
   {
-    id: 'prod-202',
-    slug: 'safety-helmets',
-    name: 'ANSI Certified Industrial Safety Hard Hat Helmet',
+    id: 'p-9',
+    slug: 'helmets',
+    name: 'Helmets',
     category: 'Safety Products',
     categorySlug: 'safety-products',
-    shortDescription: 'HDPE impact resistant protective site helmet with 6-point ratchet suspension.',
-    description: 'Engineered for construction sites and factory floors. High impact protection with ventilation channels and sweatband.',
-    specifications: { 'Standard': 'IS 2925 & ANSI Z89.1', 'Material': 'High-Density Polyethylene', 'Suspension': '6-Point Ratchet' },
+    shortDescription: 'ANSI & IS certified HDPE construction hard hat safety helmets.',
+    description: 'Impact resistant protective site helmets with 6-point ratchet suspension.',
+    specifications: { 'Standard': 'IS 2925 / ANSI Z89.1', 'Material': 'HDPE Polyethylene', 'Colors': 'Yellow, White, Blue, Orange' },
     moq: 'Bulk Supply',
     priceRange: 'Quote on Request',
     unit: 'Piece',
@@ -164,14 +164,14 @@ export const MOCK_PRODUCTS: Product[] = [
     featured: true
   },
   {
-    id: 'prod-203',
+    id: 'p-10',
     slug: 'reflective-jackets',
-    name: 'High Visibility Reflective Safety Vests & Jackets',
+    name: 'Reflective Jackets',
     category: 'Safety Products',
     categorySlug: 'safety-products',
-    shortDescription: 'Neon safety vest with 3M reflective tape for night visibility and road work safety.',
-    description: 'Lightweight polyester mesh vest with high intensity reflective strips ensuring 360-degree night visibility.',
-    specifications: { 'Reflective Tape': '2-inch High Visibility Tape', 'Standard': 'EN ISO 20471 Class 2', 'Colors': 'Neon Yellow, Orange' },
+    shortDescription: 'High visibility neon yellow & orange reflective safety vests.',
+    description: '360-degree night visibility safety jackets with 3M reflective tape for road and construction work.',
+    specifications: { 'Tape': 'High Intensity Reflective', 'Standard': 'EN ISO 20471', 'Material': 'Breathable Polyester Mesh' },
     moq: 'Bulk Supply',
     priceRange: 'Quote on Request',
     unit: 'Piece',
@@ -179,14 +179,14 @@ export const MOCK_PRODUCTS: Product[] = [
     featured: false
   },
   {
-    id: 'prod-204',
+    id: 'p-11',
     slug: 'safety-shoes',
-    name: 'Steel Toe Leather Industrial Safety Boots',
+    name: 'Safety Shoes',
     category: 'Safety Products',
     categorySlug: 'safety-products',
-    shortDescription: 'Water-resistant genuine leather safety shoes with 200J steel toe cap and anti-skid PU sole.',
-    description: 'Durable protective footwear engineered against sharp objects, impacts, and slip hazards in manufacturing plants.',
-    specifications: { 'Toe Cap': '200 Joules Steel Toe', 'Sole': 'Dual Density Oil Resistant PU', 'Standard': 'IS 15298 / EN 20345' },
+    shortDescription: 'Steel toe leather industrial safety work boots.',
+    description: '200J steel toe impact protection with oil-resistant dual density anti-skid PU sole.',
+    specifications: { 'Toe Cap': '200J Steel Toe', 'Sole': 'Anti-slip PU', 'Standard': 'IS 15298 / EN 20345' },
     moq: 'Bulk Supply',
     priceRange: 'Quote on Request',
     unit: 'Pair',
@@ -194,14 +194,14 @@ export const MOCK_PRODUCTS: Product[] = [
     featured: true
   },
   {
-    id: 'prod-205',
+    id: 'p-12',
     slug: 'face-masks',
-    name: 'N95 Respirator & 3-Ply Protective Face Masks',
+    name: 'Face Masks',
     category: 'Safety Products',
     categorySlug: 'safety-products',
-    shortDescription: 'High filtration multi-layer face protection masks against dust, particulate matter, and airborne contaminants.',
-    description: 'Certified dust and virus protective masks with ultrasonic welded ear loops and adjustable nose clip.',
-    specifications: { 'Filtration Efficiency': '≥95% (0.3 Micron Particles)', 'Layers': '5 Layer / 3-Ply Meltblown', 'Comfort': 'Breathable Design' },
+    shortDescription: 'N95 particulate respirators & 3-ply surgical protective face masks.',
+    description: 'High filtration multi-layer face masks shielding against dust, fumes, and particulate matter.',
+    specifications: { 'Filtration': '≥95% Particulate Efficiency', 'Type': 'N95 / 3-Ply Meltblown', 'Comfort': 'Soft Elastic Ear Loops' },
     moq: 'Bulk Supply',
     priceRange: 'Quote on Request',
     unit: 'Box',
@@ -209,16 +209,16 @@ export const MOCK_PRODUCTS: Product[] = [
     featured: false
   },
 
-  // --- Cleaning & Housekeeping Supplies ---
+  // --- 3. Cleaning & Housekeeping Supplies ---
   {
-    id: 'prod-301',
+    id: 'p-13',
     slug: 'cleaning-chemicals',
-    name: 'Industrial Grade Multi-Surface Cleaning Chemicals',
+    name: 'Cleaning Chemicals',
     category: 'Cleaning & Housekeeping Supplies',
     categorySlug: 'cleaning-housekeeping-supplies',
-    shortDescription: 'Concentrated sanitizers, glass cleaners, degreasers, and surface disinfectants.',
-    description: 'High efficiency commercial cleaning formulations for hospitals, hotels, and office facilities. Target Customers: Hotels, hospitals, offices, schools.',
-    specifications: { 'Target Customers': 'Hotels, hospitals, offices, schools', 'Formulation': 'Eco-Friendly Concentrate', 'Volume': '5 Liters / 20 Liters Cans' },
+    shortDescription: 'Industrial surface sanitizers, degreasers & glass cleaners.',
+    description: 'Concentrated housekeeping chemical solutions for hotels, hospitals, offices, and schools.',
+    specifications: { 'Target Customers': 'Hotels, hospitals, offices, schools', 'Formulation': 'Eco Concentrated', 'Packaging': '5L / 20L Cans' },
     moq: 'Bulk Supply',
     priceRange: 'Quote on Request',
     unit: 'Can',
@@ -226,14 +226,14 @@ export const MOCK_PRODUCTS: Product[] = [
     featured: true
   },
   {
-    id: 'prod-302',
+    id: 'p-14',
     slug: 'floor-cleaners',
-    name: 'Heavy Duty Floor Sanitizers & Disinfectants',
+    name: 'Floor Cleaners',
     category: 'Cleaning & Housekeeping Supplies',
     categorySlug: 'cleaning-housekeeping-supplies',
-    shortDescription: 'Fragranced deep floor cleaning solution suitable for marble, tile, epoxy, and concrete floors.',
-    description: 'Removes stubborn grime and kills 99.9% germs while leaving a long-lasting pleasant citrus/pine scent.',
-    specifications: { 'pH Level': 'Neutral 7.0', 'Kill Rate': '99.9% Germ Protection', 'Dilution Ratio': '1:50 Water Mix' },
+    shortDescription: 'Disinfectant surface floor cleaners with fresh pine & citrus scent.',
+    description: 'Kills 99.9% germs on marble, ceramic tile, granite, and epoxy floors.',
+    specifications: { 'Germ Kill': '99.9% Protection', 'pH': 'Neutral 7.0', 'Scent': 'Citrus / Pine' },
     moq: 'Bulk Supply',
     priceRange: 'Quote on Request',
     unit: 'Can',
@@ -241,29 +241,59 @@ export const MOCK_PRODUCTS: Product[] = [
     featured: false
   },
   {
-    id: 'prod-303',
-    slug: 'mops-and-brooms',
-    name: 'Commercial Microfiber Wet Mops & Heavy Brooms',
+    id: 'p-15',
+    slug: 'toilet-cleaners',
+    name: 'Toilet Cleaners',
     category: 'Cleaning & Housekeeping Supplies',
     categorySlug: 'cleaning-housekeeping-supplies',
-    shortDescription: 'Heavy-duty clip mops, floor squeegees, and hard-bristle outdoor brooms for janitorial staff.',
-    description: 'Durable stainless steel handles with high absorbency washable microfiber mop heads.',
-    specifications: { 'Mop Material': 'Microfiber / Cotton Yarn', 'Handle': 'Telescopic Stainless Steel', 'Durability': 'Commercial Grade' },
+    shortDescription: 'Acidic & non-acidic toilet bowl descalers and stain removers.',
+    description: 'Removes stubborn limescale, yellow stains, and bio-deposits from commercial washrooms.',
+    specifications: { 'Action': 'Fast Limescale Removal', 'Viscosity': 'Thick Gel Formula', 'Safety': 'Septic Safe' },
     moq: 'Bulk Supply',
     priceRange: 'Quote on Request',
-    unit: 'Set',
+    unit: 'Bottle',
+    image: 'https://images.unsplash.com/photo-1584634731339-252c581abfc5?auto=format&fit=crop&w=800&q=80',
+    featured: false
+  },
+  {
+    id: 'p-16',
+    slug: 'mops',
+    name: 'Mops',
+    category: 'Cleaning & Housekeeping Supplies',
+    categorySlug: 'cleaning-housekeeping-supplies',
+    shortDescription: 'Commercial microfiber wet mops, dry dust mops & squeegees.',
+    description: 'Durable stainless steel clip mops with washable high-absorbency microfiber heads.',
+    specifications: { 'Head Material': 'Microfiber Yarn', 'Handle': 'Stainless Steel Telescopic', 'Usage': 'Commercial Janitorial' },
+    moq: 'Bulk Supply',
+    priceRange: 'Quote on Request',
+    unit: 'Piece',
+    image: 'https://images.unsplash.com/photo-1585829365295-ab7cd400c167?auto=format&fit=crop&w=800&q=80',
+    featured: false
+  },
+  {
+    id: 'p-17',
+    slug: 'brooms',
+    name: 'Brooms',
+    category: 'Cleaning & Housekeeping Supplies',
+    categorySlug: 'cleaning-housekeeping-supplies',
+    shortDescription: 'Hard bristle outdoor brooms & soft indoor floor brooms.',
+    description: 'Long-lasting coconut fiber & synthetic bristle brooms for sweepers and facility staff.',
+    specifications: { 'Bristle Type': 'Synthetic / Natural Coconut Fiber', 'Handle': 'Heavy Duty Plastic / Wooden Stick', 'Durability': 'High' },
+    moq: 'Bulk Supply',
+    priceRange: 'Quote on Request',
+    unit: 'Piece',
     image: 'https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&w=800&q=80',
     featured: false
   },
   {
-    id: 'prod-304',
+    id: 'p-18',
     slug: 'garbage-bags',
-    name: 'Heavy Duty Industrial Waste Garbage Bags',
+    name: 'Garbage Bags',
     category: 'Cleaning & Housekeeping Supplies',
     categorySlug: 'cleaning-housekeeping-supplies',
-    shortDescription: 'Puncture-resistant black, green, and blue trash bin liners for office and hotel bio-waste management.',
-    description: 'Leak-proof bottom sealed heavy duty poly trash bags in sizes from 10 liters to 120 liters.',
-    specifications: { 'Sizes': 'Small, Medium, Large, XL (30x40 inches)', 'Sealing': 'Star Seal Leak Proof', 'Color Coding': 'Bio-waste compliant' },
+    shortDescription: 'Heavy-duty black, green & blue bin liner trash bags.',
+    description: 'Leak-proof bottom sealed trash bags for hotel, office, and hospital bio-waste disposal.',
+    specifications: { 'Sizes': 'Medium, Large, XL (30x40")', 'Seal': 'Star Sealed Leak-Proof', 'Material': 'Recycled Poly' },
     moq: 'Bulk Supply',
     priceRange: 'Quote on Request',
     unit: 'Pack',
@@ -271,16 +301,16 @@ export const MOCK_PRODUCTS: Product[] = [
     featured: false
   },
 
-  // --- Electrical Products ---
+  // --- 4. Electrical Products ---
   {
-    id: 'prod-401',
-    slug: 'commercial-led-lighting',
-    name: 'High Lumen Commercial LED Panel & High Bay Lights',
+    id: 'p-19',
+    slug: 'led-lights',
+    name: 'LED Lights',
     category: 'Electrical Products',
     categorySlug: 'electrical-products',
-    shortDescription: 'Energy-efficient LED ceiling panels, spotlights, and industrial UFO high bay fixtures.',
-    description: 'Delivers bright shadow-free lighting with up to 80% energy savings for offices, factories, and commercial buildings. Target Customers: Electricians, builders, contractors.',
-    specifications: { 'Target Customers': 'Electricians, builders, contractors', 'Wattage': '18W to 150W', 'Lumen Efficiency': '130 lm/W' },
+    shortDescription: 'Commercial LED panel lights, flood lights & UFO high bays.',
+    description: 'High lumen energy-saving LED lighting for builders, electricians, and contractors.',
+    specifications: { 'Target Customers': 'Electricians, builders, contractors', 'Efficiency': '130 lm/W', 'Wattage': '12W - 150W' },
     moq: 'Bulk Supply',
     priceRange: 'Quote on Request',
     unit: 'Piece',
@@ -288,14 +318,14 @@ export const MOCK_PRODUCTS: Product[] = [
     featured: true
   },
   {
-    id: 'prod-402',
-    slug: 'modular-switches',
-    name: 'Modular Electrical Switches & Sockets Set',
+    id: 'p-20',
+    slug: 'switches',
+    name: 'Switches',
     category: 'Electrical Products',
     categorySlug: 'electrical-products',
-    shortDescription: 'Flame-retardant polycarbonate modular switches, MCBs, and socket plates for residential & office buildings.',
-    description: 'Modern aesthetic touch switches engineered for 100,000+ clicks with heavy-duty silver brass contacts.',
-    specifications: { 'Material': 'Fire Retardant Polycarbonate', 'Rating': '6A / 16A / 25A', 'Standard': 'IS 3854 Certified' },
+    shortDescription: 'Modular electrical switches, sockets, MCBs & distribution plates.',
+    description: 'Fire-retardant polycarbonate switches engineered for 100,000+ clicks.',
+    specifications: { 'Material': 'Fire Retardant Polycarbonate', 'Rating': '6A / 16A / 25A', 'Standard': 'IS 3854' },
     moq: 'Bulk Supply',
     priceRange: 'Quote on Request',
     unit: 'Box',
@@ -303,31 +333,61 @@ export const MOCK_PRODUCTS: Product[] = [
     featured: false
   },
   {
-    id: 'prod-403',
-    slug: 'copper-wires-cables',
-    name: 'FR-LSH Insulated Copper Building Wires & Power Cables',
+    id: 'p-21',
+    slug: 'wires',
+    name: 'Wires',
     category: 'Electrical Products',
     categorySlug: 'electrical-products',
-    shortDescription: 'Multi-strand 99.97% pure electrolytic copper house wiring cables with Flame Retardant Low Smoke (FR-LSH) sheath.',
-    description: 'Certified electrical wiring for safe commercial and domestic installations.',
-    specifications: { 'Conductor': '99.97% Bare Electrolytic Copper', 'Gauge Range': '0.75 sq mm to 10 sq mm', 'Standard': 'IS 694' },
+    shortDescription: 'FR-LSH insulated pure copper house wiring cables & industrial power cables.',
+    description: '99.97% pure electrolytic copper multi-strand building wires.',
+    specifications: { 'Conductor': '99.97% Bare Copper', 'Standard': 'IS 694', 'Sheath': 'Flame Retardant Low Smoke' },
     moq: 'Bulk Supply',
     priceRange: 'Quote on Request',
     unit: 'Roll',
     image: 'https://images.unsplash.com/photo-1544724569-5f546fd6f2b5?auto=format&fit=crop&w=800&q=80',
     featured: true
   },
-
-  // --- Plumbing Materials ---
   {
-    id: 'prod-501',
-    slug: 'pvc-cpvc-pipes',
-    name: 'Heavy Duty UPVC / CPVC Plumbing Pipes & Fittings',
+    id: 'p-22',
+    slug: 'extension-boards',
+    name: 'Extension Boards',
+    category: 'Electrical Products',
+    categorySlug: 'electrical-products',
+    shortDescription: 'Heavy duty multi-socket surge protected extension spike guards.',
+    description: 'Commercial extension boards with reset overload circuit breakers and long heavy copper wire.',
+    specifications: { 'Sockets': '4 / 6 Universal Sockets', 'Wire Length': '3M / 5M', 'Protection': 'Surge & Overload Circuit' },
+    moq: 'Bulk Supply',
+    priceRange: 'Quote on Request',
+    unit: 'Piece',
+    image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80',
+    featured: false
+  },
+  {
+    id: 'p-23',
+    slug: 'fans',
+    name: 'Fans',
+    category: 'Electrical Products',
+    categorySlug: 'electrical-products',
+    shortDescription: 'BLDC energy efficient ceiling fans, exhaust fans & industrial wall fans.',
+    description: 'High air delivery copper motor ceiling and ventilation exhaust fans.',
+    specifications: { 'Motor': '100% Copper Winding BLDC', 'Sweep': '1200mm / 48 Inches', 'Energy Star': '5-Star Rated' },
+    moq: 'Bulk Supply',
+    priceRange: 'Quote on Request',
+    unit: 'Piece',
+    image: 'https://images.unsplash.com/photo-1618944847828-82e943c3beb9?auto=format&fit=crop&w=800&q=80',
+    featured: false
+  },
+
+  // --- 5. Plumbing Materials ---
+  {
+    id: 'p-24',
+    slug: 'pvc-pipes',
+    name: 'PVC Pipes',
     category: 'Plumbing Materials',
     categorySlug: 'plumbing-materials',
-    shortDescription: 'High-pressure lead-free CPVC and UPVC pipes for hot & cold water distribution.',
-    description: 'Corrosion resistant pressure pipes and elbows engineered for lifetime leak-free plumbing. Target Customers: Plumbers, builders, contractors.',
-    specifications: { 'Target Customers': 'Plumbers, builders, contractors', 'Pressure Rating': 'SDR 11 / SCH 40 / SCH 80', 'Standard': 'ASTM D1785 / IS 15778' },
+    shortDescription: 'UPVC, CPVC & HDPE heavy pressure plumbing & drainage pipes.',
+    description: 'Corrosion-free pressure pipes for hot & cold water distribution and underground drainage.',
+    specifications: { 'Target Customers': 'Plumbers, builders, contractors', 'Pressure': 'SCH 40 / SCH 80 / SDR 11', 'Standard': 'ASTM D1785 / IS 15778' },
     moq: 'Bulk Supply',
     priceRange: 'Quote on Request',
     unit: 'Length',
@@ -335,31 +395,61 @@ export const MOCK_PRODUCTS: Product[] = [
     featured: true
   },
   {
-    id: 'prod-502',
-    slug: 'taps-valves-fittings',
-    name: 'Brass & Stainless Steel Plumbing Taps & Gate Valves',
+    id: 'p-25',
+    slug: 'taps',
+    name: 'Taps',
     category: 'Plumbing Materials',
     categorySlug: 'plumbing-materials',
-    shortDescription: 'Industrial ball valves, bib cocks, wall mixers, and sanitary chrome fittings.',
-    description: 'Precision machined brass valves and chrome-finished taps engineered against scale deposit and drip leaks.',
-    specifications: { 'Body Material': 'Forged Brass / SS304', 'Finish': 'Triple Chrome Plated', 'Pressure Capacity': '16 Bar' },
+    shortDescription: 'Chrome finished brass bib cocks, pillar taps & wall mixers.',
+    description: 'Drip-free ceramic disc brass plumbing water taps for commercial bathrooms & kitchens.',
+    specifications: { 'Material': 'Forged Brass', 'Finish': 'Triple Chrome Plated', 'Mechanism': 'Quarter Turn Ceramic Cartridge' },
     moq: 'Bulk Supply',
     priceRange: 'Quote on Request',
     unit: 'Piece',
     image: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80',
     featured: false
   },
-
-  // --- Office Supplies ---
   {
-    id: 'prod-601',
-    slug: 'printer-paper-stationery',
-    name: 'Premium 75/80 GSM A4 Copier Paper & Files',
+    id: 'p-26',
+    slug: 'valves',
+    name: 'Valves',
+    category: 'Plumbing Materials',
+    categorySlug: 'plumbing-materials',
+    shortDescription: 'Industrial brass ball valves, gate valves, check valves & butterfly valves.',
+    description: 'Heavy duty pressure control plumbing valves for water tanks and industrial fluid piping.',
+    specifications: { 'Pressure Capacity': 'PN16 / PN25', 'Body': 'Brass / Cast Iron / SS304', 'Standard': 'IS 778' },
+    moq: 'Bulk Supply',
+    priceRange: 'Quote on Request',
+    unit: 'Piece',
+    image: 'https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=800&q=80',
+    featured: false
+  },
+  {
+    id: 'p-27',
+    slug: 'bathroom-fittings',
+    name: 'Bathroom Fittings',
+    category: 'Plumbing Materials',
+    categorySlug: 'plumbing-materials',
+    shortDescription: 'Showers, health faucets, waste couplers & sanitaryware accessories.',
+    description: 'Complete range of commercial bath fittings for apartments, hotels, and office restrooms.',
+    specifications: { 'Items': 'Overhead Showers, Faucets, Traps, Drains', 'Material': 'SS304 / Chrome Brass', 'Warranty': 'Commercial Guarantee' },
+    moq: 'Bulk Supply',
+    priceRange: 'Quote on Request',
+    unit: 'Set',
+    image: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80',
+    featured: false
+  },
+
+  // --- 6. Office Supplies ---
+  {
+    id: 'p-28',
+    slug: 'printer-paper',
+    name: 'Printer Paper',
     category: 'Office Supplies',
     categorySlug: 'office-supplies',
-    shortDescription: 'High brightness jam-free A4 copier paper reams, lever arch files, pens, and registers.',
-    description: 'Smooth ultra-white 80 GSM paper for high-speed laser printing and office documentation. Target Customers: Offices, schools, colleges.',
-    specifications: { 'Target Customers': 'Offices, schools, colleges', 'Paper Size': 'A4 (210 x 297 mm)', 'Brightness': '98% ISO Brightness' },
+    shortDescription: 'Premium 75 GSM & 80 GSM A4 & A3 copier paper reams.',
+    description: 'Jam-free high brightness white paper for laserjet printers and high-speed photocopiers.',
+    specifications: { 'Target Customers': 'Offices, schools, colleges', 'Brightness': '98% ISO', 'Paper Size': 'A4 / A3 / FS' },
     moq: 'Bulk Supply',
     priceRange: 'Quote on Request',
     unit: 'Ream',
@@ -367,14 +457,59 @@ export const MOCK_PRODUCTS: Product[] = [
     featured: true
   },
   {
-    id: 'prod-602',
-    slug: 'printer-toners-cartridges',
-    name: 'High Yield Laser Printer Toner Cartridges',
+    id: 'p-29',
+    slug: 'pens',
+    name: 'Pens',
     category: 'Office Supplies',
     categorySlug: 'office-supplies',
-    shortDescription: 'Compatible and OEM laserjet toner cartridges for HP, Canon, Brother, and Xerox printers.',
-    description: 'Delivers crisp black text printing with high page yields for commercial office printers.',
-    specifications: { 'Page Yield': 'Up to 3,000 Pages', 'Compatibility': 'Major Laser Printer Brands', 'Print Quality': 'Smudge-Proof Black' },
+    shortDescription: 'Ballpoint pens, gel pens & permanent markers in bulk packs.',
+    description: 'Smooth writing quick-dry ink pens for corporate offices and educational institutes.',
+    specifications: { 'Tip Size': '0.7mm Ball / 0.5mm Gel', 'Colors': 'Blue, Black, Red', 'Ink Type': 'Document Grade' },
+    moq: 'Bulk Supply',
+    priceRange: 'Quote on Request',
+    unit: 'Box',
+    image: 'https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?auto=format&fit=crop&w=800&q=80',
+    featured: false
+  },
+  {
+    id: 'p-30',
+    slug: 'files',
+    name: 'Files',
+    category: 'Office Supplies',
+    categorySlug: 'office-supplies',
+    shortDescription: 'Lever arch files, box files, ring binders & cobra clip folders.',
+    description: 'Heavy cardboard & polypropylene document archiving files for office administration.',
+    specifications: { 'Mechanism': 'Lever Arch Steel Clip', 'Spine Width': '75mm / 50mm', 'Durability': 'Heavy Duty Cardboard' },
+    moq: 'Bulk Supply',
+    priceRange: 'Quote on Request',
+    unit: 'Piece',
+    image: 'https://images.unsplash.com/photo-1586281380349-632531db7ed4?auto=format&fit=crop&w=800&q=80',
+    featured: false
+  },
+  {
+    id: 'p-31',
+    slug: 'registers',
+    name: 'Registers',
+    category: 'Office Supplies',
+    categorySlug: 'office-supplies',
+    shortDescription: 'Hardbound attendance, account ledger & visitor entry log registers.',
+    description: 'Bound ruling registers for maintenance of office records, store inventory, and visitor logs.',
+    specifications: { 'Pages': '100 - 400 Pages', 'Binding': 'Hardbound Section Thread', 'Paper': '70 GSM White' },
+    moq: 'Bulk Supply',
+    priceRange: 'Quote on Request',
+    unit: 'Piece',
+    image: 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=800&q=80',
+    featured: false
+  },
+  {
+    id: 'p-32',
+    slug: 'toners',
+    name: 'Toners',
+    category: 'Office Supplies',
+    categorySlug: 'office-supplies',
+    shortDescription: 'High yield laserjet printer toner cartridges for HP, Canon, Brother & Xerox.',
+    description: 'Compatible and genuine laser printer toner cartridges delivering dark smudge-free prints.',
+    specifications: { 'Yield': '1,500 - 6,000 Pages', 'Print Type': 'Laser Monochrome / Color', 'Compatibility': 'Universal Major Brands' },
     moq: 'Bulk Supply',
     priceRange: 'Quote on Request',
     unit: 'Piece',
@@ -382,424 +517,558 @@ export const MOCK_PRODUCTS: Product[] = [
     featured: false
   },
 
-  // --- Hotel & Restaurant Supplies ---
+  // --- 7. Hotel & Restaurant Supplies ---
   {
-    id: 'prod-701',
-    slug: 'disposable-food-containers',
-    name: 'Microwave Safe Food Delivery Containers & Cups',
+    id: 'p-33',
+    slug: 'disposable-cups',
+    name: 'Disposable Cups',
     category: 'Hotel & Restaurant Supplies',
     categorySlug: 'hotel-restaurant-supplies',
-    shortDescription: 'Leak-proof plastic meal trays, eco paper cups, aluminum foil rolls, and facial tissues.',
-    description: 'BPA-free food grade containers with tight snap-fit lids for takeaway and cloud kitchens. Target Customers: Restaurants, catering businesses, hotels.',
-    specifications: { 'Target Customers': 'Restaurants, catering businesses, hotels', 'Material': 'Food Grade Polypropylene / Sugarcane Bagasse', 'Microwaveable': 'Yes' },
+    shortDescription: 'Eco paper tea cups, coffee cups & clear plastic beverage cups.',
+    description: 'Single-wall and double-wall insulated paper cups for cafes, hotels, and catering events.',
+    specifications: { 'Target Customers': 'Restaurants, catering businesses, hotels', 'Sizes': '100ml, 150ml, 250ml, 350ml', 'Material': 'Food Grade PE Coated Paper' },
+    moq: 'Bulk Supply',
+    priceRange: 'Quote on Request',
+    unit: 'Pack',
+    image: 'https://images.unsplash.com/photo-1577937927133-66ef06acdf18?auto=format&fit=crop&w=800&q=80',
+    featured: true
+  },
+  {
+    id: 'p-34',
+    slug: 'food-containers',
+    name: 'Food Containers',
+    category: 'Hotel & Restaurant Supplies',
+    categorySlug: 'hotel-restaurant-supplies',
+    shortDescription: 'Microwave-safe plastic food delivery boxes & sugarcane bagasse meal trays.',
+    description: 'Airtight leak-proof takeaway containers for cloud kitchens and restaurants.',
+    specifications: { 'Compartments': '1, 2, 3, 4 Compartment Trays', 'Microwaveable': 'Yes', 'Lid': 'Snap Lock Tight Seal' },
     moq: 'Bulk Supply',
     priceRange: 'Quote on Request',
     unit: 'Pack',
     image: 'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=800&q=80',
     featured: true
   },
-
-  // --- Industrial Tools ---
   {
-    id: 'prod-801',
-    slug: 'industrial-drill-power-tools',
-    name: 'Heavy Duty Rotary Hammer Drill & Tool Kit',
-    category: 'Industrial Tools',
-    categorySlug: 'industrial-tools',
-    shortDescription: 'Professional grade electric power drills, angle grinders, hand tools, fasteners, and lubricants.',
-    description: 'High torque power tools for metal fabrication, masonry drilling, and workshop operations. Target Customers: Workshops and factories.',
-    specifications: { 'Target Customers': 'Workshops and factories', 'Motor Power': '800W - 1200W', 'Chuck Capacity': '13 mm' },
+    id: 'p-35',
+    slug: 'tissues',
+    name: 'Tissues',
+    category: 'Hotel & Restaurant Supplies',
+    categorySlug: 'hotel-restaurant-supplies',
+    shortDescription: 'Paper napkins, facial tissues, M-fold hand towels & toilet rolls.',
+    description: 'Soft 2-ply high absorbency virgin pulp tissue papers for restaurants and hotel restrooms.',
+    specifications: { 'Ply': '2-Ply Soft Virgin Pulp', 'Types': 'Table Napkin, M-Fold, Jumbo Roll', 'Absorbency': 'High' },
     moq: 'Bulk Supply',
     priceRange: 'Quote on Request',
-    unit: 'Set',
+    unit: 'Box',
+    image: 'https://images.unsplash.com/photo-1584556812952-905ffd0c611a?auto=format&fit=crop&w=800&q=80',
+    featured: false
+  },
+  {
+    id: 'p-36',
+    slug: 'kitchen-gloves',
+    name: 'Kitchen Gloves',
+    category: 'Hotel & Restaurant Supplies',
+    categorySlug: 'hotel-restaurant-supplies',
+    shortDescription: 'Food safe latex & vinyl disposable kitchen prep gloves.',
+    description: 'Powder-free food grade gloves ensuring hygiene during cooking, chopping, and cleaning.',
+    specifications: { 'Material': 'Food Grade Latex / Vinyl / Nitrile', 'Type': 'Powder Free Disposable', 'Size': 'S, M, L, XL' },
+    moq: 'Bulk Supply',
+    priceRange: 'Quote on Request',
+    unit: 'Box',
+    image: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=800&q=80',
+    featured: false
+  },
+  {
+    id: 'p-37',
+    slug: 'cleaning-supplies-hotel',
+    name: 'Cleaning Supplies',
+    category: 'Hotel & Restaurant Supplies',
+    categorySlug: 'hotel-restaurant-supplies',
+    shortDescription: 'Dishwashing liquids, stainless steel scrubbers & kitchen degreasers.',
+    description: 'Commercial kitchen cleaning chemicals for removing grease, oil, and food stains.',
+    specifications: { 'Items': 'Dishwash Gel, Steel Scourers, Grill Cleaner', 'Grade': 'Commercial Kitchen Sanitization', 'Safety': 'Food Safe Rinse' },
+    moq: 'Bulk Supply',
+    priceRange: 'Quote on Request',
+    unit: 'Can',
+    image: 'https://images.unsplash.com/photo-1585829365295-ab7cd400c167?auto=format&fit=crop&w=800&q=80',
+    featured: false
+  },
+
+  // --- 8. Industrial Tools ---
+  {
+    id: 'p-38',
+    slug: 'drill-machines',
+    name: 'Drill Machines',
+    category: 'Industrial Tools',
+    categorySlug: 'industrial-tools',
+    shortDescription: 'Heavy-duty rotary hammer drills & impact cordless drills.',
+    description: 'High torque electric power drills for concrete masonry, steel fabrication, and woodworking.',
+    specifications: { 'Target Customers': 'Workshops and factories', 'Power': '750W - 1200W', 'Chuck': '13mm Keyless / SDS Plus' },
+    moq: 'Bulk Supply',
+    priceRange: 'Quote on Request',
+    unit: 'Piece',
     image: 'https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&w=800&q=80',
     featured: true
   },
-
-  // --- Promotional & Corporate Products ---
   {
-    id: 'prod-901',
-    slug: 'corporate-branded-tshirts-merchandise',
-    name: 'Custom Branded Corporate T-Shirts, Mugs & Welcome Kits',
-    category: 'Promotional & Corporate Products',
-    categorySlug: 'promotional-corporate-products',
-    shortDescription: 'Custom embroidered polo T-shirts, printed caps, metal pens, ceramic mugs & employee ID cards.',
-    description: 'Premium custom branded corporate gifts and event promotional giveaways. Target Customers: Companies, event organisers.',
-    specifications: { 'Target Customers': 'Companies, event organisers', 'Branding': 'Screen Print / Embroidery / Laser Engraving', 'T-Shirt Fabric': '100% Super Combed Cotton' },
+    id: 'p-39',
+    slug: 'hand-tools',
+    name: 'Hand Tools',
+    category: 'Industrial Tools',
+    categorySlug: 'industrial-tools',
+    shortDescription: 'Spanner sets, pliers, wrenches, screwdrivers & socket toolkits.',
+    description: 'Drop forged chrome vanadium steel hand tools for factory maintenance and mechanic workshops.',
+    specifications: { 'Material': 'Chrome Vanadium Steel (Cr-V)', 'Finish': 'Satin Chrome', 'Standard': 'DIN / ISO' },
     moq: 'Bulk Supply',
     priceRange: 'Quote on Request',
     unit: 'Set',
+    image: 'https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=800&q=80',
+    featured: false
+  },
+  {
+    id: 'p-40',
+    slug: 'measuring-tools',
+    name: 'Measuring Tools',
+    category: 'Industrial Tools',
+    categorySlug: 'industrial-tools',
+    shortDescription: 'Digital vernier calipers, micrometers, laser distance meters & steel measuring tapes.',
+    description: 'High precision industrial measuring instruments for quality inspection and machine shops.',
+    specifications: { 'Accuracy': '0.01 mm Digital', 'Type': 'Vernier, Micrometer, Laser Meter', 'Material': 'Hardened Stainless Steel' },
+    moq: 'Bulk Supply',
+    priceRange: 'Quote on Request',
+    unit: 'Piece',
+    image: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80',
+    featured: false
+  },
+  {
+    id: 'p-41',
+    slug: 'fasteners',
+    name: 'Fasteners',
+    category: 'Industrial Tools',
+    categorySlug: 'industrial-tools',
+    shortDescription: 'Stainless steel hex bolts, nuts, washers, anchor bolts & self-tapping screws.',
+    description: 'High tensile SS304 & Grade 8.8 galvanized steel fasteners for construction & machines.',
+    specifications: { 'Grade': 'SS304 / SS316 / Grade 8.8', 'Types': 'Hex Bolts, Anchor Fasteners, Screws', 'Standard': 'DIN 933 / ISO 4017' },
+    moq: 'Bulk Supply',
+    priceRange: 'Quote on Request',
+    unit: 'Box',
+    image: 'https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&w=800&q=80',
+    featured: false
+  },
+  {
+    id: 'p-42',
+    slug: 'lubricants',
+    name: 'Lubricants',
+    category: 'Industrial Tools',
+    categorySlug: 'industrial-tools',
+    shortDescription: 'Industrial gear oils, hydraulic fluids, lithium grease & WD anti-rust sprays.',
+    description: 'High viscosity index synthetic lubricants reducing friction and wear in factory machinery.',
+    specifications: { 'Grade': 'ISO VG 46 / 68 Hydraulic Oil', 'Type': 'Lithium EP2 Grease / Anti-Rust Spray', 'Volume': '5L - 210L Drum' },
+    moq: 'Bulk Supply',
+    priceRange: 'Quote on Request',
+    unit: 'Can',
+    image: 'https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=800&q=80',
+    featured: false
+  },
+
+  // --- 9. Promotional & Corporate Products ---
+  {
+    id: 'p-43',
+    slug: 't-shirts',
+    name: 'T-Shirts',
+    category: 'Promotional & Corporate Products',
+    categorySlug: 'promotional-corporate-products',
+    shortDescription: 'Custom embroidered polo collar & round neck cotton corporate T-shirts.',
+    description: '100% combed cotton uniform T-shirts with custom company logo embroidery and screen printing.',
+    specifications: { 'Target Customers': 'Companies, event organisers', 'Fabric': '220 GSM Bio-Washed Cotton', 'Branding': 'Custom Embroidery / Print' },
+    moq: 'Bulk Supply',
+    priceRange: 'Quote on Request',
+    unit: 'Piece',
     image: 'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=800&q=80',
     featured: true
   },
-
-  // --- Furniture & Interior Products ---
   {
-    id: 'prod-1001',
-    slug: 'ergonomic-office-chairs-furniture',
-    name: 'Ergonomic Mesh Office Chairs & Executive Workstations',
+    id: 'p-44',
+    slug: 'caps',
+    name: 'Caps',
+    category: 'Promotional & Corporate Products',
+    categorySlug: 'promotional-corporate-products',
+    shortDescription: 'Custom printed 6-panel baseball caps & promotional sun visors.',
+    description: 'Adjustable heavy twill cotton caps customized with your corporate logo.',
+    specifications: { 'Material': '100% Cotton Twill', 'Strap': 'Adjustable Metal Buckle / Velcro', 'Customization': '3D Logo Embroidery' },
+    moq: 'Bulk Supply',
+    priceRange: 'Quote on Request',
+    unit: 'Piece',
+    image: 'https://images.unsplash.com/photo-1588850561407-ed78c282e89b?auto=format&fit=crop&w=800&q=80',
+    featured: false
+  },
+  {
+    id: 'p-45',
+    slug: 'corporate-pens',
+    name: 'Pens',
+    category: 'Promotional & Corporate Products',
+    categorySlug: 'promotional-corporate-products',
+    shortDescription: 'Metal rollerball pens & stylus engraved corporate gift pens.',
+    description: 'Premium metal pens engraved with company branding for clients and employee welcome kits.',
+    specifications: { 'Material': 'Metal Body Chrome Finish', 'Ink': 'German Blue / Black Ink', 'Customization': 'Laser Engraving' },
+    moq: 'Bulk Supply',
+    priceRange: 'Quote on Request',
+    unit: 'Box',
+    image: 'https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?auto=format&fit=crop&w=800&q=80',
+    featured: false
+  },
+  {
+    id: 'p-46',
+    slug: 'mugs',
+    name: 'Mugs',
+    category: 'Promotional & Corporate Products',
+    categorySlug: 'promotional-corporate-products',
+    shortDescription: 'Custom logo printed ceramic coffee mugs & stainless steel travel flasks.',
+    description: 'Sublimation printed ceramic coffee mugs and double-wall vacuum insulated flasks.',
+    specifications: { 'Capacity': '350 ml Ceramic / 500 ml SS Flask', 'Print': 'Dishwasher Safe Sublimation', 'Packaging': 'Individual Gift Box' },
+    moq: 'Bulk Supply',
+    priceRange: 'Quote on Request',
+    unit: 'Piece',
+    image: 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=800&q=80',
+    featured: false
+  },
+  {
+    id: 'p-47',
+    slug: 'id-cards',
+    name: 'ID Cards',
+    category: 'Promotional & Corporate Products',
+    categorySlug: 'promotional-corporate-products',
+    shortDescription: 'PVC employee ID cards & custom printed lanyard neck straps.',
+    description: 'High-definition PVC smart cards with custom printed satin lanyards and badge holders.',
+    specifications: { 'Card': 'CR80 Standard PVC Card', 'Lanyard': '20mm Satin Ribbon Print', 'Holder': 'Transparent Acrylic Case' },
+    moq: 'Bulk Supply',
+    priceRange: 'Quote on Request',
+    unit: 'Set',
+    image: 'https://images.unsplash.com/photo-1586281380349-632531db7ed4?auto=format&fit=crop&w=800&q=80',
+    featured: false
+  },
+  {
+    id: 'p-48',
+    slug: 'corporate-gift-items',
+    name: 'Corporate Gift Items',
+    category: 'Promotional & Corporate Products',
+    categorySlug: 'promotional-corporate-products',
+    shortDescription: 'Executive onboarding gift hampers, tech power banks & diary gift sets.',
+    description: 'Curated corporate gifting combos containing leatherette diaries, power banks, pens, and keychains.',
+    specifications: { 'Hamper Items': 'Notebook, Pen, Power Bank, Mug, Keychain', 'Box': 'Custom Premium Magnetic Gift Box' },
+    moq: 'Bulk Supply',
+    priceRange: 'Quote on Request',
+    unit: 'Set',
+    image: 'https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&w=800&q=80',
+    featured: true
+  },
+
+  // --- 10. Furniture & Interior Products ---
+  {
+    id: 'p-49',
+    slug: 'office-chairs',
+    name: 'Office Chairs',
     category: 'Furniture & Interior Products',
     categorySlug: 'furniture-interior-products',
-    shortDescription: 'High-back mesh ergonomic chairs, modular office desks, office blinds, and acoustic wall panels.',
-    description: 'Designed for lumbar support and long-hour working comfort in modern corporate offices. Target Customers: Corporate offices, interior designers.',
-    specifications: { 'Target Customers': 'Corporate offices, interior designers', 'Mechanism': 'Synchro Tilt with 3D Armrest', 'Base': 'Heavy Chrome / Nylon Base' },
+    shortDescription: 'Ergonomic high-back mesh office chairs & revolving executive chairs.',
+    description: 'Breathable mesh lumbar support chairs with synchro-tilt mechanism for corporate offices.',
+    specifications: { 'Target Customers': 'Offices, schools, builders', 'Mechanism': 'Synchro Tilt 3D Armrest', 'Base': 'Heavy Nylon / Chrome Base' },
     moq: 'Bulk Supply',
     priceRange: 'Quote on Request',
     unit: 'Piece',
     image: 'https://images.unsplash.com/photo-1580481072645-022f9a6d8310?auto=format&fit=crop&w=800&q=80',
     featured: true
+  },
+  {
+    id: 'p-50',
+    slug: 'tables',
+    name: 'Tables',
+    category: 'Furniture & Interior Products',
+    categorySlug: 'furniture-interior-products',
+    shortDescription: 'Executive office desks, conference room tables & student study tables.',
+    description: 'Pre-laminated engineered wood and metal frame office desks with cable management raceways.',
+    specifications: { 'Top Material': '25mm Prelam Action TESA Board', 'Frame': 'Powder Coated Steel Frame', 'Sizes': '4ft, 5ft, 6ft Desks' },
+    moq: 'Bulk Supply',
+    priceRange: 'Quote on Request',
+    unit: 'Piece',
+    image: 'https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?auto=format&fit=crop&w=800&q=80',
+    featured: false
+  },
+  {
+    id: 'p-51',
+    slug: 'modular-furniture',
+    name: 'Modular Furniture',
+    category: 'Furniture & Interior Products',
+    categorySlug: 'furniture-interior-products',
+    shortDescription: 'Modular office workstation partitions, storage credenzas & pedestals.',
+    description: 'Turnkey modular open-plan office workstation cubicles with pinboards and mobile pedestals.',
+    specifications: { 'Partition': 'Aluminium Frame Fabric Pinboard', 'Layout': 'Linear / Cluster 4-Seater', 'Storage': '3-Drawer Mobile Pedestal' },
+    moq: 'Bulk Supply',
+    priceRange: 'Quote on Request',
+    unit: 'Seater',
+    image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80',
+    featured: true
+  },
+  {
+    id: 'p-52',
+    slug: 'blinds',
+    name: 'Blinds',
+    category: 'Furniture & Interior Products',
+    categorySlug: 'furniture-interior-products',
+    shortDescription: 'Vertical window blinds, roller blinds & zebra motorized blinds for office windows.',
+    description: 'Blackout and sun-screen fabric window roller blinds protecting offices against glare and heat.',
+    specifications: { 'Type': 'Roller Blinds / Vertical / Zebra', 'Fabric': '100% Polyester Sunscreen Blackout', 'Control': 'Manual Chain / Motorized' },
+    moq: 'Bulk Supply',
+    priceRange: 'Quote on Request',
+    unit: 'Sq.Ft.',
+    image: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80',
+    featured: false
+  },
+  {
+    id: 'p-53',
+    slug: 'decorative-panels',
+    name: 'Decorative Panels',
+    category: 'Furniture & Interior Products',
+    categorySlug: 'furniture-interior-products',
+    shortDescription: 'WPC wall louvers, acoustic wooden wall panels & PVC ceiling panels.',
+    description: 'Modern interior wall cladding panels for reception lobbies and executive cabins.',
+    specifications: { 'Material': 'WPC Wood Polymer / Acoustic Felt', 'Finish': 'Wood Grain Laminate', 'Installation': 'Tongue & Groove Interlock' },
+    moq: 'Bulk Supply',
+    priceRange: 'Quote on Request',
+    unit: 'Piece',
+    image: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80',
+    featured: false
   }
 ];
 
-// ==========================================
-// 2. SERVICE CATEGORIES & ITEMS
-// ==========================================
+// ============================================================================
+// 2. LOCAL SERVICES (16 CATEGORIES & 104 INDIVIDUAL SERVICES)
+// ============================================================================
 export const SERVICE_CATEGORIES: Category[] = [
-  { id: 'scat-1', name: 'Construction & Interior', slug: 'construction-interior', description: 'Building Construction, Home Renovation, Civil Contractor, Architecture, Interior Design, False Ceiling, Painting, Flooring & Waterproofing.', serviceCount: 11, kind: 'BUSINESS' },
-  { id: 'scat-2', name: 'Plumbing', slug: 'plumbing-services', description: 'Plumbing Installation, Pipe Repair, Water Tank Cleaning, Borewell Services, Bathroom Fittings & Drainage Solutions.', serviceCount: 6, kind: 'BUSINESS' },
-  { id: 'scat-3', name: 'Electrical', slug: 'electrical-services', description: 'House Wiring, Commercial Electrical, Solar Installation, CCTV Installation, Inverter & Generator Services.', serviceCount: 7, kind: 'BUSINESS' },
-  { id: 'scat-4', name: 'AC & Appliances', slug: 'ac-appliances', description: 'AC Installation & Repair, Refrigerator, Washing Machine, Microwave & TV Repair.', serviceCount: 6, kind: 'BUSINESS' },
-  { id: 'scat-5', name: 'Home Services', slug: 'home-services', description: 'House Cleaning, Deep Cleaning, Sofa & Carpet Cleaning, Pest Control & Water Tank Sanitization.', serviceCount: 6, kind: 'BUSINESS' },
-  { id: 'scat-6', name: 'Outdoor Services', slug: 'outdoor-services', description: 'Gardening, Landscaping, Tree Cutting & Lawn Maintenance.', serviceCount: 4, kind: 'BUSINESS' },
-  { id: 'scat-7', name: 'Transport & Logistics', slug: 'transport-logistics', description: 'Packers & Movers, Mini Truck Rental, Goods Transport, Warehouse Services & Courier Services.', serviceCount: 5, kind: 'BUSINESS' },
-  { id: 'scat-8', name: 'Industrial & Factory Services', slug: 'industrial-factory-services', description: 'Machine Maintenance, Industrial Cleaning, Factory Fabrication, Electrical Maintenance & Equipment Installation.', serviceCount: 5, kind: 'BUSINESS' },
-  { id: 'scat-9', name: 'IT & Digital Services', slug: 'it-digital-services', description: 'Website Development, Mobile Apps, AI Solutions, Software, Digital Marketing, SEO & Graphic Design.', serviceCount: 10, kind: 'BUSINESS' },
-  { id: 'scat-10', name: 'Creative Services', slug: 'creative-services', description: 'Photography, Videography, Drone Photography, Product Photography & Event Coverage.', serviceCount: 5, kind: 'BUSINESS' },
-  { id: 'scat-11', name: 'Event Services', slug: 'event-services', description: 'Wedding Decoration, Catering, Sound & Lighting, Stage Setup & Event Management.', serviceCount: 5, kind: 'BUSINESS' },
-  { id: 'scat-12', name: 'Automobile Services', slug: 'automobile-services', description: 'Car Repair, Bike Repair, Car Wash, Towing & Tyre Services.', serviceCount: 5, kind: 'BUSINESS' },
-  { id: 'scat-13', name: 'Business Services', slug: 'business-services', description: 'GST Registration, Company Registration, Accounting, Tax Filing, HR Services & Consulting.', serviceCount: 6, kind: 'BUSINESS' },
-  { id: 'scat-14', name: 'Security Services', slug: 'security-services', description: 'Security Guards, CCTV Monitoring, Access Control & Fire Safety Solutions.', serviceCount: 4, kind: 'BUSINESS' },
-  { id: 'scat-15', name: 'Healthcare Services', slug: 'healthcare-services', description: 'Home Nursing, Physiotherapy, Ambulance Services & Medical Equipment Rental.', serviceCount: 4, kind: 'BUSINESS' },
-  { id: 'scat-16', name: 'Education & Training', slug: 'education-training', description: 'Home Tuition, Computer Training, Spoken English, Skill Development & Corporate Training.', serviceCount: 5, kind: 'BUSINESS' },
+  { id: 'scat-1', name: 'Construction & Interior', slug: 'construction-interior', description: 'Building Construction, Home Renovation, Civil Contractor, Architecture, Interior Design, False Ceiling, Painting, Tiles & Flooring, Waterproofing, Fabrication, Welding.', serviceCount: 11, kind: 'BUSINESS' },
+  { id: 'scat-2', name: 'Plumbing', slug: 'plumbing-services', description: 'Plumbing Installation, Pipe Repair, Water Tank Cleaning, Borewell Services, Bathroom Fittings, Drainage Solutions.', serviceCount: 6, kind: 'BUSINESS' },
+  { id: 'scat-3', name: 'Electrical', slug: 'electrical-services', description: 'House Wiring, Commercial Electrical, Solar Installation, CCTV Installation, Inverter Installation, Generator Services, LED Lighting.', serviceCount: 7, kind: 'BUSINESS' },
+  { id: 'scat-4', name: 'AC & Appliances', slug: 'ac-appliances', description: 'AC Installation, AC Repair, Refrigerator Repair, Washing Machine Repair, Microwave Repair, TV Repair.', serviceCount: 6, kind: 'BUSINESS' },
+  { id: 'scat-5', name: 'Home Services', slug: 'home-services', description: 'House Cleaning, Deep Cleaning, Sofa Cleaning, Carpet Cleaning, Pest Control, Water Tank Cleaning.', serviceCount: 6, kind: 'BUSINESS' },
+  { id: 'scat-6', name: 'Outdoor Services', slug: 'outdoor-services', description: 'Gardening, Landscaping, Tree Cutting, Lawn Maintenance.', serviceCount: 4, kind: 'BUSINESS' },
+  { id: 'scat-7', name: 'Transport & Logistics', slug: 'transport-logistics', description: 'Packers & Movers, Mini Truck Rental, Goods Transport, Warehouse Services, Courier Services.', serviceCount: 5, kind: 'BUSINESS' },
+  { id: 'scat-8', name: 'Industrial & Factory Services', slug: 'industrial-factory-services', description: 'Machine Maintenance, Industrial Cleaning, Factory Fabrication, Electrical Maintenance, Equipment Installation.', serviceCount: 5, kind: 'BUSINESS' },
+  { id: 'scat-9', name: 'IT & Digital Services', slug: 'it-digital-services', description: 'Website Development, Mobile App Development, AI Solutions, Software Development, Automation, Digital Marketing, SEO, Social Media Marketing, Graphic Design, Video Editing.', serviceCount: 10, kind: 'BUSINESS' },
+  { id: 'scat-10', name: 'Creative Services', slug: 'creative-services', description: 'Photography, Videography, Drone Photography, Product Photography, Event Coverage.', serviceCount: 5, kind: 'BUSINESS' },
+  { id: 'scat-11', name: 'Event Services', slug: 'event-services', description: 'Wedding Decoration, Catering, Sound & Lighting, Stage Setup, Event Management.', serviceCount: 5, kind: 'BUSINESS' },
+  { id: 'scat-12', name: 'Automobile Services', slug: 'automobile-services', description: 'Car Repair, Bike Repair, Car Wash, Towing, Tyre Services.', serviceCount: 5, kind: 'BUSINESS' },
+  { id: 'scat-13', name: 'Business Services', slug: 'business-services', description: 'GST Registration, Company Registration, Accounting, Tax Filing, HR Services, Business Consulting.', serviceCount: 6, kind: 'BUSINESS' },
+  { id: 'scat-14', name: 'Security Services', slug: 'security-services', description: 'Security Guards, CCTV Monitoring, Access Control, Fire Safety Solutions.', serviceCount: 4, kind: 'BUSINESS' },
+  { id: 'scat-15', name: 'Healthcare Services', slug: 'healthcare-services', description: 'Home Nursing, Physiotherapy, Ambulance, Medical Equipment Rental.', serviceCount: 4, kind: 'BUSINESS' },
+  { id: 'scat-16', name: 'Education & Training', slug: 'education-training', description: 'Home Tuition, Computer Training, Spoken English, Skill Development, Corporate Training.', serviceCount: 5, kind: 'BUSINESS' },
 ];
 
 export const MOCK_SERVICES: Service[] = [
-  // --- Construction & Interior ---
-  {
-    id: 'serv-101',
-    slug: 'building-construction-interior-design',
-    name: 'Turnkey Building Construction & Interior Design',
-    category: { name: 'Construction & Interior', slug: 'construction-interior', kind: 'BUSINESS' },
-    shortDescription: 'Full building construction, home renovation, civil contracting, 3D architectural interior design & waterproofing.',
-    description: 'Complete execution covering architectural planning, false ceiling, painting, tiles & flooring, structural welding, and fabrication.',
-    priceLabel: 'ON_INSPECTION',
-    coverageArea: 'Tamil Nadu, Karnataka, Telangana, Andhra Pradesh',
-    image: 'https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?auto=format&fit=crop&w=800&q=80',
-    featured: true
-  },
-  {
-    id: 'serv-102',
-    slug: 'home-renovation-painting-flooring',
-    name: 'Home Renovation, Painting & Tile Flooring',
-    category: { name: 'Construction & Interior', slug: 'construction-interior', kind: 'BUSINESS' },
-    shortDescription: 'Professional house painting, modular false ceiling installation, tile laying & civil renovation.',
-    description: 'Revamp your home with expert painters, masonry specialists, acoustic ceiling fitters, and skilled tile craftsmen.',
-    priceLabel: 'ON_INSPECTION',
-    coverageArea: 'All Major South Indian Cities',
-    image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80',
-    featured: false
-  },
+  // --- 1. Construction & Interior ---
+  { id: 's-1', slug: 'building-construction', name: 'Building Construction', category: { name: 'Construction & Interior', slug: 'construction-interior', kind: 'BUSINESS' }, shortDescription: 'Turnkey residential & commercial building construction.', description: 'End-to-end civil construction with structural engineering, quality materials, and timely project delivery.', priceLabel: 'ON_INSPECTION', coverageArea: 'Pan-State Construction', image: 'https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?auto=format&fit=crop&w=800&q=80', featured: true },
+  { id: 's-2', slug: 'home-renovation', name: 'Home Renovation', category: { name: 'Construction & Interior', slug: 'construction-interior', kind: 'BUSINESS' }, shortDescription: 'Complete house & apartment remodeling & renovation.', description: 'Revamp living rooms, kitchens, and bedrooms with modern layouts, masonry, and stylish finishes.', priceLabel: 'ON_INSPECTION', coverageArea: 'Citywide On-Site Service', image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80', featured: true },
+  { id: 's-3', slug: 'civil-contractor', name: 'Civil Contractor', category: { name: 'Construction & Interior', slug: 'construction-interior', kind: 'BUSINESS' }, shortDescription: 'Professional civil contracting for foundations, slabs & brickwork.', description: 'Experienced civil engineering contractors handling structural concrete work and masonry.', priceLabel: 'ON_INSPECTION', coverageArea: 'All Construction Sites', image: 'https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?auto=format&fit=crop&w=800&q=80', featured: false },
+  { id: 's-4', slug: 'architecture', name: 'Architecture', category: { name: 'Construction & Interior', slug: 'construction-interior', kind: 'BUSINESS' }, shortDescription: '3D architectural planning, floor plans & structural design.', description: 'Licensed architects crafting modern 2D/3D building blueprints and municipal plan approvals.', priceLabel: 'ON_INSPECTION', coverageArea: 'Online & On-Site Consultation', image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80', featured: false },
+  { id: 's-5', slug: 'interior-design', name: 'Interior Design', category: { name: 'Construction & Interior', slug: 'construction-interior', kind: 'BUSINESS' }, shortDescription: 'Turnkey interior design for homes, offices & retail showrooms.', description: 'Custom modular kitchens, wardrobe designs, lighting decor, and space planning.', priceLabel: 'ON_INSPECTION', coverageArea: 'Pan-City Design Execution', image: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80', featured: true },
+  { id: 's-6', slug: 'false-ceiling', name: 'False Ceiling', category: { name: 'Construction & Interior', slug: 'construction-interior', kind: 'BUSINESS' }, shortDescription: 'Gypsum & POP decorative false ceiling design & LED cove lighting.', description: 'Acoustic and thermal false ceiling installation with cove LED lights.', priceLabel: 'ON_INSPECTION', coverageArea: 'Residential & Commercial Fitouts', image: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80', featured: false },
+  { id: 's-7', slug: 'painting', name: 'Painting', category: { name: 'Construction & Interior', slug: 'construction-interior', kind: 'BUSINESS' }, shortDescription: 'Interior & exterior wall painting with putty & weather-proof coat.', description: 'Dust-free professional house painting using premium Asian Paints / Berger paints.', priceLabel: 'ON_INSPECTION', coverageArea: 'Doorstep Painting Contractors', image: 'https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=800&q=80', featured: false },
+  { id: 's-8', slug: 'tiles-flooring', name: 'Tiles & Flooring', category: { name: 'Construction & Interior', slug: 'construction-interior', kind: 'BUSINESS' }, shortDescription: 'Vitrified tile laying, marble polishing & wooden flooring.', description: 'Precision floor tile fixing, epoxy grout filling, and Italian marble diamond polishing.', priceLabel: 'ON_INSPECTION', coverageArea: 'All Building Projects', image: 'https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?auto=format&fit=crop&w=800&q=80', featured: false },
+  { id: 's-9', slug: 'waterproofing', name: 'Waterproofing', category: { name: 'Construction & Interior', slug: 'construction-interior', kind: 'BUSINESS' }, shortDescription: 'Terrace, roof & bathroom leak-proof chemical waterproofing.', description: '10-year guaranteed polymer membrane and PU liquid waterproofing against water seepage.', priceLabel: 'ON_INSPECTION', coverageArea: 'Roof & Basement Leak Repair', image: 'https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?auto=format&fit=crop&w=800&q=80', featured: false },
+  { id: 's-10', slug: 'fabrication', name: 'Fabrication', category: { name: 'Construction & Interior', slug: 'construction-interior', kind: 'BUSINESS' }, shortDescription: 'MS & SS structural metal fabrication, sheds & railings.', description: 'Custom industrial metal shed fabrication, main gates, window grills, and stainless steel stairs.', priceLabel: 'ON_INSPECTION', coverageArea: 'Factory & House Sites', image: 'https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?auto=format&fit=crop&w=800&q=80', featured: false },
+  { id: 's-11', slug: 'welding', name: 'Welding', category: { name: 'Construction & Interior', slug: 'construction-interior', kind: 'BUSINESS' }, shortDescription: 'On-site arc, MIG & TIG welding repair services.', description: 'Skilled welders for emergency gate repair, steel pipe welding, and metal frame joining.', priceLabel: 'ON_INSPECTION', coverageArea: 'Doorstep On-Site Welders', image: 'https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?auto=format&fit=crop&w=800&q=80', featured: false },
 
-  // --- Plumbing ---
-  {
-    id: 'serv-201',
-    slug: 'plumbing-installation-pipe-repair',
-    name: 'Plumbing Installation & Water Tank Cleaning Services',
-    category: { name: 'Plumbing', slug: 'plumbing-services', kind: 'BUSINESS' },
-    shortDescription: 'Complete sanitary plumbing setup, pipe leak repair, borewell service, and overhead tank sanitization.',
-    description: 'Experienced master plumbers for bathroom fitting installations, underground drainage clearing, and hydro jet tank cleaning.',
-    priceLabel: 'ON_INSPECTION',
-    coverageArea: 'Citywide On-site Service',
-    image: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80',
-    featured: true
-  },
+  // --- 2. Plumbing ---
+  { id: 's-12', slug: 'plumbing-installation', name: 'Plumbing Installation', category: { name: 'Plumbing', slug: 'plumbing-services', kind: 'BUSINESS' }, shortDescription: 'New house plumbing pipeline setup & sanitary fitting installation.', description: 'Complete bathroom and kitchen plumbing lines installation with CPVC pressure pipes.', priceLabel: 'ON_INSPECTION', coverageArea: 'Doorstep Plumber Service', image: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80', featured: true },
+  { id: 's-13', slug: 'pipe-repair', name: 'Pipe Repair', category: { name: 'Plumbing', slug: 'plumbing-services', kind: 'BUSINESS' }, shortDescription: 'Emergency pipeline leak detection & pipe joint repair.', description: 'Quick repair of leaking underground water pipes, broken valves, and dripping faucets.', priceLabel: 'ON_INSPECTION', coverageArea: '24/7 Emergency Plumber', image: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80', featured: false },
+  { id: 's-14', slug: 'water-tank-cleaning', name: 'Water Tank Cleaning', category: { name: 'Plumbing', slug: 'plumbing-services', kind: 'BUSINESS' }, shortDescription: 'High-pressure mechanized overhead & underground sump tank cleaning.', description: '6-stage hygienic water tank sanitization with sludge removal, vacuuming, and UV treatment.', priceLabel: 'ON_INSPECTION', coverageArea: 'Residential & Apartments', image: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80', featured: true },
+  { id: 's-15', slug: 'borewell-services', name: 'Borewell Services', category: { name: 'Plumbing', slug: 'plumbing-services', kind: 'BUSINESS' }, shortDescription: 'Borewell drilling, flushing & submersible pump motor installation.', description: 'Deep borewell drilling, flushing dirty silt, and installing heavy duty submersible water pumps.', priceLabel: 'ON_INSPECTION', coverageArea: 'Suburban & Rural Borewell Sites', image: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80', featured: false },
+  { id: 's-16', slug: 'bathroom-fittings-service', name: 'Bathroom Fittings', category: { name: 'Plumbing', slug: 'plumbing-services', kind: 'BUSINESS' }, shortDescription: 'Fitting showers, health faucets, wash basins, diverters & geysers.', description: 'Installation of modern bath sanitaryware, glass enclosures, and luxury chrome fittings.', priceLabel: 'ON_INSPECTION', coverageArea: 'Citywide Plumbers', image: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80', featured: false },
+  { id: 's-17', slug: 'drainage-solutions', name: 'Drainage Solutions', category: { name: 'Plumbing', slug: 'plumbing-services', kind: 'BUSINESS' }, shortDescription: 'Blocked drain clearing, manhole cleaning & sewage line maintenance.', description: 'Hydro-jet clearing of clogged drainage lines, kitchen sinks, and toilet blockage.', priceLabel: 'ON_INSPECTION', coverageArea: 'Emergency Drain Unblocking', image: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80', featured: false },
 
-  // --- Electrical ---
-  {
-    id: 'serv-301',
-    slug: 'electrical-house-wiring-solar-cctv',
-    name: 'Electrical House Wiring, Solar & CCTV Installation',
-    category: { name: 'Electrical', slug: 'electrical-services', kind: 'BUSINESS' },
-    shortDescription: 'Certified residential & commercial wiring, rooftop solar panel setup, inverter & CCTV security installation.',
-    description: 'Comprehensive electrical contractor team for panel wiring, generator maintenance, LED lighting, and smart inverter setups.',
-    priceLabel: 'ON_INSPECTION',
-    coverageArea: 'Pan-State On-site Service',
-    image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80',
-    featured: true
-  },
+  // --- 3. Electrical ---
+  { id: 's-18', slug: 'house-wiring', name: 'House Wiring', category: { name: 'Electrical', slug: 'electrical-services', kind: 'BUSINESS' }, shortDescription: 'Complete residential house electrical wiring & DB box setup.', description: 'Safe concealed copper wiring with MCB breaker distribution and earth pit grounding.', priceLabel: 'ON_INSPECTION', coverageArea: 'Certified Electricians', image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80', featured: true },
+  { id: 's-19', slug: 'commercial-electrical', name: 'Commercial Electrical', category: { name: 'Electrical', slug: 'electrical-services', kind: 'BUSINESS' }, shortDescription: 'Factory & office 3-phase electrical panel wiring & transformer maintenance.', description: 'Industrial electrical contracting, busbar trunking, and 3-phase load balance wiring.', priceLabel: 'ON_INSPECTION', coverageArea: 'Commercial & Factory Plants', image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80', featured: false },
+  { id: 's-20', slug: 'solar-installation', name: 'Solar Installation', category: { name: 'Electrical', slug: 'electrical-services', kind: 'BUSINESS' }, shortDescription: 'Rooftop solar panel installation & net-metering setup.', description: 'On-grid and off-grid solar power system installation for home and industrial roofs.', priceLabel: 'ON_INSPECTION', coverageArea: 'Statewide Solar Turnkey', image: 'https://images.unsplash.com/photo-1509391365360-2e959784a276?auto=format&fit=crop&w=800&q=80', featured: true },
+  { id: 's-21', slug: 'cctv-installation', name: 'CCTV Installation', category: { name: 'Electrical', slug: 'electrical-services', kind: 'BUSINESS' }, shortDescription: 'HD security camera installation & mobile remote view setup.', description: 'Dome & bullet IP camera cabling, DVR/NVR configuration, and mobile live viewing.', priceLabel: 'ON_INSPECTION', coverageArea: 'Homes, Shops & Warehouses', image: 'https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=800&q=80', featured: true },
+  { id: 's-22', slug: 'inverter-installation', name: 'Inverter Installation', category: { name: 'Electrical', slug: 'electrical-services', kind: 'BUSINESS' }, shortDescription: 'Home power backup inverter & tubular battery connection.', description: 'Calculation of load capacity, battery wiring, and seamless home inverter setup.', priceLabel: 'ON_INSPECTION', coverageArea: 'Doorstep Electrician', image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80', featured: false },
+  { id: 's-23', slug: 'generator-services', name: 'Generator Services', category: { name: 'Electrical', slug: 'electrical-services', kind: 'BUSINESS' }, shortDescription: 'Diesel generator (DG Set) repair, AMCs & servicing.', description: 'Preventive servicing, oil filter replacement, and alternator repair for DG generators.', priceLabel: 'ON_INSPECTION', coverageArea: 'Commercial DG Servicing', image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80', featured: false },
+  { id: 's-24', slug: 'led-lighting-service', name: 'LED Lighting', category: { name: 'Electrical', slug: 'electrical-services', kind: 'BUSINESS' }, shortDescription: 'Office & warehouse LED retrofit installation & architectural lighting.', description: 'Installation of recessed LED panels, profile strip lights, and floodlights.', priceLabel: 'ON_INSPECTION', coverageArea: 'Commercial Interiors', image: 'https://images.unsplash.com/photo-1565814636199-ae8133055c1c?auto=format&fit=crop&w=800&q=80', featured: false },
 
-  // --- AC & Appliances ---
-  {
-    id: 'serv-401',
-    slug: 'ac-appliance-installation-repair',
-    name: 'AC Installation, Repair & Appliance Maintenance',
-    category: { name: 'AC & Appliances', slug: 'ac-appliances', kind: 'BUSINESS' },
-    shortDescription: 'Expert AC gas refilling, split/window AC installation, refrigerator, washing machine, microwave & TV repair.',
-    description: 'Prompt doorstep technician service for all home and commercial cooling & kitchen appliance brands.',
-    priceLabel: 'ON_INSPECTION',
-    coverageArea: 'Doorstep Service within 2 Hours',
-    image: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=800&q=80',
-    featured: true
-  },
+  // --- 4. AC & Appliances ---
+  { id: 's-25', slug: 'ac-installation', name: 'AC Installation', category: { name: 'AC & Appliances', slug: 'ac-appliances', kind: 'BUSINESS' }, shortDescription: 'Split & window AC wall mounting, copper piping & outdoor bracket setup.', description: 'Professional AC installation with vacuuming and gas pressure check.', priceLabel: 'ON_INSPECTION', coverageArea: 'Doorstep AC Technicians', image: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=800&q=80', featured: true },
+  { id: 's-26', slug: 'ac-repair', name: 'AC Repair', category: { name: 'AC & Appliances', slug: 'ac-appliances', kind: 'BUSINESS' }, shortDescription: 'AC foam jet wash servicing, gas refilling & compressor repair.', description: 'Deep water jet filter wash, Freon gas top-up, and PCB board repair for all AC brands.', priceLabel: 'ON_INSPECTION', coverageArea: 'Same Day Doorstep Repair', image: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=800&q=80', featured: true },
+  { id: 's-27', slug: 'refrigerator-repair', name: 'Refrigerator Repair', category: { name: 'AC & Appliances', slug: 'ac-appliances', kind: 'BUSINESS' }, shortDescription: 'Single & double door fridge cooling fix, thermostat & gas charging.', description: 'Expert repair of non-cooling fridges, compressor start relay replacement, and ice defrosting issues.', priceLabel: 'ON_INSPECTION', coverageArea: 'Doorstep Appliance Repair', image: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80', featured: false },
+  { id: 's-28', slug: 'washing-machine-repair', name: 'Washing Machine Repair', category: { name: 'AC & Appliances', slug: 'ac-appliances', kind: 'BUSINESS' }, shortDescription: 'Front load & top load washing machine drum repair & motor servicing.', description: 'Fixing water drain errors, noisy drum spin bearings, and electronic PCB control cards.', priceLabel: 'ON_INSPECTION', coverageArea: 'Multi-Brand Repair Technicians', image: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=800&q=80', featured: false },
+  { id: 's-29', slug: 'microwave-repair', name: 'Microwave Repair', category: { name: 'AC & Appliances', slug: 'ac-appliances', kind: 'BUSINESS' }, shortDescription: 'Microwave oven heating repair, magnetron & touch panel fixing.', description: 'Quick doorstep fix for non-heating convection microwaves and sparking glass turntables.', priceLabel: 'ON_INSPECTION', coverageArea: 'Citywide Doorstep Service', image: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80', featured: false },
+  { id: 's-30', slug: 'tv-repair', name: 'TV Repair', category: { name: 'AC & Appliances', slug: 'ac-appliances', kind: 'BUSINESS' }, shortDescription: 'LED / OLED / Smart TV screen panel back-light & mother board repair.', description: 'Repairing audio-no-video display faults, power board surges, and cracked LED backlights.', priceLabel: 'ON_INSPECTION', coverageArea: 'Doorstep TV Technicians', image: 'https://images.unsplash.com/photo-1593784991095-a205069470b6?auto=format&fit=crop&w=800&q=80', featured: false },
 
-  // --- Home Services ---
-  {
-    id: 'serv-501',
-    slug: 'deep-house-cleaning-pest-control',
-    name: 'Deep House Cleaning, Sofa Wash & Pest Control',
-    category: { name: 'Home Services', slug: 'home-services', kind: 'BUSINESS' },
-    shortDescription: 'Full house sanitization deep cleaning, sofa shampooing, carpet steam wash & termite pest control.',
-    description: 'Professional cleaning crews using industrial vacuuming, eco-chemical sanitization, and odorless pest treatments.',
-    priceLabel: 'ON_INSPECTION',
-    coverageArea: 'Metro Citywide Doorstep Delivery',
-    image: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=800&q=80',
-    featured: false
-  },
+  // --- 5. Home Services ---
+  { id: 's-31', slug: 'house-cleaning', name: 'House Cleaning', category: { name: 'Home Services', slug: 'home-services', kind: 'BUSINESS' }, shortDescription: 'Full house general sweep, mopping & dusting services.', description: 'Thorough cleaning of living rooms, bedrooms, kitchen countertops, and balconies.', priceLabel: 'ON_INSPECTION', coverageArea: 'Home Housekeeping Staff', image: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=800&q=80', featured: false },
+  { id: 's-32', slug: 'deep-cleaning', name: 'Deep Cleaning', category: { name: 'Home Services', slug: 'home-services', kind: 'BUSINESS' }, shortDescription: 'Intensive deep sanitization of kitchen, bathrooms & balcony.', description: 'Single-disc floor scrubbing, kitchen oil degreasing, and bathroom tile descaling.', priceLabel: 'ON_INSPECTION', coverageArea: 'Full House Deep Clean Crews', image: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=800&q=80', featured: true },
+  { id: 's-33', slug: 'sofa-cleaning', name: 'Sofa Cleaning', category: { name: 'Home Services', slug: 'home-services', kind: 'BUSINESS' }, shortDescription: 'Fabric & leather sofa deep shampooing & wet vacuum extraction.', description: 'Stain removal and germ disinfection for 3-seater, 5-seater fabric & leather recliners.', priceLabel: 'ON_INSPECTION', coverageArea: 'Doorstep Sofa Wash', image: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=800&q=80', featured: false },
+  { id: 's-34', slug: 'carpet-cleaning', name: 'Carpet Cleaning', category: { name: 'Home Services', slug: 'home-services', kind: 'BUSINESS' }, shortDescription: 'Office & home carpet steam wash & dust mite treatment.', description: 'Heavy-duty industrial extraction washing of wall-to-wall carpets and area rugs.', priceLabel: 'ON_INSPECTION', coverageArea: 'Commercial & Home Carpets', image: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=800&q=80', featured: false },
+  { id: 's-35', slug: 'pest-control', name: 'Pest Control', category: { name: 'Home Services', slug: 'home-services', kind: 'BUSINESS' }, shortDescription: 'Cockroach gel treatment, termite eradication & bed bug treatment.', description: 'Odorless herbal gel pest control protecting against cockroaches, ants, termites, and mosquitoes.', priceLabel: 'ON_INSPECTION', coverageArea: 'Hygienic Herbal Pest Control', image: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=800&q=80', featured: true },
+  { id: 's-36', slug: 'water-tank-cleaning-home', name: 'Water Tank Cleaning', category: { name: 'Home Services', slug: 'home-services', kind: 'BUSINESS' }, shortDescription: 'Mechanized sludge removal & sanitization of water tanks.', description: 'High-pressure jet wash and antibacterial spray for overhead sintex tanks.', priceLabel: 'ON_INSPECTION', coverageArea: 'Doorstep Tank Washing', image: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80', featured: false },
 
-  // --- Outdoor Services ---
-  {
-    id: 'serv-601',
-    slug: 'gardening-landscaping-lawn-maintenance',
-    name: 'Gardening, Landscaping & Lawn Maintenance',
-    category: { name: 'Outdoor Services', slug: 'outdoor-services', kind: 'BUSINESS' },
-    shortDescription: 'Garden landscape design, tree cutting, grass lawn mowing, and outdoor botanical care.',
-    description: 'Transform outdoor spaces into lush green landscapes with professional horticulturists and garden maintenance crews.',
-    priceLabel: 'ON_INSPECTION',
-    coverageArea: 'Residential & Commercial Estates',
-    image: 'https://images.unsplash.com/photo-1558904541-efa843a96f01?auto=format&fit=crop&w=800&q=80',
-    featured: false
-  },
+  // --- 6. Outdoor Services ---
+  { id: 's-37', slug: 'gardening', name: 'Gardening', category: { name: 'Outdoor Services', slug: 'outdoor-services', kind: 'BUSINESS' }, shortDescription: 'Regular garden pruning, plant fertilization & potting services.', description: 'Routine gardener visits for trimming plants, soil manuring, and pest treatment.', priceLabel: 'ON_INSPECTION', coverageArea: 'Residential & Villa Gardens', image: 'https://images.unsplash.com/photo-1558904541-efa843a96f01?auto=format&fit=crop&w=800&q=80', featured: false },
+  { id: 's-38', slug: 'landscaping', name: 'Landscaping', category: { name: 'Outdoor Services', slug: 'outdoor-services', kind: 'BUSINESS' }, shortDescription: 'Landscape architecture design, fountain setup & artificial turf.', description: 'Transforming outdoor lawns with stone pathways, vertical gardens, and automatic sprinklers.', priceLabel: 'ON_INSPECTION', coverageArea: 'Commercial & Residential Landscapes', image: 'https://images.unsplash.com/photo-1558904541-efa843a96f01?auto=format&fit=crop&w=800&q=80', featured: true },
+  { id: 's-39', slug: 'tree-cutting', name: 'Tree Cutting', category: { name: 'Outdoor Services', slug: 'outdoor-services', kind: 'BUSINESS' }, shortDescription: 'Overgrown tree branch trimming & safe tree removal.', description: 'Professional tree cutters equipped with chainsaws and safety ropes for dangerous branch trimming.', priceLabel: 'ON_INSPECTION', coverageArea: 'Safe City Tree Pruning', image: 'https://images.unsplash.com/photo-1558904541-efa843a96f01?auto=format&fit=crop&w=800&q=80', featured: false },
+  { id: 's-40', slug: 'lawn-maintenance', name: 'Lawn Maintenance', category: { name: 'Outdoor Services', slug: 'outdoor-services', kind: 'BUSINESS' }, shortDescription: 'Grass lawn mowing, weeding & automated irrigation setup.', description: 'Maintaining lush green natural Korean grass lawns for corporate parks and villas.', priceLabel: 'ON_INSPECTION', coverageArea: 'Lawn Care Maintenance', image: 'https://images.unsplash.com/photo-1558904541-efa843a96f01?auto=format&fit=crop&w=800&q=80', featured: false },
 
-  // --- Transport & Logistics ---
-  {
-    id: 'serv-701',
-    slug: 'packers-movers-goods-transport',
-    name: 'Packers & Movers, Mini Truck Rental & Logistics',
-    category: { name: 'Transport & Logistics', slug: 'transport-logistics', kind: 'BUSINESS' },
-    shortDescription: 'Hassle-free household & office relocation, mini truck hire (Tata Ace/Bolero), warehousing & freight transport.',
-    description: 'Safe packing, GPS tracked transport trucks, and insured goods movement across all Indian states.',
-    priceLabel: 'ON_INSPECTION',
-    coverageArea: 'Pan-India Freight Network',
-    image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80',
-    featured: true
-  },
+  // --- 7. Transport & Logistics ---
+  { id: 's-41', slug: 'packers-movers', name: 'Packers & Movers', category: { name: 'Transport & Logistics', slug: 'transport-logistics', kind: 'BUSINESS' }, shortDescription: 'Household & office relocation packers and movers.', description: 'Bubble wrapping, wooden crating, truck transport, and unpacking services.', priceLabel: 'ON_INSPECTION', coverageArea: 'Intercity & Local Shifting', image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80', featured: true },
+  { id: 's-42', slug: 'mini-truck-rental', name: 'Mini Truck Rental', category: { name: 'Transport & Logistics', slug: 'transport-logistics', kind: 'BUSINESS' }, shortDescription: 'Hourly & daily hire of Tata Ace, pickup trucks & 14ft containers.', description: 'On-demand goods transport trucks for local commercial delivery and factory loads.', priceLabel: 'ON_INSPECTION', coverageArea: 'Instant Truck Booking', image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80', featured: false },
+  { id: 's-43', slug: 'goods-transport', name: 'Goods Transport', category: { name: 'Transport & Logistics', slug: 'transport-logistics', kind: 'BUSINESS' }, shortDescription: 'Full Truck Load (FTL) and Part Load (LTL) cargo transport.', description: 'Pan-India heavy freight transportation with GPS tracking and transit insurance.', priceLabel: 'ON_INSPECTION', coverageArea: 'All 28 Indian States', image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80', featured: true },
+  { id: 's-44', slug: 'warehouse-services', name: 'Warehouse Services', category: { name: 'Transport & Logistics', slug: 'transport-logistics', kind: 'BUSINESS' }, shortDescription: 'Short-term & long-term commercial storage warehouse spaces.', description: 'CCTV monitored, palletized, temperature controlled bonded warehousing.', priceLabel: 'ON_INSPECTION', coverageArea: 'Major Logistics Hubs', image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80', featured: false },
+  { id: 's-45', slug: 'courier-services', name: 'Courier Services', category: { name: 'Transport & Logistics', slug: 'transport-logistics', kind: 'BUSINESS' }, shortDescription: 'Domestic express document & parcel courier booking.', description: 'Fast door-to-door courier dispatch with real-time AWB tracking numbers.', priceLabel: 'ON_INSPECTION', coverageArea: 'Pan-India & International Air', image: 'https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=800&q=80', featured: false },
 
-  // --- Industrial & Factory Services ---
-  {
-    id: 'serv-801',
-    slug: 'industrial-machine-maintenance-fabrication',
-    name: 'Factory Machine Maintenance & Heavy Fabrication',
-    category: { name: 'Industrial & Factory Services', slug: 'industrial-factory-services', kind: 'BUSINESS' },
-    shortDescription: 'Industrial machinery overhaul, factory structural steel fabrication, electrical maintenance & equipment installation.',
-    description: 'Expert industrial engineers providing routine preventive maintenance, heavy equipment erection, and plant cleaning.',
-    priceLabel: 'ON_INSPECTION',
-    coverageArea: 'Industrial Zones & SEZs',
-    image: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80',
-    featured: true
-  },
+  // --- 8. Industrial & Factory Services ---
+  { id: 's-46', slug: 'machine-maintenance', name: 'Machine Maintenance', category: { name: 'Industrial & Factory Services', slug: 'industrial-factory-services', kind: 'BUSINESS' }, shortDescription: 'Preventive maintenance & overhauling of factory machinery.', description: 'Industrial mechanical & hydraulic machine servicing by experienced engineers.', priceLabel: 'ON_INSPECTION', coverageArea: 'Factory Plants & SEZs', image: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80', featured: true },
+  { id: 's-47', slug: 'industrial-cleaning', name: 'Industrial Cleaning', category: { name: 'Industrial & Factory Services', slug: 'industrial-factory-services', kind: 'BUSINESS' }, shortDescription: 'Factory floor degreasing, tank descaling & machine cleaning.', description: 'Heavy duty pressure washing and chemical cleaning for manufacturing plants.', priceLabel: 'ON_INSPECTION', coverageArea: 'Industrial Units', image: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80', featured: false },
+  { id: 's-48', slug: 'factory-fabrication', name: 'Factory Fabrication', category: { name: 'Industrial & Factory Services', slug: 'industrial-factory-services', kind: 'BUSINESS' }, shortDescription: 'Heavy structural steel shed fabrication & conveyor assembly.', description: 'Custom metal structure fabrication for industrial warehouses and crane gantries.', priceLabel: 'ON_INSPECTION', coverageArea: 'Industrial Construction Sites', image: 'https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?auto=format&fit=crop&w=800&q=80', featured: false },
+  { id: 's-49', slug: 'electrical-maintenance', name: 'Electrical Maintenance', category: { name: 'Industrial & Factory Services', slug: 'industrial-factory-services', kind: 'BUSINESS' }, shortDescription: 'HT/LT electrical panel audit & plant power backup service.', description: 'Thermography testing, sub-station maintenance, and breaker testing.', priceLabel: 'ON_INSPECTION', coverageArea: 'Industrial Plants', image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80', featured: false },
+  { id: 's-50', slug: 'equipment-installation', name: 'Equipment Installation', category: { name: 'Industrial & Factory Services', slug: 'industrial-factory-services', kind: 'BUSINESS' }, shortDescription: 'Heavy machine erection, alignment & commissioning.', description: 'Precision laser alignment and rigging installation of new manufacturing plant machinery.', priceLabel: 'ON_INSPECTION', coverageArea: 'Turnkey Erection Crews', image: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80', featured: false },
 
-  // --- IT & Digital Services ---
-  {
-    id: 'serv-901',
-    slug: 'website-app-development-ai-solutions',
-    name: 'Website, Mobile App, AI Solutions & Digital Marketing',
-    category: { name: 'IT & Digital Services', slug: 'it-digital-services', kind: 'BUSINESS' },
-    shortDescription: 'Custom Web & Mobile app engineering, AI automation tools, B2B digital marketing, SEO & graphic design.',
-    description: 'Full-stack technology team creating scalable web portals, Android/iOS mobile apps, AI workflows, and social media campaigns.',
-    priceLabel: 'ON_INSPECTION',
-    coverageArea: 'Global / Remote & Hybrid Deployment',
-    image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800&q=80',
-    featured: true
-  },
+  // --- 9. IT & Digital Services ---
+  { id: 's-51', slug: 'website-development', name: 'Website Development', category: { name: 'IT & Digital Services', slug: 'it-digital-services', kind: 'BUSINESS' }, shortDescription: 'Custom React, Next.js & e-commerce B2B portal development.', description: 'Responsive, fast-loading, mobile-friendly websites engineered for conversion.', priceLabel: 'ON_INSPECTION', coverageArea: 'Global Digital Agency', image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800&q=80', featured: true },
+  { id: 's-52', slug: 'mobile-app-development', name: 'Mobile App Development', category: { name: 'IT & Digital Services', slug: 'it-digital-services', kind: 'BUSINESS' }, shortDescription: 'Native iOS & Android mobile application development.', description: 'High performance mobile apps with push notifications, payment gateways, and real-time backend API integration.', priceLabel: 'ON_INSPECTION', coverageArea: 'Mobile App Development Studio', image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=800&q=80', featured: true },
+  { id: 's-53', slug: 'ai-solutions', name: 'AI Solutions', category: { name: 'IT & Digital Services', slug: 'it-digital-services', kind: 'BUSINESS' }, shortDescription: 'Custom AI chatbots, LLM integration & predictive analytics.', description: 'Automate business workflows using generative AI models, smart customer support bots, and computer vision.', priceLabel: 'ON_INSPECTION', coverageArea: 'Global AI Tech Unit', image: 'https://images.unsplash.com/photo-1677442136019-21780efad99a?auto=format&fit=crop&w=800&q=80', featured: true },
+  { id: 's-54', slug: 'software-development', name: 'Software Development', category: { name: 'IT & Digital Services', slug: 'it-digital-services', kind: 'BUSINESS' }, shortDescription: 'Custom ERP, CRM & SaaS cloud software development.', description: 'Scalable cloud software tailored to streamline inventory, sales pipelines, and billing.', priceLabel: 'ON_INSPECTION', coverageArea: 'Custom Software Agency', image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800&q=80', featured: false },
+  { id: 's-55', slug: 'automation', name: 'Automation', category: { name: 'IT & Digital Services', slug: 'it-digital-services', kind: 'BUSINESS' }, shortDescription: 'Robotic Process Automation (RPA) & business workflow automation.', description: 'Eliminate repetitive manual data entries and integrate third-party APIs seamlessly.', priceLabel: 'ON_INSPECTION', coverageArea: 'Enterprise Automation Studio', image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80', featured: false },
+  { id: 's-56', slug: 'digital-marketing', name: 'Digital Marketing', category: { name: 'IT & Digital Services', slug: 'it-digital-services', kind: 'BUSINESS' }, shortDescription: 'Google Ads, Meta Ads & B2B lead generation campaigns.', description: 'Targeted PPC campaigns delivering high quality buyer enquiries directly to your sales team.', priceLabel: 'ON_INSPECTION', coverageArea: 'Digital Performance Marketing', image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80', featured: true },
+  { id: 's-57', slug: 'seo', name: 'SEO', category: { name: 'IT & Digital Services', slug: 'it-digital-services', kind: 'BUSINESS' }, shortDescription: 'Search Engine Optimization for Google 1st page ranking.', description: 'On-page SEO, technical audit, backlink building, and Google Business Profile optimization.', priceLabel: 'ON_INSPECTION', coverageArea: 'Organic Search Growth', image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80', featured: false },
+  { id: 's-58', slug: 'social-media-marketing', name: 'Social Media Marketing', category: { name: 'IT & Digital Services', slug: 'it-digital-services', kind: 'BUSINESS' }, shortDescription: 'Instagram, LinkedIn & Facebook content creation & account management.', description: 'Engaging social media posts, reels, carousel graphics, and community building.', priceLabel: 'ON_INSPECTION', coverageArea: 'Social Media Agency', image: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=800&q=80', featured: false },
+  { id: 's-59', slug: 'graphic-design', name: 'Graphic Design', category: { name: 'IT & Digital Services', slug: 'it-digital-services', kind: 'BUSINESS' }, shortDescription: 'Corporate logo branding, brochures, banners & packaging design.', description: 'Professional brand identity design, promotional flyers, and social media visuals.', priceLabel: 'ON_INSPECTION', coverageArea: 'Creative Design Studio', image: 'https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=800&q=80', featured: false },
+  { id: 's-60', slug: 'video-editing', name: 'Video Editing', category: { name: 'IT & Digital Services', slug: 'it-digital-services', kind: 'BUSINESS' }, shortDescription: 'Corporate promo video editing, YouTube editing & social reels.', description: 'Color grading, motion graphics, audio mastering, and engaging video transitions.', priceLabel: 'ON_INSPECTION', coverageArea: 'Post-Production Video Studio', image: 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=800&q=80', featured: false },
 
-  // --- Creative Services ---
-  {
-    id: 'serv-1001',
-    slug: 'photography-videography-drone-shoot',
-    name: 'Commercial Photography, Videography & Drone Shooting',
-    category: { name: 'Creative Services', slug: 'creative-services', kind: 'BUSINESS' },
-    shortDescription: 'Professional product photography, corporate video shoots, drone aerial cinematography & event coverage.',
-    description: '4K cameras and licensed drone pilots delivering cinema-grade promotional videos and product catalogue shoots.',
-    priceLabel: 'ON_INSPECTION',
-    coverageArea: 'Pan-State Location Shoots',
-    image: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=800&q=80',
-    featured: false
-  },
+  // --- 10. Creative Services ---
+  { id: 's-61', slug: 'photography', name: 'Photography', category: { name: 'Creative Services', slug: 'creative-services', kind: 'BUSINESS' }, shortDescription: 'Commercial & portrait photography sessions.', description: 'Professional studio lighting and high resolution photography.', priceLabel: 'ON_INSPECTION', coverageArea: 'Location & Studio Shoots', image: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=800&q=80', featured: false },
+  { id: 's-62', slug: 'videography', name: 'Videography', category: { name: 'Creative Services', slug: 'creative-services', kind: 'BUSINESS' }, shortDescription: '4K corporate films & promotional video production.', description: 'Cinematic video recording with multi-cam setups and pro audio.', priceLabel: 'ON_INSPECTION', coverageArea: 'On-Location Camera Crew', image: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=800&q=80', featured: true },
+  { id: 's-63', slug: 'drone-photography', name: 'Drone Photography', category: { name: 'Creative Services', slug: 'creative-services', kind: 'BUSINESS' }, shortDescription: 'Aerial drone photography & 4K video mapping shoots.', description: 'Licensed drone pilots capturing aerial views of real estate projects, factories, and outdoor events.', priceLabel: 'ON_INSPECTION', coverageArea: 'Licensed Aerial Pilots', image: 'https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=800&q=80', featured: true },
+  { id: 's-64', slug: 'product-photography', name: 'Product Photography', category: { name: 'Creative Services', slug: 'creative-services', kind: 'BUSINESS' }, shortDescription: 'E-commerce white background product photo shoots.', description: 'Studio product photography for Amazon, Flipkart, websites, and catalogues.', priceLabel: 'ON_INSPECTION', coverageArea: 'E-Commerce Photo Studio', image: 'https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=800&q=80', featured: false },
+  { id: 's-65', slug: 'event-coverage', name: 'Event Coverage', category: { name: 'Creative Services', slug: 'creative-services', kind: 'BUSINESS' }, shortDescription: 'Live video streaming & event photo coverage.', description: 'Complete photo and video coverage for corporate expos, AGMs, and launches.', priceLabel: 'ON_INSPECTION', coverageArea: 'Corporate Event Crew', image: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=800&q=80', featured: false },
 
-  // --- Event Services ---
-  {
-    id: 'serv-1101',
-    slug: 'wedding-event-decoration-catering',
-    name: 'Wedding Decoration, Event Management & Catering',
-    category: { name: 'Event Services', slug: 'event-services', kind: 'BUSINESS' },
-    shortDescription: 'Turnkey event planning, stage flower decoration, sound & lighting setup, and multi-cuisine catering.',
-    description: 'Memorable corporate conferences, grand weddings, and social celebrations managed from venue setup to banquet dining.',
-    priceLabel: 'ON_INSPECTION',
-    coverageArea: 'All Event Venues & Resorts',
-    image: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=800&q=80',
-    featured: true
-  },
+  // --- 11. Event Services ---
+  { id: 's-66', slug: 'wedding-decoration', name: 'Wedding Decoration', category: { name: 'Event Services', slug: 'event-services', kind: 'BUSINESS' }, shortDescription: 'Theme wedding flower decoration & stage mandate setup.', description: 'Exquisite mandap decorations, floral entrance arches, and lighting decor.', priceLabel: 'ON_INSPECTION', coverageArea: 'All Wedding Venues', image: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=800&q=80', featured: true },
+  { id: 's-67', slug: 'catering', name: 'Catering', category: { name: 'Event Services', slug: 'event-services', kind: 'BUSINESS' }, shortDescription: 'Multi-cuisine veg & non-veg banquet catering for weddings & corporate events.', description: 'Hygienic, delicious buffet catering with professional serving staff.', priceLabel: 'ON_INSPECTION', coverageArea: 'Buffet Catering Teams', image: 'https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=800&q=80', featured: true },
+  { id: 's-68', slug: 'sound-lighting', name: 'Sound & Lighting', category: { name: 'Event Services', slug: 'event-services', kind: 'BUSINESS' }, shortDescription: 'JBL sound systems, DJ setup & intelligent concert lighting.', description: 'Professional PA sound systems, microphones, and truss LED lighting setup.', priceLabel: 'ON_INSPECTION', coverageArea: 'Event Sound Engineers', image: 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=800&q=80', featured: false },
+  { id: 's-69', slug: 'stage-setup', name: 'Stage Setup', category: { name: 'Event Services', slug: 'event-services', kind: 'BUSINESS' }, shortDescription: 'Custom stage platforms, LED walls & backdrop printing.', description: 'Modular aluminum stage fabrication, P3 LED video walls, and green rooms.', priceLabel: 'ON_INSPECTION', coverageArea: 'Expos & Stage Events', image: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=800&q=80', featured: false },
+  { id: 's-70', slug: 'event-management', name: 'Event Management', category: { name: 'Event Services', slug: 'event-services', kind: 'BUSINESS' }, shortDescription: 'Turnkey event planning, anchor hosting & security control.', description: 'Comprehensive event management from venue booking to guest coordination.', priceLabel: 'ON_INSPECTION', coverageArea: 'Corporate & Social Events', image: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=800&q=80', featured: false },
 
-  // --- Automobile Services ---
-  {
-    id: 'serv-1201',
-    slug: 'car-bike-repair-towing-wash',
-    name: 'Car & Bike Repair, Doorstep Car Wash & 24/7 Towing',
-    category: { name: 'Automobile Services', slug: 'automobile-services', kind: 'BUSINESS' },
-    shortDescription: 'Multi-brand vehicle servicing, emergency roadside breakdown towing, foam wash & tyre replacement.',
-    description: 'Certified auto mechanics equipped for engine diagnostics, denting/painting, and 24-hour flatbed towing assistance.',
-    priceLabel: 'ON_INSPECTION',
-    coverageArea: '24/7 Emergency City Coverage',
-    image: 'https://images.unsplash.com/photo-1486006920555-c77dce18193b?auto=format&fit=crop&w=800&q=80',
-    featured: false
-  },
+  // --- 12. Automobile Services ---
+  { id: 's-71', slug: 'car-repair', name: 'Car Repair', category: { name: 'Automobile Services', slug: 'automobile-services', kind: 'BUSINESS' }, shortDescription: 'Multi-brand car engine servicing, denting & painting.', description: 'Computerized OBD engine diagnostic scan, brake pad change, and paint protection coating.', priceLabel: 'ON_INSPECTION', coverageArea: 'Doorstep & Workshop Repair', image: 'https://images.unsplash.com/photo-1486006920555-c77dce18193b?auto=format&fit=crop&w=800&q=80', featured: true },
+  { id: 's-72', slug: 'bike-repair', name: 'Bike Repair', category: { name: 'Automobile Services', slug: 'automobile-services', kind: 'BUSINESS' }, shortDescription: 'Doorstep 2-wheeler bike general service & oil change.', description: 'Engine oil change, chain adjustment, clutch tuning, and brake overhaul for motorbikes.', priceLabel: 'ON_INSPECTION', coverageArea: 'Doorstep Bike Mechanics', image: 'https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=800&q=80', featured: false },
+  { id: 's-73', slug: 'car-wash', name: 'Car Wash', category: { name: 'Automobile Services', slug: 'automobile-services', kind: 'BUSINESS' }, shortDescription: 'Doorstep foam car wash & interior vacuuming.', description: 'Pressure foam body wash, tyre dressing, interior vacuum cleaning, and glass polish.', priceLabel: 'ON_INSPECTION', coverageArea: 'Doorstep Car Wash Unit', image: 'https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?auto=format&fit=crop&w=800&q=80', featured: false },
+  { id: 's-74', slug: 'towing', name: 'Towing', category: { name: 'Automobile Services', slug: 'automobile-services', kind: 'BUSINESS' }, shortDescription: '24/7 flatbed breakdown car towing assistance.', description: 'Emergency roadside flatbed tow truck service for accidents and breakdown vehicles.', priceLabel: 'ON_INSPECTION', coverageArea: '24/7 Highways & City Towing', image: 'https://images.unsplash.com/photo-1486006920555-c77dce18193b?auto=format&fit=crop&w=800&q=80', featured: true },
+  { id: 's-75', slug: 'tyre-services', name: 'Tyre Services', category: { name: 'Automobile Services', slug: 'automobile-services', kind: 'BUSINESS' }, shortDescription: 'Doorstep puncture repair, wheel alignment & new tyre replacement.', description: 'Tubeless puncture repair, nitrogen air filling, and new multi-brand tyre sales.', priceLabel: 'ON_INSPECTION', coverageArea: 'Doorstep & Mobile Tyre Unit', image: 'https://images.unsplash.com/photo-1486006920555-c77dce18193b?auto=format&fit=crop&w=800&q=80', featured: false },
 
-  // --- Business Services ---
-  {
-    id: 'serv-1301',
-    slug: 'gst-company-registration-tax-filing',
-    name: 'GST Registration, Company Formation & Tax Accounting',
-    category: { name: 'Business Services', slug: 'business-services', kind: 'BUSINESS' },
-    shortDescription: 'Corporate legal registration, GST return filing, bookkeeping accounting, HR payroll & business consulting.',
-    description: 'Chartered accountants and legal advisors simplifying compliance, trademark registration, and tax filings for startups & enterprises.',
-    priceLabel: 'ON_INSPECTION',
-    coverageArea: 'Pan-India Online Legal Services',
-    image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80',
-    featured: true
-  },
+  // --- 13. Business Services ---
+  { id: 's-76', slug: 'gst-registration', name: 'GST Registration', category: { name: 'Business Services', slug: 'business-services', kind: 'BUSINESS' }, shortDescription: 'Fast new GST registration & monthly GST filing.', description: 'Hassle-free online GST application, filing GSTR-1 & GSTR-3B, and LUT export filing.', priceLabel: 'ON_INSPECTION', coverageArea: 'Online CA & CS Advisory', image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80', featured: true },
+  { id: 's-77', slug: 'company-registration', name: 'Company Registration', category: { name: 'Business Services', slug: 'business-services', kind: 'BUSINESS' }, shortDescription: 'Private Limited, OPC & LLP company incorporation.', description: 'DIN, DSC, name approval, MOA/AOA drafting, and MCA incorporation certificate.', priceLabel: 'ON_INSPECTION', coverageArea: 'Pan-India Corporate Legal', image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80', featured: true },
+  { id: 's-78', slug: 'accounting', name: 'Accounting', category: { name: 'Business Services', slug: 'business-services', kind: 'BUSINESS' }, shortDescription: 'Tally & Zoho Books monthly bookkeeping & financial statements.', description: 'Outsourced accounting services, profit & loss balance sheet generation, and voucher entry.', priceLabel: 'ON_INSPECTION', coverageArea: 'Outsourced Bookkeepers', image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80', featured: false },
+  { id: 's-79', slug: 'tax-filing', name: 'Tax Filing', category: { name: 'Business Services', slug: 'business-services', kind: 'BUSINESS' }, shortDescription: 'Income Tax Return (ITR) filing & TDS compliance.', description: 'ITR 1 to ITR 7 filing for individuals, partnership firms, and corporate companies.', priceLabel: 'ON_INSPECTION', coverageArea: 'Tax Consultants', image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80', featured: false },
+  { id: 's-80', slug: 'hr-services', name: 'HR Services', category: { name: 'Business Services', slug: 'business-services', kind: 'BUSINESS' }, shortDescription: 'Manpower recruitment, payroll processing & PF/ESI compliance.', description: 'End-to-end HR solutions including employee background checks, offer letters, and statutory compliance.', priceLabel: 'ON_INSPECTION', coverageArea: 'HR Staffing Consultancy', image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80', featured: false },
+  { id: 's-81', slug: 'business-consulting', name: 'Business Consulting', category: { name: 'Business Services', slug: 'business-services', kind: 'BUSINESS' }, shortDescription: 'Strategic growth advisory, pitch decks & project reports.', description: 'Management consultants helping businesses scale operations, raise capital, and optimize workflows.', priceLabel: 'ON_INSPECTION', coverageArea: 'Executive Consulting', image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80', featured: false },
 
-  // --- Security Services ---
-  {
-    id: 'serv-1401',
-    slug: 'security-guards-cctv-monitoring',
-    name: 'Uniformed Security Guards & Fire Safety Solutions',
-    category: { name: 'Security Services', slug: 'security-services', kind: 'BUSINESS' },
-    shortDescription: 'Trained static security guards, biometric access control, 24/7 CCTV surveillance & fire safety audits.',
-    description: 'Rigorous security guard deployment for corporate parks, gated apartments, factories, and commercial centers.',
-    priceLabel: 'ON_INSPECTION',
-    coverageArea: 'Statewide Security Deployment',
-    image: 'https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=800&q=80',
-    featured: false
-  },
+  // --- 14. Security Services ---
+  { id: 's-82', slug: 'security-guards', name: 'Security Guards', category: { name: 'Security Services', slug: 'security-services', kind: 'BUSINESS' }, shortDescription: 'Uniformed male & female static security guards.', description: 'PSARA licensed security guard deployment for corporate buildings, apartments, and factories.', priceLabel: 'ON_INSPECTION', coverageArea: '24/7 Security Deployment', image: 'https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=800&q=80', featured: true },
+  { id: 's-83', slug: 'cctv-monitoring', name: 'CCTV Monitoring', category: { name: 'Security Services', slug: 'security-services', kind: 'BUSINESS' }, shortDescription: 'Remote 24/7 video surveillance monitoring center setup.', description: 'AI video analytics monitoring for intruder detection, perimeter breach, and fire alerts.', priceLabel: 'ON_INSPECTION', coverageArea: 'Remote Control Room', image: 'https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=800&q=80', featured: false },
+  { id: 's-84', slug: 'access-control', name: 'Access Control', category: { name: 'Security Services', slug: 'security-services', kind: 'BUSINESS' }, shortDescription: 'Biometric fingerprint, RFID & face recognition attendance systems.', description: 'Installation of automated boom barriers, turnstiles, and door lock access control.', priceLabel: 'ON_INSPECTION', coverageArea: 'Corporate Security Tech', image: 'https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=800&q=80', featured: false },
+  { id: 's-85', slug: 'fire-safety-solutions', name: 'Fire Safety Solutions', category: { name: 'Security Services', slug: 'security-services', kind: 'BUSINESS' }, shortDescription: 'Fire extinguisher refilling & sprinkler system installation.', description: 'Fire safety NOC audit, smoke detector wiring, hydrants, and fire extinguisher supply.', priceLabel: 'ON_INSPECTION', coverageArea: 'Fire Audit Engineers', image: 'https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=800&q=80', featured: false },
 
-  // --- Healthcare Services ---
-  {
-    id: 'serv-1501',
-    slug: 'home-nursing-physiotherapy-ambulance',
-    name: 'Home Nursing Care, Physiotherapy & Medical Equipment',
-    category: { name: 'Healthcare Services', slug: 'healthcare-services', kind: 'BUSINESS' },
-    shortDescription: 'Compassionate home nursing care, doorstep physiotherapy, 24/7 emergency ambulance & medical bed rental.',
-    description: 'Qualified nurses and certified physiotherapists caring for elderly patients and post-surgery recovery at home.',
-    priceLabel: 'ON_INSPECTION',
-    coverageArea: '24/7 Doorstep Patient Care',
-    image: 'https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=800&q=80',
-    featured: false
-  },
+  // --- 15. Healthcare Services ---
+  { id: 's-86', slug: 'home-nursing', name: 'Home Nursing', category: { name: 'Healthcare Services', slug: 'healthcare-services', kind: 'BUSINESS' }, shortDescription: '24/7 certified nurse & attendant for home patient care.', description: 'Post-surgery care, elderly assistance, tracheostomy care, and injection administration.', priceLabel: 'ON_INSPECTION', coverageArea: 'Compassionate Home Nurses', image: 'https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=800&q=80', featured: true },
+  { id: 's-87', slug: 'physiotherapy', name: 'Physiotherapy', category: { name: 'Healthcare Services', slug: 'healthcare-services', kind: 'BUSINESS' }, shortDescription: 'Doorstep home visit by certified physiotherapist.', description: 'Rehabilitation therapy for stroke, back pain, paralysis, joint replacement, and sports injury.', priceLabel: 'ON_INSPECTION', coverageArea: 'Doorstep Physiotherapists', image: 'https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=800&q=80', featured: false },
+  { id: 's-88', slug: 'ambulance', name: 'Ambulance', category: { name: 'Healthcare Services', slug: 'healthcare-services', kind: 'BUSINESS' }, shortDescription: '24/7 ICU & ALS emergency patient transport ambulance.', description: 'Oxygen-equipped ICU ambulances with trained paramedics for emergency hospital transfer.', priceLabel: 'ON_INSPECTION', coverageArea: '24/7 Emergency Dispatch', image: 'https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=800&q=80', featured: true },
+  { id: 's-89', slug: 'medical-equipment-rental', name: 'Medical Equipment Rental', category: { name: 'Healthcare Services', slug: 'healthcare-services', kind: 'BUSINESS' }, shortDescription: 'Rental of oxygen concentrators, hospital beds & wheelchairs.', description: 'Doorstep delivery of ICU patient beds, BIPAP/CPAP machines, wheelchairs, and suction pumps.', priceLabel: 'ON_INSPECTION', coverageArea: 'Medical Equipment Rental', image: 'https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=800&q=80', featured: false },
 
-  // --- Education & Training ---
-  {
-    id: 'serv-1601',
-    slug: 'home-tuition-computer-training-skills',
-    name: 'Home Tuition, Computer Training & Skill Development',
-    category: { name: 'Education & Training', slug: 'education-training', kind: 'BUSINESS' },
-    shortDescription: 'Academic home tutors, software programming bootcamps, spoken English & corporate soft skills training.',
-    description: 'Experienced tutors and corporate trainers providing personalized 1-on-1 coaching and career development programs.',
-    priceLabel: 'ON_INSPECTION',
-    coverageArea: 'Online & Home Doorstep Classes',
-    image: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=800&q=80',
-    featured: false
-  }
+  // --- 16. Education & Training ---
+  { id: 's-90', slug: 'home-tuition', name: 'Home Tuition', category: { name: 'Education & Training', slug: 'education-training', kind: 'BUSINESS' }, shortDescription: 'Experienced home tutors for Class 1 to 12 & NEET/JEE.', description: 'Personalized 1-on-1 home tutoring in Maths, Science, Commerce, and entrance exams.', priceLabel: 'ON_INSPECTION', coverageArea: 'Qualified Home Tutors', image: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=800&q=80', featured: true },
+  { id: 's-91', slug: 'computer-training', name: 'Computer Training', category: { name: 'Education & Training', slug: 'education-training', kind: 'BUSINESS' }, shortDescription: 'Python, Web Development, Data Science & Tally courses.', description: 'Hands-on programming and software certification courses with placement assistance.', priceLabel: 'ON_INSPECTION', coverageArea: 'Lab & Online Classes', image: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=800&q=80', featured: false },
+  { id: 's-92', slug: 'spoken-english', name: 'Spoken English', category: { name: 'Education & Training', slug: 'education-training', kind: 'BUSINESS' }, shortDescription: 'Fluent spoken English, grammar & accent training.', description: 'Interactive communication classes to boost confidence in public speaking and interviews.', priceLabel: 'ON_INSPECTION', coverageArea: 'Online & Classroom Batches', image: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=800&q=80', featured: false },
+  { id: 's-93', slug: 'skill-development', name: 'Skill Development', category: { name: 'Education & Training', slug: 'education-training', kind: 'BUSINESS' }, shortDescription: 'Electrical, AC mechanic, plumbing & welding vocational training.', description: 'Practical job-oriented technical trade skills training with government certificates.', priceLabel: 'ON_INSPECTION', coverageArea: 'Vocational Skill Center', image: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=800&q=80', featured: false },
+  { id: 's-94', slug: 'corporate-training', name: 'Corporate Training', category: { name: 'Education & Training', slug: 'education-training', kind: 'BUSINESS' }, shortDescription: 'Leadership, team building & soft skills training workshops.', description: 'Custom corporate training modules to boost employee productivity, sales skills, and teamwork.', priceLabel: 'ON_INSPECTION', coverageArea: 'On-Site Corporate Workshops', image: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=800&q=80', featured: false }
 ];
 
-// ==========================================
-// 3. SOCIAL SERVICE CATEGORIES & CAUSES
-// ==========================================
+// ============================================================================
+// 3. SOCIAL IMPACT SERVICES (10 CATEGORIES & 43 INDIVIDUAL CAUSES)
+// ============================================================================
 export const SOCIAL_CAUSES: Category[] = [
-  { id: 'soc-1', name: 'Food Donation', slug: 'food-donation', description: 'Donate extra food from weddings/events, restaurant meals, grocery kits & community meal support.', serviceCount: 5, kind: 'SOCIAL' },
-  { id: 'soc-2', name: 'Clothing Donation', slug: 'clothing-donation', description: 'Donate old/new clothes, winter blankets, and school uniforms to needy families.', serviceCount: 4, kind: 'SOCIAL' },
-  { id: 'soc-3', name: 'Education Support', slug: 'education-support', description: 'Donate books, school bags, stationery, and sponsor student education fees.', serviceCount: 4, kind: 'SOCIAL' },
-  { id: 'soc-4', name: 'Children Support', slug: 'children-support', description: 'Donate toys, baby care items, school supplies & nutrition kits for underprivileged kids.', serviceCount: 4, kind: 'SOCIAL' },
-  { id: 'soc-5', name: 'Household Essentials', slug: 'household-essentials', description: 'Donate furniture, mattresses, blankets, kitchen utensils & home appliances.', serviceCount: 4, kind: 'SOCIAL' },
-  { id: 'soc-6', name: 'Digital Donation', slug: 'digital-donation', description: 'Donate old mobile phones, laptops, computers, tablets & printers for student digital literacy.', serviceCount: 5, kind: 'SOCIAL' },
-  { id: 'soc-7', name: 'Health & Medical', slug: 'health-medical', description: 'Blood donation registration, medicine donation, medical equipment & wheelchair drives.', serviceCount: 4, kind: 'SOCIAL' },
-  { id: 'soc-8', name: 'Environment', slug: 'environment-drives', description: 'Tree plantation drives, beach cleaning, plastic recycling & e-waste collection.', serviceCount: 4, kind: 'SOCIAL' },
-  { id: 'soc-9', name: 'Volunteer Services', slug: 'volunteer-services', description: 'Become a volunteer, NGO support, teaching volunteer & event volunteering.', serviceCount: 4, kind: 'SOCIAL' },
-  { id: 'soc-10', name: 'Community Support', slug: 'community-support', description: 'Support orphanages, old-age homes, homeless shelters & disaster relief donations.', serviceCount: 4, kind: 'SOCIAL' },
+  { id: 'soc-1', name: 'Food Donation', slug: 'food-donation', description: 'Donate Extra Food, Wedding/Event Food Donation, Restaurant Food Donation, Grocery Donation, Community Meal Support.', serviceCount: 5, kind: 'SOCIAL' },
+  { id: 'soc-2', name: 'Clothing Donation', slug: 'clothing-donation', description: 'Old Clothes Donation, New Clothes Donation, Winter Clothes Donation, School Uniform Donation.', serviceCount: 4, kind: 'SOCIAL' },
+  { id: 'soc-3', name: 'Education Support', slug: 'education-support', description: 'Donate Books, Donate School Bags, Donate Stationery, Sponsor Student Education.', serviceCount: 4, kind: 'SOCIAL' },
+  { id: 'soc-4', name: 'Children Support', slug: 'children-support', description: 'Donate Toys, Baby Care Items, School Supplies, Nutrition Kits.', serviceCount: 4, kind: 'SOCIAL' },
+  { id: 'soc-5', name: 'Household Essentials', slug: 'household-essentials', description: 'Furniture Donation, Mattress & Blanket Donation, Kitchen Utensils, Home Appliances.', serviceCount: 4, kind: 'SOCIAL' },
+  { id: 'soc-6', name: 'Digital Donation', slug: 'digital-donation', description: 'Old Mobile Phones, Laptops, Computers, Tablets, Printers.', serviceCount: 5, kind: 'SOCIAL' },
+  { id: 'soc-7', name: 'Health & Medical', slug: 'health-medical', description: 'Blood Donation Registration, Medicine Donation, Medical Equipment Donation, Wheelchair Donation.', serviceCount: 4, kind: 'SOCIAL' },
+  { id: 'soc-8', name: 'Environment', slug: 'environment-drives', description: 'Tree Plantation, Beach Cleaning, Plastic Recycling, E-Waste Collection.', serviceCount: 4, kind: 'SOCIAL' },
+  { id: 'soc-9', name: 'Volunteer Services', slug: 'volunteer-services', description: 'Become a Volunteer, NGO Support, Teaching Volunteer, Event Volunteer.', serviceCount: 4, kind: 'SOCIAL' },
+  { id: 'soc-10', name: 'Community Support', slug: 'community-support', description: 'Support Orphanages, Support Old-Age Homes, Support Shelters, Disaster Relief Donations.', serviceCount: 4, kind: 'SOCIAL' },
 ];
 
 export const MOCK_SOCIAL_SERVICES: Service[] = [
-  {
-    id: 'soc-serv-1',
-    slug: 'food-donation-relief-drive',
-    name: 'Annadhanam Extra Food & Grocery Relief Drive',
-    category: { name: 'Food Donation', slug: 'food-donation', kind: 'SOCIAL' },
-    shortDescription: 'Collecting surplus food from weddings/restaurants and distributing fresh hot meals to hospital attendants & shelters.',
-    description: 'Donate surplus event food, sponsor monthly grocery kits, or volunteer in our daily hot meal distribution kitchens. Verified 100% free community initiative.',
-    priceLabel: 'ON_INSPECTION',
-    coverageArea: 'Chennai Urban & District Shelters',
-    image: 'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=800&q=80',
-    featured: true
-  },
-  {
-    id: 'soc-serv-2',
-    slug: 'clothes-blanket-donation-drive',
-    name: 'Old & New Clothes & Winter Blanket Drive',
-    category: { name: 'Clothing Donation', slug: 'clothing-donation', kind: 'SOCIAL' },
-    shortDescription: 'Donating gently used clothes, new garments, school uniforms & warm winter blankets to needy rural families.',
-    description: 'Doorstep pickup of wearable garments. Clothes are sorted, washed, ironed and handed over to destitute families and night shelters.',
-    priceLabel: 'ON_INSPECTION',
-    coverageArea: 'Doorstep Pickup Across City',
-    image: 'https://images.unsplash.com/photo-1532629345422-7515f3d16bb0?auto=format&fit=crop&w=800&q=80',
-    featured: true
-  },
-  {
-    id: 'soc-serv-3',
-    slug: 'education-support-book-sponsorship',
-    name: 'Donate Books, School Bags & Sponsor Student Education',
-    category: { name: 'Education Support', slug: 'education-support', kind: 'SOCIAL' },
-    shortDescription: 'Sponsoring school fees, donating notebooks, bags, stationery & supporting high school education for orphan kids.',
-    description: 'Empower bright young minds by contributing school supplies or directly sponsoring a child annual tuition fee.',
-    priceLabel: 'ON_INSPECTION',
-    coverageArea: 'Government & Trust Schools',
-    image: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=80',
-    featured: true
-  },
-  {
-    id: 'soc-serv-4',
-    slug: 'digital-device-laptop-phone-donation',
-    name: 'Refurbished Phone, Laptop & Computer Donation',
-    category: { name: 'Digital Donation', slug: 'digital-donation', kind: 'SOCIAL' },
-    shortDescription: 'Donate working laptops, smartphones, computers & printers for government school digital literacy labs.',
-    description: 'We refurbish old gadgets, install educational software, and gift them to underprivileged students for online learning.',
-    priceLabel: 'ON_INSPECTION',
-    coverageArea: 'Free Pickup & Refurbish Unit',
-    image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800&q=80',
-    featured: true
-  },
-  {
-    id: 'soc-serv-5',
-    slug: 'tree-plantation-environment-drive',
-    name: 'Urban Tree Plantation & Beach Cleaning Campaign',
-    category: { name: 'Environment', slug: 'environment-drives', kind: 'SOCIAL' },
-    shortDescription: 'Sapling planting drives, beach litter cleanup, plastic recycling awareness & e-waste collection.',
-    description: 'Join hands to protect mother earth by participating in weekend greening drives and coastal cleanup events.',
-    priceLabel: 'ON_INSPECTION',
-    coverageArea: 'Public Parks & Coastal Areas',
-    image: 'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=800&q=80',
-    featured: true
-  },
-  {
-    id: 'soc-serv-6',
-    slug: 'blood-donation-medical-wheelchair-support',
-    name: 'Blood Donation Drive & Wheelchair Equipment Support',
-    category: { name: 'Health & Medical', slug: 'health-medical', kind: 'SOCIAL' },
-    shortDescription: 'Emergency blood donor registry, medicine distribution, wheelchair & medical equipment support.',
-    description: 'Connecting voluntary blood donors with critical hospital requests and loaning mobility equipment to elderly patients.',
-    priceLabel: 'ON_INSPECTION',
-    coverageArea: '24/7 Voluntary Blood Network',
-    image: 'https://images.unsplash.com/photo-1615461066841-6116e61058f4?auto=format&fit=crop&w=800&q=80',
-    featured: false
-  }
+  // --- 1. Food Donation ---
+  { id: 'soc-1', slug: 'donate-extra-food', name: 'Donate Extra Food', category: { name: 'Food Donation', slug: 'food-donation', kind: 'SOCIAL' }, shortDescription: 'Share surplus excess food with hungry homeless people.', description: 'Quick pickup of extra cooked food to feed underprivileged families.', priceLabel: 'ON_INSPECTION', coverageArea: 'Doorstep Pickup & Distribution', image: 'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=800&q=80', featured: true },
+  { id: 'soc-2', slug: 'wedding-event-food-donation', name: 'Wedding/Event Food Donation', category: { name: 'Food Donation', slug: 'food-donation', kind: 'SOCIAL' }, shortDescription: 'Donate excess banquet food from marriage halls & parties.', description: 'Hygienic collection of extra food from wedding receptions to feed local shelters.', priceLabel: 'ON_INSPECTION', coverageArea: 'Immediate Night Collection', image: 'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=800&q=80', featured: true },
+  { id: 'soc-3', slug: 'restaurant-food-donation', name: 'Restaurant Food Donation', category: { name: 'Food Donation', slug: 'food-donation', kind: 'SOCIAL' }, shortDescription: 'Daily restaurant & bakery fresh surplus meal drive.', description: 'Connecting hotel & restaurant kitchens with nearby orphanages.', priceLabel: 'ON_INSPECTION', coverageArea: 'Daily Restaurant Pickup', image: 'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=800&q=80', featured: false },
+  { id: 'soc-4', slug: 'grocery-donation', name: 'Grocery Donation', category: { name: 'Food Donation', slug: 'food-donation', kind: 'SOCIAL' }, shortDescription: 'Donate rice, pulses, oil & ration kits for poor families.', description: 'Distributing monthly essential dry ration kits to rural widowed & disabled heads of families.', priceLabel: 'ON_INSPECTION', coverageArea: 'Ration Kit Distribution', image: 'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=800&q=80', featured: false },
+  { id: 'soc-5', slug: 'community-meal-support', name: 'Community Meal Support', category: { name: 'Food Donation', slug: 'food-donation', kind: 'SOCIAL' }, shortDescription: 'Sponsor daily free Annadhanam meals for hospital attendants.', description: 'Providing hot nutritious noon meals to patient attenders at government general hospitals.', priceLabel: 'ON_INSPECTION', coverageArea: 'Government Hospital Kitchens', image: 'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=800&q=80', featured: true },
+
+  // --- 2. Clothing Donation ---
+  { id: 'soc-6', slug: 'old-clothes-donation', name: 'Old Clothes Donation', category: { name: 'Clothing Donation', slug: 'clothing-donation', kind: 'SOCIAL' }, shortDescription: 'Donate gently used shirts, pants, sarees & kidswear.', description: 'Doorstep pickup of wearable clothes. Sorted, cleaned and gifted to destitute villagers.', priceLabel: 'ON_INSPECTION', coverageArea: 'Doorstep Pickup Drive', image: 'https://images.unsplash.com/photo-1532629345422-7515f3d16bb0?auto=format&fit=crop&w=800&q=80', featured: true },
+  { id: 'soc-7', slug: 'new-clothes-donation', name: 'New Clothes Donation', category: { name: 'Clothing Donation', slug: 'clothing-donation', kind: 'SOCIAL' }, shortDescription: 'Gift new festival dresses to orphanage children.', description: 'Sponsoring new Diwali & festival attire for children in orphanages.', priceLabel: 'ON_INSPECTION', coverageArea: 'Orphanage Festive Gifting', image: 'https://images.unsplash.com/photo-1532629345422-7515f3d16bb0?auto=format&fit=crop&w=800&q=80', featured: false },
+  { id: 'soc-8', slug: 'winter-clothes-donation', name: 'Winter Clothes Donation', category: { name: 'Clothing Donation', slug: 'clothing-donation', kind: 'SOCIAL' }, shortDescription: 'Donate warm sweaters, jackets & blankets.', description: 'Distributing warm winter wear to homeless pavement dwellers during cold weather.', priceLabel: 'ON_INSPECTION', coverageArea: 'Night Winter Relief Drive', image: 'https://images.unsplash.com/photo-1532629345422-7515f3d16bb0?auto=format&fit=crop&w=800&q=80', featured: false },
+  { id: 'soc-9', slug: 'school-uniform-donation', name: 'School Uniform Donation', category: { name: 'Clothing Donation', slug: 'clothing-donation', kind: 'SOCIAL' }, shortDescription: 'Sponsor school uniforms & shoes for poor students.', description: 'Providing 2 sets of tailored school uniforms to low-income village children.', priceLabel: 'ON_INSPECTION', coverageArea: 'Government Rural Schools', image: 'https://images.unsplash.com/photo-1532629345422-7515f3d16bb0?auto=format&fit=crop&w=800&q=80', featured: false },
+
+  // --- 3. Education Support ---
+  { id: 'soc-10', slug: 'donate-books', name: 'Donate Books', category: { name: 'Education Support', slug: 'education-support', kind: 'SOCIAL' }, shortDescription: 'Donate story books, school textbooks & competitive exam guides.', description: 'Setting up mini libraries in rural schools with donated books.', priceLabel: 'ON_INSPECTION', coverageArea: 'Rural School Libraries', image: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=80', featured: true },
+  { id: 'soc-11', slug: 'donate-school-bags', name: 'Donate School Bags', category: { name: 'Education Support', slug: 'education-support', kind: 'SOCIAL' }, shortDescription: 'Donate durable school backpacks for needy kids.', description: 'Gifting water-resistant sturdy school bags to children at the start of academic terms.', priceLabel: 'ON_INSPECTION', coverageArea: 'Student Bag Drive', image: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=80', featured: false },
+  { id: 'soc-12', slug: 'donate-stationery', name: 'Donate Stationery', category: { name: 'Education Support', slug: 'education-support', kind: 'SOCIAL' }, shortDescription: 'Donate notebooks, geometry boxes, pens & pencils.', description: 'Distributing annual stationery kits to government school students.', priceLabel: 'ON_INSPECTION', coverageArea: 'Stationery Kits Distribution', image: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=80', featured: false },
+  { id: 'soc-13', slug: 'sponsor-student-education', name: 'Sponsor Student Education', category: { name: 'Education Support', slug: 'education-support', kind: 'SOCIAL' }, shortDescription: 'Sponsor school & college tuition fees for meritorious poor kids.', description: '100% direct fee sponsorship for bright orphans and single-parent children.', priceLabel: 'ON_INSPECTION', coverageArea: 'Direct Educational Sponsorship', image: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=80', featured: true },
+
+  // --- 4. Children Support ---
+  { id: 'soc-14', slug: 'donate-toys', name: 'Donate Toys', category: { name: 'Children Support', slug: 'children-support', kind: 'SOCIAL' }, shortDescription: 'Donate soft toys, board games & outdoor sports items.', description: 'Bringing smiles to orphan kids by gifting working toys and sports gear.', priceLabel: 'ON_INSPECTION', coverageArea: 'Orphanage Play Units', image: 'https://images.unsplash.com/photo-1485546246426-74dc88dec4d9?auto=format&fit=crop&w=800&q=80', featured: false },
+  { id: 'soc-15', slug: 'baby-care-items', name: 'Baby Care Items', category: { name: 'Children Support', slug: 'children-support', kind: 'SOCIAL' }, shortDescription: 'Donate baby food, diapers, clothing & cradles.', description: 'Essential infant care kits for destitute single mothers and infant shelters.', priceLabel: 'ON_INSPECTION', coverageArea: 'Infant Shelter Kits', image: 'https://images.unsplash.com/photo-1485546246426-74dc88dec4d9?auto=format&fit=crop&w=800&q=80', featured: false },
+  { id: 'soc-16', slug: 'school-supplies-children', name: 'School Supplies', category: { name: 'Children Support', slug: 'children-support', kind: 'SOCIAL' }, shortDescription: 'Provide drawing kits, lunch boxes & water bottles.', description: 'Fun learning kits to encourage underprivileged children to attend school.', priceLabel: 'ON_INSPECTION', coverageArea: 'Child Care Centers', image: 'https://images.unsplash.com/photo-1485546246426-74dc88dec4d9?auto=format&fit=crop&w=800&q=80', featured: false },
+  { id: 'soc-17', slug: 'nutrition-kits', name: 'Nutrition Kits', category: { name: 'Children Support', slug: 'children-support', kind: 'SOCIAL' }, shortDescription: 'Health drink mixes, dates & protein biscuits for kids.', description: 'Combating childhood malnutrition with monthly health supplement kits.', priceLabel: 'ON_INSPECTION', coverageArea: 'Rural Child Health Drive', image: 'https://images.unsplash.com/photo-1485546246426-74dc88dec4d9?auto=format&fit=crop&w=800&q=80', featured: true },
+
+  // --- 5. Household Essentials ---
+  { id: 'soc-18', slug: 'furniture-donation', name: 'Furniture Donation', category: { name: 'Household Essentials', slug: 'household-essentials', kind: 'SOCIAL' }, shortDescription: 'Donate old cots, study tables, chairs & almirahs.', description: 'Furnishing old-age homes and orphanages with donated usable furniture.', priceLabel: 'ON_INSPECTION', coverageArea: 'Furniture Pickup & Setup', image: 'https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=800&q=80', featured: false },
+  { id: 'soc-19', slug: 'mattress-blanket-donation', name: 'Mattress & Blanket Donation', category: { name: 'Household Essentials', slug: 'household-essentials', kind: 'SOCIAL' }, shortDescription: 'Donate bedsheets, pillows, mattresses & warm blankets.', description: 'Comfortable sleeping bedding support for senior citizen shelters.', priceLabel: 'ON_INSPECTION', coverageArea: 'Shelter Bedding Support', image: 'https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=800&q=80', featured: false },
+  { id: 'soc-20', slug: 'kitchen-utensils', name: 'Kitchen Utensils', category: { name: 'Household Essentials', slug: 'household-essentials', kind: 'SOCIAL' }, shortDescription: 'Donate stainless steel plates, cookers & cooking pots.', description: 'Equipping community kitchens and flood affected families with cooking pots.', priceLabel: 'ON_INSPECTION', coverageArea: 'Utensil Distribution', image: 'https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=800&q=80', featured: false },
+  { id: 'soc-21', slug: 'home-appliances-donation', name: 'Home Appliances', category: { name: 'Household Essentials', slug: 'household-essentials', kind: 'SOCIAL' }, shortDescription: 'Donate working fans, water purifiers & washing machines.', description: 'Installing donated home appliances at community welfare centers.', priceLabel: 'ON_INSPECTION', coverageArea: 'Appliance Donation Drive', image: 'https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=800&q=80', featured: true },
+
+  // --- 6. Digital Donation ---
+  { id: 'soc-22', slug: 'old-mobile-phones', name: 'Old Mobile Phones', category: { name: 'Digital Donation', slug: 'digital-donation', kind: 'SOCIAL' }, shortDescription: 'Donate working smartphones for poor students.', description: 'Refurbishing old Android phones for poor kids to access online classes.', priceLabel: 'ON_INSPECTION', coverageArea: 'Smart Phone Donation', image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800&q=80', featured: true },
+  { id: 'soc-23', slug: 'laptops', name: 'Laptops', category: { name: 'Digital Donation', slug: 'digital-donation', kind: 'SOCIAL' }, shortDescription: 'Donate old laptops for student coding & computer education.', description: 'Gifting tested laptops to college students for technical skill building.', priceLabel: 'ON_INSPECTION', coverageArea: 'Laptop Refurbish Center', image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800&q=80', featured: true },
+  { id: 'soc-24', slug: 'computers', name: 'Computers', category: { name: 'Digital Donation', slug: 'digital-donation', kind: 'SOCIAL' }, shortDescription: 'Donate desktop PCs & monitors for village computer labs.', description: 'Setting up full desktop computer labs in government rural schools.', priceLabel: 'ON_INSPECTION', coverageArea: 'School Computer Lab Drive', image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800&q=80', featured: false },
+  { id: 'soc-25', slug: 'tablets', name: 'Tablets', category: { name: 'Digital Donation', slug: 'digital-donation', kind: 'SOCIAL' }, shortDescription: 'Donate Android/iPad tablets for digital learning.', description: 'Empowering children with e-learning tablets pre-loaded with digital books.', priceLabel: 'ON_INSPECTION', coverageArea: 'Tablet Learning Program', image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800&q=80', featured: false },
+  { id: 'soc-26', slug: 'printers', name: 'Printers', category: { name: 'Digital Donation', slug: 'digital-donation', kind: 'SOCIAL' }, shortDescription: 'Donate laserjet printers for NGO offices & schools.', description: 'Providing functional printers for printing study worksheets and certificates.', priceLabel: 'ON_INSPECTION', coverageArea: 'Printer Donation Drive', image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800&q=80', featured: false },
+
+  // --- 7. Health & Medical ---
+  { id: 'soc-27', slug: 'blood-donation-registration', name: 'Blood Donation Registration', category: { name: 'Health & Medical', slug: 'health-medical', kind: 'SOCIAL' }, shortDescription: 'Register as a 24/7 voluntary blood donor.', description: 'Emergency blood donor registry connecting voluntary donors with urgent hospital requests.', priceLabel: 'ON_INSPECTION', coverageArea: '24/7 Blood Donor Registry', image: 'https://images.unsplash.com/photo-1615461066841-6116e61058f4?auto=format&fit=crop&w=800&q=80', featured: true },
+  { id: 'soc-28', slug: 'medicine-donation', name: 'Medicine Donation', category: { name: 'Health & Medical', slug: 'health-medical', kind: 'SOCIAL' }, shortDescription: 'Donate unexpired essential medicines.', description: 'Collecting unused sealed medicines and distributing them under pharmacist guidance.', priceLabel: 'ON_INSPECTION', coverageArea: 'Free Medical Pharmacy', image: 'https://images.unsplash.com/photo-1615461066841-6116e61058f4?auto=format&fit=crop&w=800&q=80', featured: false },
+  { id: 'soc-29', slug: 'medical-equipment-donation', name: 'Medical Equipment Donation', category: { name: 'Health & Medical', slug: 'health-medical', kind: 'SOCIAL' }, shortDescription: 'Donate oxygen concentrators, walkers & hospital beds.', description: 'Loaning free home medical equipment to needy bedridden patients.', priceLabel: 'ON_INSPECTION', coverageArea: 'Free Equipment Loan Bank', image: 'https://images.unsplash.com/photo-1615461066841-6116e61058f4?auto=format&fit=crop&w=800&q=80', featured: false },
+  { id: 'soc-30', slug: 'wheelchair-donation', name: 'Wheelchair Donation', category: { name: 'Health & Medical', slug: 'health-medical', kind: 'SOCIAL' }, shortDescription: 'Gift folding wheelchairs to disabled & elderly individuals.', description: 'Restoring mobility by gifting sturdy steel folding wheelchairs to polio & accident victims.', priceLabel: 'ON_INSPECTION', coverageArea: 'Wheelchair Gift Drive', image: 'https://images.unsplash.com/photo-1615461066841-6116e61058f4?auto=format&fit=crop&w=800&q=80', featured: true },
+
+  // --- 8. Environment ---
+  { id: 'soc-31', slug: 'tree-plantation', name: 'Tree Plantation', category: { name: 'Environment', slug: 'environment-drives', kind: 'SOCIAL' }, shortDescription: 'Plant native shade trees & sapling plantation drives.', description: 'Urban afforestation drive planting neem, banyan, and flowering saplings.', priceLabel: 'ON_INSPECTION', coverageArea: 'Public Parks & School Grounds', image: 'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=800&q=80', featured: true },
+  { id: 'soc-32', slug: 'beach-cleaning', name: 'Beach Cleaning', category: { name: 'Environment', slug: 'environment-drives', kind: 'SOCIAL' }, shortDescription: 'Weekend coastal beach waste & plastic cleanup.', description: 'Volunteer drive clearing plastic bottles and trash from coastal shorelines.', priceLabel: 'ON_INSPECTION', coverageArea: 'Coastal Shore Cleanup', image: 'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=800&q=80', featured: false },
+  { id: 'soc-33', slug: 'plastic-recycling', name: 'Plastic Recycling', category: { name: 'Environment', slug: 'environment-drives', kind: 'SOCIAL' }, shortDescription: 'Collection drive for recyclable waste plastic.', description: 'Redirecting single-use plastics from landfills to certified recycling shredders.', priceLabel: 'ON_INSPECTION', coverageArea: 'Plastic Waste Collection', image: 'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=800&q=80', featured: false },
+  { id: 'soc-34', slug: 'e-waste-collection', name: 'E-Waste Collection', category: { name: 'Environment', slug: 'environment-drives', kind: 'SOCIAL' }, shortDescription: 'Safe disposal & recycling of electronic scrap.', description: 'Collecting electronic junk, circuit boards, batteries, and old wiring for eco disposal.', priceLabel: 'ON_INSPECTION', coverageArea: 'Certified E-Waste Recycling', image: 'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=800&q=80', featured: false },
+
+  // --- 9. Volunteer Services ---
+  { id: 'soc-35', slug: 'become-a-volunteer', name: 'Become a Volunteer', category: { name: 'Volunteer Services', slug: 'volunteer-services', kind: 'SOCIAL' }, shortDescription: 'Join our active social impact volunteer squad.', description: 'Register as a volunteer to help in weekend meal drives, beach cleaning, and education.', priceLabel: 'ON_INSPECTION', coverageArea: 'Active Volunteer Network', image: 'https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=800&q=80', featured: true },
+  { id: 'soc-36', slug: 'ngo-support', name: 'NGO Support', category: { name: 'Volunteer Services', slug: 'volunteer-services', kind: 'SOCIAL' }, shortDescription: 'Partner your registered NGO with BS Smart Solution platform.', description: 'Connecting local registered trusts and NGOs with donors and logistics.', priceLabel: 'ON_INSPECTION', coverageArea: 'Partner NGO Network', image: 'https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=800&q=80', featured: false },
+  { id: 'soc-37', slug: 'teaching-volunteer', name: 'Teaching Volunteer', category: { name: 'Volunteer Services', slug: 'volunteer-services', kind: 'SOCIAL' }, shortDescription: 'Teach English, Science & Coding on weekend classes.', description: 'Volunteer weekend teachers educating children at local government schools and evening centers.', priceLabel: 'ON_INSPECTION', coverageArea: 'Weekend Teaching Volunteers', image: 'https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=800&q=80', featured: false },
+  { id: 'soc-38', slug: 'event-volunteer', name: 'Event Volunteer', category: { name: 'Volunteer Services', slug: 'volunteer-services', kind: 'SOCIAL' }, shortDescription: 'Assist in blood donation camps & relief food distribution.', description: 'Field volunteer team managing crowd logistics and distribution during charity events.', priceLabel: 'ON_INSPECTION', coverageArea: 'Field Event Volunteers', image: 'https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=800&q=80', featured: false },
+
+  // --- 10. Community Support ---
+  { id: 'soc-39', slug: 'support-orphanages', name: 'Support Orphanages', category: { name: 'Community Support', slug: 'community-support', kind: 'SOCIAL' }, shortDescription: 'Monthly grocery, ration & education support for children homes.', description: 'Adopting monthly food, milk, and educational needs of registered orphanages.', priceLabel: 'ON_INSPECTION', coverageArea: 'Registered Children Homes', image: 'https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?auto=format&fit=crop&w=800&q=80', featured: true },
+  { id: 'soc-40', slug: 'support-old-age-homes', name: 'Support Old-Age Homes', category: { name: 'Community Support', slug: 'community-support', kind: 'SOCIAL' }, shortDescription: 'Sponsor medicines, adult diapers & meals for senior citizens.', description: 'Care and healthcare support for senior citizens living in old-age homes.', priceLabel: 'ON_INSPECTION', coverageArea: 'Senior Citizen Homes', image: 'https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?auto=format&fit=crop&w=800&q=80', featured: true },
+  { id: 'soc-41', slug: 'support-shelters', name: 'Support Shelters', category: { name: 'Community Support', slug: 'community-support', kind: 'SOCIAL' }, shortDescription: 'Night shelter maintenance & blanket distribution for homeless.', description: 'Improving sanitary conditions and providing clean bedding at urban homeless shelters.', priceLabel: 'ON_INSPECTION', coverageArea: 'Urban Homeless Shelters', image: 'https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?auto=format&fit=crop&w=800&q=80', featured: false },
+  { id: 'soc-42', slug: 'disaster-relief-donations', name: 'Disaster Relief Donations', category: { name: 'Community Support', slug: 'community-support', kind: 'SOCIAL' }, shortDescription: 'Emergency flood, cyclone & heavy rainfall relief ration kits.', description: 'Immediate emergency rescue ration kits, drinking water, and tarpaulin sheets distribution during natural disasters.', priceLabel: 'ON_INSPECTION', coverageArea: 'Disaster Affected Zones', image: 'https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?auto=format&fit=crop&w=800&q=80', featured: true }
 ];
 
 export const MOCK_LEADS: LeadRecord[] = [
@@ -809,8 +1078,8 @@ export const MOCK_LEADS: LeadRecord[] = [
     phone: '9840123456',
     email: 'rajesh@apexindustries.in',
     enquiryType: 'PRODUCT',
-    productId: 'prod-101',
-    productName: 'Heavy Duty Corrugated Shipping Boxes',
+    productId: 'p-1',
+    productName: 'Corrugated Boxes',
     quantity: '2000 Boxes',
     message: 'Need urgent quote for monthly supply of corrugated boxes.',
     status: 'NEW',
@@ -822,8 +1091,8 @@ export const MOCK_LEADS: LeadRecord[] = [
     phone: '9790987654',
     email: 'anitha@techspaces.com',
     enquiryType: 'SERVICE',
-    serviceId: 'serv-101',
-    serviceName: 'Turnkey Building Construction & Interior Design',
+    serviceId: 's-1',
+    serviceName: 'Building Construction',
     quantity: '15000 Sq.Ft.',
     message: 'Looking for turnkey interior fitout for our new office branch.',
     status: 'IN_PROGRESS',
