@@ -86,24 +86,14 @@ export const HeroSection: React.FC = () => {
 
           </div>
 
-          {/* Right Hero Visual Collage */}
+          {/* Right Hero Visual Illustration */}
           <div className="lg:col-span-5 relative flex justify-center lg:justify-end">
-            <div className="relative w-full max-w-lg aspect-square">
-              
-              {/* Outer Brand Arch Circle matching Logo */}
-              <div className="absolute inset-0 rounded-full border-[14px] border-brand-secondary/90 transform -rotate-12 scale-95 shadow-orange-glow pointer-events-none z-0" />
-              <div className="absolute inset-2 rounded-full border-[10px] border-brand-primary transform rotate-6 scale-90 opacity-90 pointer-events-none z-0" />
-
-              {/* Main Circular Mask Frame */}
-              <div className="relative z-10 w-full h-full rounded-full overflow-hidden border-4 border-white shadow-2xl bg-slate-900">
-                <img
-                  src="https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?auto=format&fit=crop&w=1000&q=80"
-                  alt="BS Smart Solution Industrial & Business Collage"
-                  className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/80 via-transparent to-transparent" />
-              </div>
-
+            <div className="relative w-full max-w-lg">
+              <img
+                src="/hero-illustration.jpg"
+                alt="BS Smart Solution Industrial & Business Solutions Illustration"
+                className="w-full h-auto object-contain transform hover:scale-105 transition-transform duration-700 drop-shadow-xl"
+              />
             </div>
           </div>
 
