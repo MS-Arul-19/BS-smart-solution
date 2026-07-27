@@ -16,12 +16,6 @@ export const HeroSection: React.FC = () => {
           {/* Left Content Column */}
           <div className="lg:col-span-7 space-y-6 text-left">
             
-            {/* Tagline Badge */}
-            <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-brand-primary/5 border border-brand-primary/10 text-brand-primary text-xs sm:text-sm font-heading font-semibold">
-              <span className="w-2 h-2 rounded-full bg-brand-secondary animate-pulse" />
-              <span>Reliable. Professional. On Time.</span>
-            </div>
-
             {/* Main Headline */}
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold font-heading text-brand-primary tracking-tight leading-[1.12]">
               Your Trusted Partner <br className="hidden sm:inline" />
@@ -108,23 +102,6 @@ export const HeroSection: React.FC = () => {
                   className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/80 via-transparent to-transparent" />
-              </div>
-
-              {/* Floating Overlay Badge 1 */}
-              <div className="absolute -bottom-2 -left-4 z-20 bg-white/95 backdrop-blur-md p-4 rounded-2xl border border-brand-border shadow-hover flex items-center space-x-3">
-                <div className="w-10 h-10 rounded-xl bg-brand-secondary text-white flex items-center justify-center font-bold text-lg">
-                  ★
-                </div>
-                <div>
-                  <p className="text-sm font-extrabold font-heading text-brand-primary">500+ Clients</p>
-                  <p className="text-xs text-brand-muted">Trusted Across India</p>
-                </div>
-              </div>
-
-              {/* Floating Overlay Badge 2 */}
-              <div className="absolute top-6 -right-2 z-20 bg-white/95 backdrop-blur-md px-4 py-2.5 rounded-full border border-brand-border shadow-hover flex items-center space-x-2">
-                <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
-                <span className="text-xs font-bold font-heading text-brand-primary">Verified Bulk Supplier</span>
               </div>
 
             </div>
