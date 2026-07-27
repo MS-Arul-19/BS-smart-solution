@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, MapPin, Tag } from 'lucide-react';
+import { ArrowRight, MapPin } from 'lucide-react';
 import { Service } from '../../types';
 import { Badge } from '../ui/Badge';
 import { Button } from '../ui/Button';
@@ -51,12 +51,9 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
         )}
 
         <div className="flex items-center justify-between pt-1">
-          <div>
-            <p className="text-[10px] text-brand-muted font-medium uppercase tracking-wider">Pricing / Model</p>
-            <p className={`text-sm font-extrabold font-heading ${isSocial ? 'text-emerald-600' : 'text-brand-primary'}`}>
-              {isSocial ? 'Free Initiative' : (service.priceValue || 'Price on Inspection')}
-            </p>
-          </div>
+          <span className={`text-xs font-bold font-heading ${isSocial ? 'text-emerald-600' : 'text-brand-primary'}`}>
+            {isSocial ? 'Social Initiative' : 'Professional Service'}
+          </span>
 
           <Link to={`/services/${service.slug}`}>
             <Button

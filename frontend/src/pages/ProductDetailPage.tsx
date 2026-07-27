@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { ArrowLeft, MessageSquare, ShieldCheck, Package, Check, Share2 } from 'lucide-react';
+import { ArrowLeft, MessageSquare, ShieldCheck, Package, Share2 } from 'lucide-react';
 import { Product } from '../types';
 import { api } from '../api/client';
 import { Button } from '../components/ui/Button';
@@ -106,15 +106,15 @@ export const ProductDetailPage: React.FC = () => {
                   {product.name}
                 </h1>
 
-                {/* Price & MOQ Banner */}
+                {/* Supply Banner */}
                 <div className="p-4 rounded-xl bg-brand-light border border-brand-border flex items-center justify-between">
                   <div>
-                    <span className="text-xs text-brand-muted uppercase font-heading font-medium tracking-wider">Estimated Price Range</span>
-                    <p className="text-2xl font-extrabold font-heading text-brand-primary mt-0.5">{product.priceRange}</p>
+                    <span className="text-xs text-brand-muted uppercase font-heading font-medium tracking-wider">Supply Model</span>
+                    <p className="text-lg font-extrabold font-heading text-brand-primary mt-0.5">B2B & Bulk Distribution</p>
                   </div>
                   <div className="text-right border-l border-brand-border pl-4">
-                    <span className="text-xs text-brand-muted uppercase font-heading font-medium tracking-wider">Min. Order (MOQ)</span>
-                    <p className="text-lg font-bold font-heading text-brand-secondary mt-0.5">{product.moq}</p>
+                    <span className="text-xs text-brand-muted uppercase font-heading font-medium tracking-wider">Procurement</span>
+                    <p className="text-sm font-bold font-heading text-brand-secondary mt-0.5">Request Official Quote</p>
                   </div>
                 </div>
 
@@ -127,17 +127,19 @@ export const ProductDetailPage: React.FC = () => {
                 </div>
 
                 {/* Specifications Key/Value JSON Table */}
-                <div>
-                  <h3 className="text-sm font-bold font-heading text-brand-primary uppercase tracking-wide mb-3">Technical Specifications</h3>
-                  <div className="border border-brand-border rounded-xl overflow-hidden divide-y divide-brand-border text-xs">
-                    {Object.entries(product.specifications).map(([key, val], idx) => (
-                      <div key={idx} className="grid grid-cols-3 p-3 bg-white hover:bg-brand-light/50">
-                        <span className="font-semibold text-brand-primary col-span-1">{key}</span>
-                        <span className="text-brand-muted col-span-2">{val}</span>
-                      </div>
-                    ))}
+                {Object.keys(product.specifications || {}).length > 0 && (
+                  <div>
+                    <h3 className="text-sm font-bold font-heading text-brand-primary uppercase tracking-wide mb-3">Specifications & Features</h3>
+                    <div className="border border-brand-border rounded-xl overflow-hidden divide-y divide-brand-border text-xs">
+                      {Object.entries(product.specifications).map(([key, val], idx) => (
+                        <div key={idx} className="grid grid-cols-3 p-3 bg-white hover:bg-brand-light/50">
+                          <span className="font-semibold text-brand-primary col-span-1">{key}</span>
+                          <span className="text-brand-muted col-span-2">{val}</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
-                </div>
+                )}
               </div>
 
               {/* Action Buttons */}
@@ -154,7 +156,7 @@ export const ProductDetailPage: React.FC = () => {
                 </Link>
 
                 <p className="text-[11px] text-center text-brand-muted flex items-center justify-center gap-1">
-                  <ShieldCheck className="w-4 h-4 text-emerald-600" /> B2B Verified Wholesale Supply • Direct Factory Procurement
+                  <ShieldCheck className="w-4 h-4 text-emerald-600" /> B2B Verified Wholesale Supply • Direct Procurement
                 </p>
               </div>
 

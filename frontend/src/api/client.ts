@@ -4,7 +4,7 @@ import {
 } from '../types';
 import { 
   INITIAL_SETTINGS, PRODUCT_CATEGORIES, SERVICE_CATEGORIES, 
-  SOCIAL_CAUSES, MOCK_PRODUCTS, MOCK_SERVICES, MOCK_LEADS 
+  SOCIAL_CAUSES, MOCK_PRODUCTS, MOCK_SERVICES, MOCK_SOCIAL_SERVICES, MOCK_LEADS 
 } from './mockData';
 import { generateWhatsAppMessage, buildWhatsAppRedirectUrl } from '../utils/whatsapp';
 
@@ -235,7 +235,7 @@ export const api = {
     } catch {
       // Fallback
     }
-    let list = getStoredServices();
+    let list = params?.kind === 'social' ? MOCK_SOCIAL_SERVICES : getStoredServices();
     if (params?.kind) {
       const targetKind = params.kind === 'social' ? 'SOCIAL' : 'BUSINESS';
       list = list.filter(s => s.category.kind === targetKind);
@@ -262,8 +262,8 @@ export const api = {
     } catch {
       // Fallback
     }
-    const services = getStoredServices();
-    return services.find(s => s.slug === slug || s.id === slug) || null;
+    const allServices = [...getStoredServices(), ...MOCK_SOCIAL_SERVICES];
+    return allServices.find(s => s.slug === slug || s.id === slug) || null;
   },
 
   // 4. Submit Lead
@@ -307,7 +307,7 @@ export const api = {
     const leads = getStoredLeads();
     const settings = getStoredSettings();
     const products = getStoredProducts();
-    const services = getStoredServices();
+    const services = [...getStoredServices(), ...MOCK_SOCIAL_SERVICES];
 
     let targetTitle = '';
     if (payload.productId) {

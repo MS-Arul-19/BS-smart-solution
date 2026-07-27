@@ -106,19 +106,19 @@ export const ServiceDetailPage: React.FC = () => {
                   {service.name}
                 </h1>
 
-                {/* Price / Social Initiative Banner */}
+                {/* Service Status / Coverage Banner */}
                 <div className="p-4 rounded-xl bg-brand-light border border-brand-border flex items-center justify-between">
                   <div>
                     <span className="text-xs text-brand-muted uppercase font-heading font-medium tracking-wider">
-                      {isSocial ? 'Initiative Type' : 'Pricing Structure'}
+                      Initiative Type
                     </span>
-                    <p className={`text-xl font-extrabold font-heading ${isSocial ? 'text-emerald-600' : 'text-brand-primary'} mt-0.5`}>
-                      {isSocial ? 'Free Community Initiative' : (service.priceValue || 'Price on Inspection')}
+                    <p className={`text-lg font-extrabold font-heading ${isSocial ? 'text-emerald-600' : 'text-brand-primary'} mt-0.5`}>
+                      {isSocial ? 'Community Service & Contribution' : 'Professional On-Demand Service'}
                     </p>
                   </div>
                   {service.coverageArea && (
                     <div className="text-right border-l border-brand-border pl-4">
-                      <span className="text-xs text-brand-muted uppercase font-heading font-medium tracking-wider">Coverage Area</span>
+                      <span className="text-xs text-brand-muted uppercase font-heading font-medium tracking-wider">Service Coverage</span>
                       <p className="text-xs font-semibold font-heading text-brand-text mt-0.5 flex items-center gap-1">
                         <MapPin className="w-3.5 h-3.5 text-brand-secondary" /> {service.coverageArea}
                       </p>
@@ -134,7 +134,7 @@ export const ServiceDetailPage: React.FC = () => {
                 </div>
               </div>
 
-              {/* Action Buttons with PDF Social Condition Logic */}
+              {/* Action Buttons */}
               <div className="pt-6 border-t border-brand-border space-y-3">
                 <Link to={`/enquiry?type=SERVICE&serviceId=${service.id}&name=${encodeURIComponent(service.name)}`}>
                   {isSocial ? (
@@ -144,7 +144,7 @@ export const ServiceDetailPage: React.FC = () => {
                       className="w-full justify-center text-base font-bold shadow-lg bg-emerald-600 hover:bg-emerald-700"
                       icon={<Heart className="w-5 h-5 text-white" />}
                     >
-                      Join / Donate on WhatsApp
+                      Join / Support on WhatsApp
                     </Button>
                   ) : (
                     <Button
@@ -160,7 +160,7 @@ export const ServiceDetailPage: React.FC = () => {
 
                 <p className="text-[11px] text-center text-brand-muted flex items-center justify-center gap-1">
                   <ShieldCheck className="w-4 h-4 text-emerald-600" />
-                  {isSocial ? '100% Community Supported & Verified Cause' : 'Professional SLA Guarantee & Corporate Pricing'}
+                  {isSocial ? '100% Verified Community Drive' : 'Dedicated Professional Support & SLA Assurance'}
                 </p>
               </div>
 

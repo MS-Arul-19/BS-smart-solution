@@ -37,11 +37,11 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         </p>
       </div>
 
-      {/* Footer Specs & Price */}
+      {/* Footer Details & Action */}
       <div className="pt-4 border-t border-brand-border/60 space-y-3">
         <div className="flex items-center justify-between text-xs">
           <span className="text-brand-muted flex items-center gap-1">
-            <Package className="w-3.5 h-3.5 text-brand-primary" /> MOQ: <strong className="text-brand-text font-semibold">{product.moq}</strong>
+            <Package className="w-3.5 h-3.5 text-brand-primary" /> Supply: <strong className="text-brand-text font-semibold">Bulk Available</strong>
           </span>
           <span className="text-brand-muted flex items-center gap-1">
             <Shield className="w-3.5 h-3.5 text-emerald-600" /> B2B Verified
@@ -49,10 +49,9 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         </div>
 
         <div className="flex items-center justify-between pt-1">
-          <div>
-            <p className="text-[10px] text-brand-muted font-medium uppercase tracking-wider">Price Range</p>
-            <p className="text-sm font-extrabold font-heading text-brand-primary">{product.priceRange}</p>
-          </div>
+          <span className="text-xs font-bold font-heading text-brand-primary">
+            Request Quote
+          </span>
 
           <Link to={`/products/${product.slug}`}>
             <Button variant="secondary" size="sm" icon={<ArrowRight className="w-3.5 h-3.5" />}>
