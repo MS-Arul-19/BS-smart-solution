@@ -1,6 +1,6 @@
 import { 
   Category, Product, Service, LeadPayload, LeadResponse, 
-  LeadRecord, PublicSettings, AdminStats 
+  LeadRecord, PublicSettings, AdminStats, ServiceKind, PriceType 
 } from '../types';
 import { 
   INITIAL_SETTINGS, PRODUCT_CATEGORIES, SERVICE_CATEGORIES, 
@@ -10,12 +10,17 @@ import { generateWhatsAppMessage, buildWhatsAppRedirectUrl } from '../utils/what
 
 const API_BASE = '/api/v1';
 
-// LocalStorage Persistence Keys
+// LocalStorage Persistence Keys (Dev / Fallback Mode)
 const LS_LEADS_KEY = 'bs_leads_store';
 const LS_PRODUCTS_KEY = 'bs_products_store';
 const LS_SERVICES_KEY = 'bs_services_store';
 const LS_SETTINGS_KEY = 'bs_settings_store';
 const LS_AUTH_KEY = 'bs_admin_jwt';
+
+function getAuthHeaders(): Record<string, string> {
+  const token = localStorage.getItem(LS_AUTH_KEY);
+  return token ? { 'Authorization': `Bearer ${token}` } : {};
+}
 
 function getStoredLeads(): LeadRecord[] {
   const saved = localStorage.getItem(LS_LEADS_KEY);
@@ -53,6 +58,77 @@ function getStoredSettings(): PublicSettings {
   return JSON.parse(saved);
 }
 
+// Data Normalization Utilities for Backend API Responses
+function normalizeProduct(p: any): Product {
+  return {
+    id: String(p.id),
+    slug: p.slug,
+    name: p.name,
+    category: p.category?.name || p.categoryName || '',
+    categorySlug: p.category?.slug || p.categorySlug || '',
+    shortDescription: p.shortDescription || p.description?.substring(0, 100) || '',
+    description: p.description || '',
+    specifications: typeof p.specifications === 'object' && p.specifications ? p.specifications : {},
+    moq: p.minOrderQty || p.moq || 'Contact for MOQ',
+    priceRange: p.priceRange || 'On Request',
+    unit: p.unit || 'piece',
+    image: p.image || null,
+    gallery: p.gallery ? p.gallery.map((g: any) => typeof g === 'string' ? g : g.image) : [],
+    featured: p.isFeatured ?? p.featured ?? false,
+  };
+}
+
+function normalizeService(s: any): Service {
+  return {
+    id: String(s.id),
+    slug: s.slug,
+    name: s.name,
+    category: {
+      name: s.category?.name || 'General',
+      slug: s.category?.slug || 'general',
+      kind: (s.category?.kind as ServiceKind) || 'BUSINESS',
+    },
+    shortDescription: s.shortDescription || s.description?.substring(0, 100) || '',
+    description: s.description || '',
+    priceLabel: (s.priceType || s.priceLabel || 'ON_INSPECTION') as PriceType,
+    priceValue: s.priceValue || '',
+    coverageArea: s.coverageArea || 'Pan India',
+    image: s.image || null,
+    gallery: s.gallery ? s.gallery.map((g: any) => typeof g === 'string' ? g : g.image) : [],
+    featured: s.isFeatured ?? s.featured ?? false,
+  };
+}
+
+function normalizeCategory(c: any): Category {
+  return {
+    id: String(c.id),
+    name: c.name,
+    slug: c.slug,
+    description: c.description || '',
+    productCount: c._count?.products || c.productCount,
+    serviceCount: c._count?.services || c.serviceCount,
+    kind: c.kind,
+  };
+}
+
+function normalizeLead(l: any): LeadRecord {
+  return {
+    id: String(l.id),
+    name: l.name,
+    phone: l.phone,
+    email: l.email || '',
+    message: l.message || '',
+    enquiryType: l.enquiryType || 'GENERAL',
+    productId: l.productId ? String(l.productId) : undefined,
+    serviceId: l.serviceId ? String(l.serviceId) : undefined,
+    productName: l.product?.name || l.productName,
+    serviceName: l.service?.name || l.serviceName,
+    quantity: l.quantity,
+    createdAt: l.createdAt,
+    status: l.status || 'NEW',
+  };
+}
+
 export const api = {
   // 1. Categories
   async getCategories(): Promise<Category[]> {
@@ -60,10 +136,13 @@ export const api = {
       const res = await fetch(`${API_BASE}/categories`);
       if (res.ok) {
         const json = await res.json();
-        return json.data || json;
+        const rawItems = json.data?.items || json.data || json;
+        if (Array.isArray(rawItems) && rawItems.length > 0) {
+          return rawItems.map(normalizeCategory);
+        }
       }
     } catch {
-      // Fallback
+      // Fallback to local data
     }
     return PRODUCT_CATEGORIES;
   },
@@ -74,7 +153,10 @@ export const api = {
       const res = await fetch(`${API_BASE}/services/categories/all${query}`);
       if (res.ok) {
         const json = await res.json();
-        return json.data || json;
+        const rawItems = json.data?.items || json.data || json;
+        if (Array.isArray(rawItems) && rawItems.length > 0) {
+          return rawItems.map(normalizeCategory);
+        }
       }
     } catch {
       // Fallback
@@ -86,7 +168,7 @@ export const api = {
   async getProducts(params?: { category?: string; search?: string; featured?: boolean }): Promise<Product[]> {
     try {
       const q = new URLSearchParams();
-      if (params?.category) q.append('category', params.category);
+      if (params?.category && params.category !== 'all') q.append('category', params.category);
       if (params?.search) q.append('search', params.search);
       if (params?.featured) q.append('featured', 'true');
       q.append('limit', '100');
@@ -94,7 +176,10 @@ export const api = {
       const res = await fetch(`${API_BASE}/products?${q.toString()}`);
       if (res.ok) {
         const json = await res.json();
-        return json.data || json;
+        const rawItems = json.data?.items || json.data?.products || json.data || [];
+        if (Array.isArray(rawItems) && rawItems.length > 0) {
+          return rawItems.map(normalizeProduct);
+        }
       }
     } catch {
       // Fallback
@@ -118,7 +203,10 @@ export const api = {
       const res = await fetch(`${API_BASE}/products/${slug}`);
       if (res.ok) {
         const json = await res.json();
-        return json.data || json;
+        const data = json.data || json;
+        if (data && data.name) {
+          return normalizeProduct(data);
+        }
       }
     } catch {
       // Fallback
@@ -131,14 +219,18 @@ export const api = {
   async getServices(params?: { category?: string; kind?: 'social' | 'business'; featured?: boolean }): Promise<Service[]> {
     try {
       const q = new URLSearchParams();
-      if (params?.category) q.append('category', params.category);
+      if (params?.category && params.category !== 'all') q.append('category', params.category);
       if (params?.kind) q.append('kind', params.kind);
       if (params?.featured) q.append('featured', 'true');
+      q.append('limit', '100');
 
       const res = await fetch(`${API_BASE}/services?${q.toString()}`);
       if (res.ok) {
         const json = await res.json();
-        return json.data || json;
+        const rawItems = json.data?.items || json.data?.services || json.data || [];
+        if (Array.isArray(rawItems) && rawItems.length > 0) {
+          return rawItems.map(normalizeService);
+        }
       }
     } catch {
       // Fallback
@@ -162,7 +254,10 @@ export const api = {
       const res = await fetch(`${API_BASE}/services/${slug}`);
       if (res.ok) {
         const json = await res.json();
-        return json.data || json;
+        const data = json.data || json;
+        if (data && data.name) {
+          return normalizeService(data);
+        }
       }
     } catch {
       // Fallback
@@ -174,15 +269,34 @@ export const api = {
   // 4. Submit Lead
   async submitLead(payload: LeadPayload): Promise<LeadResponse> {
     try {
+      const numProductId = payload.productId ? parseInt(payload.productId, 10) : undefined;
+      const numServiceId = payload.serviceId ? parseInt(payload.serviceId, 10) : undefined;
+
       const res = await fetch(`${API_BASE}/leads`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
+        body: JSON.stringify({
+          name: payload.name,
+          phone: payload.phone,
+          email: payload.email || undefined,
+          message: payload.message || undefined,
+          enquiryType: payload.enquiryType,
+          quantity: payload.quantity ? String(payload.quantity) : undefined,
+          ...(numProductId && !isNaN(numProductId) && { productId: numProductId }),
+          ...(numServiceId && !isNaN(numServiceId) && { serviceId: numServiceId }),
+        }),
       });
       if (res.ok) {
         const json = await res.json();
         if (json.data && json.data.whatsappUrl) {
-          return json.data;
+          return {
+            lead: {
+              id: String(json.data.lead?.id || Date.now()),
+              createdAt: json.data.lead?.createdAt || new Date().toISOString(),
+              status: json.data.lead?.status || 'NEW',
+            },
+            whatsappUrl: json.data.whatsappUrl,
+          };
         }
       }
     } catch {
@@ -235,7 +349,7 @@ export const api = {
       const res = await fetch(`${API_BASE}/settings/public`);
       if (res.ok) {
         const json = await res.json();
-        return json.data || json;
+        if (json.data) return json.data;
       }
     } catch {
       // Fallback
@@ -243,8 +357,26 @@ export const api = {
     return getStoredSettings();
   },
 
-  // 6. Admin API
-  async adminLogin(password: string): Promise<boolean> {
+  // 6. Admin Authentication & Dashboard
+  async adminLogin(password: string, email: string = 'admin@bssmartsolution.com'): Promise<boolean> {
+    try {
+      const res = await fetch(`${API_BASE}/auth/login`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password }),
+      });
+      if (res.ok) {
+        const json = await res.json();
+        const token = json.data?.accessToken || json.data?.token || json.accessToken;
+        if (token) {
+          localStorage.setItem(LS_AUTH_KEY, token);
+          return true;
+        }
+      }
+    } catch {
+      // Fallback
+    }
+
     if (password === 'admin123' || password === 'admin') {
       localStorage.setItem(LS_AUTH_KEY, 'mock-jwt-token-123456');
       return true;
@@ -261,6 +393,30 @@ export const api = {
   },
 
   async getAdminStats(): Promise<AdminStats> {
+    try {
+      const res = await fetch(`${API_BASE}/dashboard/stats`, {
+        headers: getAuthHeaders(),
+      });
+      if (res.ok) {
+        const json = await res.json();
+        if (json.data) {
+          return {
+            totalLeads: json.data.totalLeads ?? 0,
+            todayLeads: json.data.todayLeads ?? 0,
+            weekLeads: json.data.weekLeads ?? 0,
+            monthLeads: json.data.monthLeads ?? 0,
+            activeProducts: json.data.activeProducts ?? 0,
+            activeServices: json.data.activeServices ?? 0,
+            leadsByStatus: json.data.leadsByStatus || {
+              NEW: 0, CONTACTED: 0, IN_PROGRESS: 0, CONVERTED: 0, CLOSED: 0
+            },
+          };
+        }
+      }
+    } catch {
+      // Fallback
+    }
+
     const leads = getStoredLeads();
     const products = getStoredProducts();
     const services = getStoredServices();
@@ -285,10 +441,36 @@ export const api = {
   },
 
   async getAdminLeads(): Promise<LeadRecord[]> {
+    try {
+      const res = await fetch(`${API_BASE}/leads`, {
+        headers: getAuthHeaders(),
+      });
+      if (res.ok) {
+        const json = await res.json();
+        const rawItems = json.data?.items || json.data?.leads || json.data || [];
+        if (Array.isArray(rawItems)) {
+          return rawItems.map(normalizeLead);
+        }
+      }
+    } catch {
+      // Fallback
+    }
     return getStoredLeads();
   },
 
   async updateLeadStatus(id: string, status: LeadRecord['status']): Promise<void> {
+    try {
+      await fetch(`${API_BASE}/leads/${id}/status`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+          ...getAuthHeaders(),
+        },
+        body: JSON.stringify({ status }),
+      });
+    } catch {
+      // Fallback
+    }
     const leads = getStoredLeads();
     const idx = leads.findIndex(l => l.id === id);
     if (idx !== -1) {
@@ -298,6 +480,18 @@ export const api = {
   },
 
   async saveSettings(settings: PublicSettings): Promise<void> {
+    try {
+      await fetch(`${API_BASE}/settings`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          ...getAuthHeaders(),
+        },
+        body: JSON.stringify(settings),
+      });
+    } catch {
+      // Fallback
+    }
     localStorage.setItem(LS_SETTINGS_KEY, JSON.stringify(settings));
   }
 };
