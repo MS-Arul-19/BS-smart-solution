@@ -11,6 +11,7 @@ interface ProductCardProps {
 
 export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   const targetCustomers = product.specifications?.['Target Customers'];
+  const fallbackImage = 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=600&q=80';
 
   return (
     <Link to={`/products/${product.slug}`} className="block h-full group">
@@ -19,10 +20,14 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           {/* Product Image Container */}
           <div className="relative w-full aspect-video rounded-xl overflow-hidden bg-slate-100 mb-4 border border-slate-100">
             <img
-              src={product.image || 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=600&q=80'}
+              src={product.image || fallbackImage}
               alt={product.name}
               className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
               loading="lazy"
+              onError={(e) => {
+                e.currentTarget.onerror = null;
+                e.currentTarget.src = fallbackImage;
+              }}
             />
             <div className="absolute top-3 left-3">
               <Badge variant="primary">{product.category}</Badge>

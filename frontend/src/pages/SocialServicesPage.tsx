@@ -15,6 +15,8 @@ export const SocialServicesPage: React.FC = () => {
   const [initiatives, setInitiatives] = useState<Service[]>([]);
   const [loading, setLoading] = useState(true);
 
+  const fallbackImage = 'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=600&q=80';
+
   useEffect(() => {
     async function loadData() {
       setLoading(true);
@@ -165,9 +167,13 @@ export const SocialServicesPage: React.FC = () => {
                         <div className="space-y-4">
                           <div className="relative w-full aspect-video rounded-xl overflow-hidden bg-slate-100">
                             <img
-                              src={init.image || 'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=600&q=80'}
+                              src={init.image || fallbackImage}
                               alt={init.name}
                               className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+                              onError={(e) => {
+                                e.currentTarget.onerror = null;
+                                e.currentTarget.src = fallbackImage;
+                              }}
                             />
                             <div className="absolute top-3 left-3">
                               <Badge variant="success">{init.category.name}</Badge>

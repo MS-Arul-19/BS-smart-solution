@@ -11,6 +11,9 @@ interface ServiceCardProps {
 
 export const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
   const isSocial = service.category.kind === 'SOCIAL';
+  const fallbackImage = isSocial 
+    ? 'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=600&q=80'
+    : 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=600&q=80';
 
   return (
     <Link to={`/services/${service.slug}`} className="block h-full group">
@@ -19,10 +22,14 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
           {/* Service Image Container */}
           <div className="relative w-full aspect-video rounded-xl overflow-hidden bg-slate-100 mb-4 border border-slate-100">
             <img
-              src={service.image || 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=600&q=80'}
+              src={service.image || fallbackImage}
               alt={service.name}
               className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
               loading="lazy"
+              onError={(e) => {
+                e.currentTarget.onerror = null;
+                e.currentTarget.src = fallbackImage;
+              }}
             />
             <div className="absolute top-3 left-3">
               <Badge variant={isSocial ? 'success' : 'primary'}>
