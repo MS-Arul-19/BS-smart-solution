@@ -19,24 +19,24 @@ export const HeroSection: React.FC = () => {
             {/* Main Headline */}
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold font-heading text-brand-primary tracking-tight leading-[1.12]">
               Your Trusted Partner <br className="hidden sm:inline" />
-              for <span className="text-brand-secondary underline decoration-brand-secondary/30 decoration-wavy decoration-2">Business Solutions</span>
+              for <span className="text-brand-secondary underline decoration-brand-secondary/30 decoration-wavy decoration-2">Business & Local Services</span>
             </h1>
 
             {/* Subtext */}
             <p className="text-base sm:text-lg text-brand-muted max-w-xl font-body leading-relaxed">
-              We provide high quality products, professional services and social initiatives to help businesses and communities grow stronger together.
+              Wholesale B2B products & local verified services connected directly to your WhatsApp for instant quotes, delivery, and social impact drives.
             </p>
 
             {/* CTA Buttons */}
             <div className="flex flex-wrap items-center gap-4 pt-2">
               <Link to="/products">
                 <Button variant="primary" size="lg" icon={<ArrowRight className="w-5 h-5" />}>
-                  Explore Products
+                  Wholesale Products
                 </Button>
               </Link>
               <Link to="/services">
                 <Button variant="secondary" size="lg" icon={<ArrowRight className="w-5 h-5" />}>
-                  Our Services
+                  Local Services
                 </Button>
               </Link>
             </div>

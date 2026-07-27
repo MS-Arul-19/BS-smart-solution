@@ -6,9 +6,9 @@ import { GlassCard } from '../ui/GlassCard';
 export const MainOptionCards: React.FC = () => {
   const options = [
     {
-      title: 'Products',
-      description: 'Wide range of quality products for your business needs',
-      ctaText: 'Explore Products',
+      title: 'Wholesale Products',
+      description: 'Bulk B2B items for packaging, safety, electrical, plumbing, tools & office supplies',
+      ctaText: 'Explore Wholesale Catalog',
       link: '/products',
       illustration: (
         <svg viewBox="0 0 160 120" className="w-full h-28 mx-auto text-brand-primary">
@@ -20,9 +20,9 @@ export const MainOptionCards: React.FC = () => {
       )
     },
     {
-      title: 'Services',
-      description: 'Professional services to help your business grow',
-      ctaText: 'Explore Services',
+      title: 'Local Services',
+      description: 'Book verified local services for construction, plumbing, electrical, IT & home repair',
+      ctaText: 'Browse Local Services',
       link: '/services',
       illustration: (
         <svg viewBox="0 0 160 120" className="w-full h-28 mx-auto">
@@ -33,9 +33,9 @@ export const MainOptionCards: React.FC = () => {
       )
     },
     {
-      title: 'Social Services',
-      description: 'Join our initiatives for a better and stronger community',
-      ctaText: 'Explore Initiatives',
+      title: 'Social Impact',
+      description: 'Donate extra food, clothes, books & digital devices to NGOs, orphanages & old-age homes',
+      ctaText: 'Join Social Mission',
       link: '/social-service',
       illustration: (
         <svg viewBox="0 0 160 120" className="w-full h-28 mx-auto">

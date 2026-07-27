@@ -23,9 +23,9 @@ export const Navbar: React.FC = () => {
 
   const navLinks = [
     { name: 'Home', path: '/' },
-    { name: 'Products', path: '/products' },
-    { name: 'Services', path: '/services' },
-    { name: 'Social Services', path: '/social-service' },
+    { name: 'Wholesale Products', path: '/products' },
+    { name: 'Local Services', path: '/services' },
+    { name: 'Social Impact', path: '/social-service' },
     { name: 'About', path: '/#about' },
     { name: 'Contact', path: '/#contact' },
   ];
@@ -75,7 +75,7 @@ export const Navbar: React.FC = () => {
                 icon={<MessageSquare className="w-4 h-4" />}
                 iconPosition="right"
               >
-                Enquire Now
+                Request Quote
               </Button>
             </Link>
           </div>
@@ -116,7 +116,7 @@ export const Navbar: React.FC = () => {
           <div className="pt-2">
             <Link to="/enquiry" onClick={() => setMobileMenuOpen(false)}>
               <Button variant="primary" size="lg" className="w-full justify-center">
-                Enquire Now
+                Request Quote
               </Button>
             </Link>
           </div>

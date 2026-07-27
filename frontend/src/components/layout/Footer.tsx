@@ -13,7 +13,7 @@ export const Footer: React.FC = () => {
           <div className="lg:col-span-2 space-y-4 pr-0 lg:pr-8">
             <BrandLogo variant="dark" />
             <p className="text-slate-300 text-sm leading-relaxed max-w-sm pt-2">
-              Providing quality products, professional services and social initiatives to build a better business and community. Reliable. Professional. On Time.
+              Providing quality bulk products, local professional services and social impact drives. Reliable. Professional. On Time.
             </p>
             {/* Social Icons */}
             <div className="flex items-center space-x-3 pt-3">
@@ -56,29 +56,27 @@ export const Footer: React.FC = () => {
             </div>
           </div>
 
-          {/* Column 2: Quick Links */}
+          {/* Column 2: Navigation */}
           <div className="space-y-4">
-            <h4 className="font-heading font-semibold text-base text-white tracking-wide">Quick Links</h4>
+            <h4 className="font-heading font-semibold text-base text-white tracking-wide">Navigation</h4>
             <ul className="space-y-2.5 text-sm text-slate-300">
               <li><Link to="/" className="hover:text-brand-secondary transition-colors">Home</Link></li>
-              <li><Link to="/products" className="hover:text-brand-secondary transition-colors">Products</Link></li>
-              <li><Link to="/services" className="hover:text-brand-secondary transition-colors">Services</Link></li>
-              <li><Link to="/social-service" className="hover:text-brand-secondary transition-colors">Social Services</Link></li>
-              <li><a href="/#about" className="hover:text-brand-secondary transition-colors">About Us</a></li>
-              <li><Link to="/enquiry" className="hover:text-brand-secondary transition-colors">Contact Us</Link></li>
+              <li><Link to="/products" className="hover:text-brand-secondary transition-colors">Wholesale Products</Link></li>
+              <li><Link to="/services" className="hover:text-brand-secondary transition-colors">Local Services</Link></li>
+              <li><Link to="/social-service" className="hover:text-brand-secondary transition-colors">Social Impact</Link></li>
+              <li><Link to="/enquiry" className="hover:text-brand-secondary transition-colors">Request a Quote</Link></li>
             </ul>
           </div>
 
-          {/* Column 3: Our Solutions */}
+          {/* Column 3: Top Categories */}
           <div className="space-y-4">
-            <h4 className="font-heading font-semibold text-base text-white tracking-wide">Our Solutions</h4>
+            <h4 className="font-heading font-semibold text-base text-white tracking-wide">Popular Solutions</h4>
             <ul className="space-y-2.5 text-sm text-slate-300">
               <li><Link to="/products?category=packaging-materials" className="hover:text-brand-secondary transition-colors">Packaging Materials</Link></li>
-              <li><Link to="/products?category=safety-equipment" className="hover:text-brand-secondary transition-colors">Safety Equipment</Link></li>
+              <li><Link to="/products?category=safety-products" className="hover:text-brand-secondary transition-colors">Safety Products</Link></li>
               <li><Link to="/services?category=construction-interior" className="hover:text-brand-secondary transition-colors">Construction & Interior</Link></li>
-              <li><Link to="/services?category=it-digital-solutions" className="hover:text-brand-secondary transition-colors">IT & Digital Solutions</Link></li>
-              <li><Link to="/social-service" className="hover:text-brand-secondary transition-colors">Social Initiatives</Link></li>
-              <li><Link to="/enquiry?type=GENERAL" className="hover:text-brand-secondary transition-colors">Bulk Supply Enquiry</Link></li>
+              <li><Link to="/services?category=it-digital-services" className="hover:text-brand-secondary transition-colors">IT & Digital Services</Link></li>
+              <li><Link to="/social-service" className="hover:text-brand-secondary transition-colors">NGO & Community Support</Link></li>
             </ul>
           </div>
 
@@ -109,7 +107,7 @@ export const Footer: React.FC = () => {
           <div className="flex items-center space-x-6">
             <Link to="/admin/login" className="hover:text-white transition-colors">Admin Portal</Link>
             <span className="text-slate-700">|</span>
-            <span>Designed with Care for Your Business</span>
+            <span>IndiaMART + Urban Company B2B Model</span>
           </div>
         </div>
       </div>
