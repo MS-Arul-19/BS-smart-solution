@@ -12,8 +12,8 @@ const API_BASE = '/api/v1';
 
 // LocalStorage Persistence Keys (Dev / Fallback Mode)
 const LS_LEADS_KEY = 'bs_leads_store';
-const LS_PRODUCTS_KEY = 'bs_products_store';
-const LS_SERVICES_KEY = 'bs_services_store';
+const LS_PRODUCTS_KEY = 'bs_products_store_v2';
+const LS_SERVICES_KEY = 'bs_services_store_v2';
 const LS_SETTINGS_KEY = 'bs_settings_store';
 const LS_AUTH_KEY = 'bs_admin_jwt';
 
@@ -37,7 +37,12 @@ function getStoredProducts(): Product[] {
     localStorage.setItem(LS_PRODUCTS_KEY, JSON.stringify(MOCK_PRODUCTS));
     return MOCK_PRODUCTS;
   }
-  return JSON.parse(saved);
+  const parsed = JSON.parse(saved);
+  if (Array.isArray(parsed) && parsed.length < MOCK_PRODUCTS.length) {
+    localStorage.setItem(LS_PRODUCTS_KEY, JSON.stringify(MOCK_PRODUCTS));
+    return MOCK_PRODUCTS;
+  }
+  return parsed;
 }
 
 function getStoredServices(): Service[] {
@@ -46,7 +51,12 @@ function getStoredServices(): Service[] {
     localStorage.setItem(LS_SERVICES_KEY, JSON.stringify(MOCK_SERVICES));
     return MOCK_SERVICES;
   }
-  return JSON.parse(saved);
+  const parsed = JSON.parse(saved);
+  if (Array.isArray(parsed) && parsed.length < MOCK_SERVICES.length) {
+    localStorage.setItem(LS_SERVICES_KEY, JSON.stringify(MOCK_SERVICES));
+    return MOCK_SERVICES;
+  }
+  return parsed;
 }
 
 function getStoredSettings(): PublicSettings {
@@ -184,9 +194,14 @@ export const api = {
     } catch {
       // Fallback
     }
+
     let list = getStoredProducts();
     if (params?.category && params.category !== 'all') {
-      list = list.filter(p => p.categorySlug === params.category);
+      const catParam = params.category.toLowerCase();
+      list = list.filter(p => 
+        p.categorySlug.toLowerCase() === catParam || 
+        p.category.toLowerCase().replace(/[^a-z0-9]+/g, '-') === catParam
+      );
     }
     if (params?.search) {
       const term = params.search.toLowerCase();
@@ -235,13 +250,18 @@ export const api = {
     } catch {
       // Fallback
     }
+
     let list = params?.kind === 'social' ? MOCK_SOCIAL_SERVICES : getStoredServices();
-    if (params?.kind) {
-      const targetKind = params.kind === 'social' ? 'SOCIAL' : 'BUSINESS';
+    if (params?.kind && params.kind !== 'social') {
+      const targetKind = 'BUSINESS';
       list = list.filter(s => s.category.kind === targetKind);
     }
     if (params?.category && params.category !== 'all') {
-      list = list.filter(s => s.category.slug === params.category);
+      const catParam = params.category.toLowerCase();
+      list = list.filter(s => 
+        s.category.slug.toLowerCase() === catParam || 
+        s.category.name.toLowerCase().replace(/[^a-z0-9]+/g, '-') === catParam
+      );
     }
     if (params?.featured) {
       list = list.filter(s => s.featured);
