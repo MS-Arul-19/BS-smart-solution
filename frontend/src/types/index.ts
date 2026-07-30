@@ -25,7 +25,7 @@ export interface Product {
   categorySlug: string;
   shortDescription: string;
   description: string;
-  specifications: Record<string, string>;
+  specifications?: Record<string, string>;
   moq: string;
   priceRange: string;
   unit: string;

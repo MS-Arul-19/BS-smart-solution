@@ -131,7 +131,7 @@ export const ProductDetailPage: React.FC = () => {
                   <div>
                     <h3 className="text-sm font-bold font-heading text-brand-primary uppercase tracking-wide mb-3">Specifications & Features</h3>
                     <div className="border border-brand-border rounded-xl overflow-hidden divide-y divide-brand-border text-xs">
-                      {Object.entries(product.specifications).map(([key, val], idx) => (
+                      {Object.entries(product.specifications || {}).map(([key, val], idx) => (
                         <div key={idx} className="grid grid-cols-3 p-3 bg-white hover:bg-brand-light/50">
                           <span className="font-semibold text-brand-primary col-span-1">{key}</span>
                           <span className="text-brand-muted col-span-2">{val}</span>
