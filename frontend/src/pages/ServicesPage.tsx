@@ -13,6 +13,7 @@ export const ServicesPage: React.FC = () => {
   const [categories, setCategories] = useState<Category[]>([]);
   const [services, setServices] = useState<Service[]>([]);
   const [searchQuery, setSearchQuery] = useState('');
+  const [categorySearch, setCategorySearch] = useState('');
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -47,6 +48,14 @@ export const ServicesPage: React.FC = () => {
 
   const activeCategoryObj = categories.find((c) => c.slug === selectedCategorySlug);
 
+  const categoryQuery = categorySearch.trim().toLowerCase();
+  const visibleCategories = categoryQuery
+    ? categories.filter(c =>
+        c.name.toLowerCase().includes(categoryQuery) ||
+        (c.description || '').toLowerCase().includes(categoryQuery)
+      )
+    : categories;
+
   return (
     <div className="pt-32 pb-24 bg-brand-light min-h-screen">
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
@@ -77,12 +86,27 @@ export const ServicesPage: React.FC = () => {
                   <Grid className="w-5 h-5 text-brand-secondary" /> Select Service Sector
                 </h3>
                 <span className="text-xs font-semibold text-brand-muted">
-                  16 Sectors Available (Click to view services)
+                  {categoryQuery
+                    ? `${visibleCategories.length} ${visibleCategories.length === 1 ? 'sector matches' : 'sectors match'} your search`
+                    : `${categories.length} Sectors Available (Click to view services)`}
                 </span>
+              </div>
+
+              {/* Sector Search Bar */}
+              <div className="relative">
+                <Search className="w-4 h-4 text-brand-muted absolute left-4 top-1/2 -translate-y-1/2" />
+                <input
+                  type="text"
+                  placeholder="Search service sectors... (e.g. plumbing, IT, transport)"
+                  value={categorySearch}
+                  onChange={(e) => setCategorySearch(e.target.value)}
+                  className="w-full pl-11 pr-4 py-3 text-sm rounded-2xl border border-brand-border bg-white font-body shadow-soft focus:outline-none focus:border-brand-primary transition-colors"
+                />
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                 {/* Option Card 0: All Services */}
+                {!categoryQuery && (
                 <GlassCard
                   onClick={() => handleSelectCategory('all')}
                   className="cursor-pointer group hover:border-brand-secondary/50 bg-white p-6 flex flex-col justify-between hover:shadow-hover transition-all duration-300"
@@ -103,9 +127,10 @@ export const ServicesPage: React.FC = () => {
                     <span>Browse All Services →</span>
                   </div>
                 </GlassCard>
+                )}
 
                 {/* 16 Service Category Cards */}
-                {categories.map((cat) => (
+                {visibleCategories.map((cat) => (
                   <GlassCard
                     key={cat.id}
                     onClick={() => handleSelectCategory(cat.slug)}
@@ -129,6 +154,18 @@ export const ServicesPage: React.FC = () => {
                   </GlassCard>
                 ))}
               </div>
+
+              {categoryQuery && visibleCategories.length === 0 && (
+                <div className="text-center py-16 bg-white rounded-2xl border border-brand-border space-y-3">
+                  <p className="text-base font-bold font-heading text-brand-primary">No service sectors match "{categorySearch}"</p>
+                  <button
+                    onClick={() => setCategorySearch('')}
+                    className="inline-flex items-center gap-1.5 px-4 py-2 bg-brand-primary text-white text-xs font-semibold rounded-xl hover:bg-brand-secondary transition-colors"
+                  >
+                    <RefreshCw className="w-3.5 h-3.5" /> Clear Search
+                  </button>
+                </div>
+              )}
             </div>
           ) : (
             /* PAGE VIEW 2: Dedicated Category Services Page (Shown when user clicks a service category) */
