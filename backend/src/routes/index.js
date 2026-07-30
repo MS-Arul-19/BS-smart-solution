@@ -14,6 +14,7 @@ const leadRoutes = require('./lead.routes');
 const dashboardRoutes = require('./dashboard.routes');
 const galleryRoutes = require('./gallery.routes');
 const settingsRoutes = require('./settings.routes');
+const uploadRoutes = require('./upload.routes');
 
 const router = Router();
 
@@ -25,6 +26,7 @@ router.use('/leads', leadRoutes);
 router.use('/dashboard', dashboardRoutes);
 router.use('/gallery', galleryRoutes);
 router.use('/settings', settingsRoutes);
+router.use('/upload', uploadRoutes);
 
 /** Liveness/readiness probe with a DB round-trip. */
 router.get(

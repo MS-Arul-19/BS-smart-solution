@@ -526,5 +526,32 @@ export const api = {
       // Fallback
     }
     localStorage.setItem(LS_SETTINGS_KEY, JSON.stringify(settings));
-  }
+  },
+
+  // 7. Image Uploads (Neon DB & Local Upload API Integration)
+  async uploadImage(file: File): Promise<{ url: string; filename: string }> {
+    const formData = new FormData();
+    formData.append('image', file);
+
+    try {
+      const res = await fetch(`${API_BASE}/upload`, {
+        method: 'POST',
+        headers: getAuthHeaders(),
+        body: formData,
+      });
+
+      if (res.ok) {
+        const json = await res.json();
+        if (json.data && json.data.url) {
+          return { url: json.data.url, filename: json.data.filename };
+        }
+      }
+    } catch {
+      // Fallback
+    }
+
+    // Local object URL fallback for dev/offline mode
+    const fakeUrl = URL.createObjectURL(file);
+    return { url: fakeUrl, filename: file.name };
+  },
 };
