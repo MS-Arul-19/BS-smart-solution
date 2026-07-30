@@ -12,8 +12,8 @@ const API_BASE = '/api/v1';
 
 // LocalStorage Persistence Keys (Dev / Fallback Mode)
 const LS_LEADS_KEY = 'bs_leads_store';
-const LS_PRODUCTS_KEY = 'bs_products_store_v9';
-const LS_SERVICES_KEY = 'bs_services_store_v9';
+const LS_PRODUCTS_KEY = 'bs_products_store_v10';
+const LS_SERVICES_KEY = 'bs_services_store_v10';
 const LS_SETTINGS_KEY = 'bs_settings_store';
 const LS_AUTH_KEY = 'bs_admin_jwt';
 
@@ -61,9 +61,9 @@ function getStoredServices(): Service[] {
   const updated = parsed.map(s => {
     const match = allMockServices.find(m => m.id === s.id || m.slug === s.slug || m.name === s.name);
     if (match && match.image) {
-      return { ...s, image: match.image };
+      return { ...s, image: match.image, coverageArea: 'Chennai Only' };
     }
-    return s;
+    return { ...s, coverageArea: 'Chennai Only' };
   });
   localStorage.setItem(LS_SERVICES_KEY, JSON.stringify(updated));
   return updated;
@@ -115,7 +115,7 @@ function normalizeService(s: any): Service {
     description: s.description || '',
     priceLabel: (s.priceType || s.priceLabel || 'ON_INSPECTION') as PriceType,
     priceValue: s.priceValue || '',
-    coverageArea: s.coverageArea || 'Pan India',
+    coverageArea: s.coverageArea || 'Chennai Only',
     image: (s.image && !s.image.includes('placeholder')) ? s.image : (localMatch?.image || null),
     gallery: s.gallery ? s.gallery.map((g: any) => typeof g === 'string' ? g : g.image) : [],
     featured: s.isFeatured ?? s.featured ?? false,
