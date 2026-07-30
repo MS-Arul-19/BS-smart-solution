@@ -22,6 +22,8 @@ import { AdminServices } from './pages/admin/AdminServices';
 import { AdminCategories } from './pages/admin/AdminCategories';
 import { AdminSettings } from './pages/admin/AdminSettings';
 
+import { Toaster } from './components/ui/Sonner';
+
 function ScrollToTop() {
   const { pathname } = useLocation();
   useEffect(() => {
@@ -34,6 +36,7 @@ export function App() {
   return (
     <div className="min-h-screen flex flex-col bg-brand-light font-body text-brand-text antialiased">
       <ScrollToTop />
+      <Toaster position="top-right" />
       
       {/* Show Main Navbar only on public pages, or hide on admin */}
       <Navbar />

@@ -1,28 +1,39 @@
 import React from 'react';
+import CountUp from 'react-countup';
+import { useInView } from 'react-intersection-observer';
 import { Package, Cog, Heart, Building2 } from 'lucide-react';
 
 export const StatsSection: React.FC = () => {
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.2,
+  });
+
   const stats = [
     {
-      count: '55+',
+      value: 55,
+      suffix: '+',
       title: 'Products',
       description: 'Quality business supplies',
       icon: Package,
     },
     {
-      count: '93+',
+      value: 93,
+      suffix: '+',
       title: 'Services',
       description: 'Professional solutions',
       icon: Cog,
     },
     {
-      count: '42+',
+      value: 42,
+      suffix: '+',
       title: 'Social Initiatives',
       description: 'Community programs',
       icon: Heart,
     },
     {
-      count: '500+',
+      value: 500,
+      suffix: '+',
       title: 'Business Clients',
       description: 'Across various industries',
       icon: Building2,
@@ -30,7 +41,7 @@ export const StatsSection: React.FC = () => {
   ];
 
   return (
-    <section className="py-10">
+    <section className="py-10" ref={ref}>
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-[1280px] mx-auto">
           
@@ -52,7 +63,11 @@ export const StatsSection: React.FC = () => {
 
                     <div className="text-left">
                       <div className="text-3xl sm:text-4xl font-extrabold font-heading text-white tracking-tight">
-                        {stat.count}
+                        {inView ? (
+                          <CountUp end={stat.value} duration={2.5} suffix={stat.suffix} />
+                        ) : (
+                          `0${stat.suffix}`
+                        )}
                       </div>
                       <div className="text-sm font-semibold font-heading text-brand-secondary mt-0.5">
                         {stat.title}

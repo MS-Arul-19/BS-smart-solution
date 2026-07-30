@@ -12,8 +12,8 @@ const API_BASE = '/api/v1';
 
 // LocalStorage Persistence Keys (Dev / Fallback Mode)
 const LS_LEADS_KEY = 'bs_leads_store';
-const LS_PRODUCTS_KEY = 'bs_products_store_v2';
-const LS_SERVICES_KEY = 'bs_services_store_v2';
+const LS_PRODUCTS_KEY = 'bs_products_store_v9';
+const LS_SERVICES_KEY = 'bs_services_store_v9';
 const LS_SETTINGS_KEY = 'bs_settings_store';
 const LS_AUTH_KEY = 'bs_admin_jwt';
 
@@ -37,26 +37,36 @@ function getStoredProducts(): Product[] {
     localStorage.setItem(LS_PRODUCTS_KEY, JSON.stringify(MOCK_PRODUCTS));
     return MOCK_PRODUCTS;
   }
-  const parsed = JSON.parse(saved);
-  if (Array.isArray(parsed) && parsed.length < MOCK_PRODUCTS.length) {
-    localStorage.setItem(LS_PRODUCTS_KEY, JSON.stringify(MOCK_PRODUCTS));
-    return MOCK_PRODUCTS;
-  }
-  return parsed;
+  const parsed: Product[] = JSON.parse(saved);
+  // Synchronize latest local image mappings from MOCK_PRODUCTS
+  const updated = parsed.map(p => {
+    const match = MOCK_PRODUCTS.find(m => m.id === p.id || m.slug === p.slug || m.name === p.name);
+    if (match && match.image) {
+      return { ...p, image: match.image };
+    }
+    return p;
+  });
+  localStorage.setItem(LS_PRODUCTS_KEY, JSON.stringify(updated));
+  return updated;
 }
 
 function getStoredServices(): Service[] {
   const saved = localStorage.getItem(LS_SERVICES_KEY);
+  const allMockServices = [...MOCK_SERVICES, ...MOCK_SOCIAL_SERVICES];
   if (!saved) {
-    localStorage.setItem(LS_SERVICES_KEY, JSON.stringify(MOCK_SERVICES));
-    return MOCK_SERVICES;
+    localStorage.setItem(LS_SERVICES_KEY, JSON.stringify(allMockServices));
+    return allMockServices;
   }
-  const parsed = JSON.parse(saved);
-  if (Array.isArray(parsed) && parsed.length < MOCK_SERVICES.length) {
-    localStorage.setItem(LS_SERVICES_KEY, JSON.stringify(MOCK_SERVICES));
-    return MOCK_SERVICES;
-  }
-  return parsed;
+  const parsed: Service[] = JSON.parse(saved);
+  const updated = parsed.map(s => {
+    const match = allMockServices.find(m => m.id === s.id || m.slug === s.slug || m.name === s.name);
+    if (match && match.image) {
+      return { ...s, image: match.image };
+    }
+    return s;
+  });
+  localStorage.setItem(LS_SERVICES_KEY, JSON.stringify(updated));
+  return updated;
 }
 
 function getStoredSettings(): PublicSettings {
@@ -70,6 +80,7 @@ function getStoredSettings(): PublicSettings {
 
 // Data Normalization Utilities for Backend API Responses
 function normalizeProduct(p: any): Product {
+  const localMatch = MOCK_PRODUCTS.find(m => m.slug === p.slug || m.id === String(p.id) || m.name.toLowerCase() === (p.name || '').toLowerCase());
   return {
     id: String(p.id),
     slug: p.slug,
@@ -82,13 +93,15 @@ function normalizeProduct(p: any): Product {
     moq: p.minOrderQty || p.moq || 'Contact for MOQ',
     priceRange: p.priceRange || 'On Request',
     unit: p.unit || 'piece',
-    image: p.image || null,
+    image: (p.image && !p.image.includes('placeholder')) ? p.image : (localMatch?.image || null),
     gallery: p.gallery ? p.gallery.map((g: any) => typeof g === 'string' ? g : g.image) : [],
     featured: p.isFeatured ?? p.featured ?? false,
   };
 }
 
 function normalizeService(s: any): Service {
+  const allMockServices = [...MOCK_SERVICES, ...MOCK_SOCIAL_SERVICES];
+  const localMatch = allMockServices.find(m => m.slug === s.slug || m.id === String(s.id) || m.name.toLowerCase() === (s.name || '').toLowerCase());
   return {
     id: String(s.id),
     slug: s.slug,
@@ -103,7 +116,7 @@ function normalizeService(s: any): Service {
     priceLabel: (s.priceType || s.priceLabel || 'ON_INSPECTION') as PriceType,
     priceValue: s.priceValue || '',
     coverageArea: s.coverageArea || 'Pan India',
-    image: s.image || null,
+    image: (s.image && !s.image.includes('placeholder')) ? s.image : (localMatch?.image || null),
     gallery: s.gallery ? s.gallery.map((g: any) => typeof g === 'string' ? g : g.image) : [],
     featured: s.isFeatured ?? s.featured ?? false,
   };

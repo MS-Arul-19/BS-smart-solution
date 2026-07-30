@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { GlassCard } from '../ui/GlassCard';
 
@@ -53,32 +54,40 @@ export const MainOptionCards: React.FC = () => {
         <div className="max-w-[1280px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
           
           {options.map((item, idx) => (
-            <Link key={idx} to={item.link} className="group block">
-              <GlassCard className="h-full flex flex-col justify-between text-center p-8 gradient-border-hover relative overflow-hidden group-hover:border-brand-secondary/50">
-                
-                {/* Illustration Header */}
-                <div className="py-4 bg-brand-light/60 rounded-2xl mb-6 transform group-hover:scale-105 transition-transform duration-300">
-                  {item.illustration}
-                </div>
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-50px' }}
+              transition={{ duration: 0.5, delay: idx * 0.15 }}
+            >
+              <Link to={item.link} className="group block h-full">
+                <GlassCard className="h-full flex flex-col justify-between text-center p-8 gradient-border-hover relative overflow-hidden group-hover:border-brand-secondary/50 transition-all duration-300 group-hover:-translate-y-1.5 group-hover:shadow-card">
+                  
+                  {/* Illustration Header */}
+                  <div className="py-4 bg-brand-light/60 rounded-2xl mb-6 transform group-hover:scale-105 transition-transform duration-300">
+                    {item.illustration}
+                  </div>
 
-                {/* Content Body */}
-                <div className="space-y-3 flex-1 flex flex-col justify-center">
-                  <h3 className="text-2xl font-bold font-heading text-brand-primary group-hover:text-brand-secondary transition-colors">
-                    {item.title}
-                  </h3>
-                  <p className="text-sm text-brand-muted leading-relaxed">
-                    {item.description}
-                  </p>
-                </div>
+                  {/* Content Body */}
+                  <div className="space-y-3 flex-1 flex flex-col justify-center">
+                    <h3 className="text-2xl font-bold font-heading text-brand-primary group-hover:text-brand-secondary transition-colors">
+                      {item.title}
+                    </h3>
+                    <p className="text-sm text-brand-muted leading-relaxed">
+                      {item.description}
+                    </p>
+                  </div>
 
-                {/* CTA Link Footer */}
-                <div className="pt-6 mt-4 flex items-center justify-center space-x-2 text-brand-secondary font-heading font-semibold text-sm group-hover:translate-x-1 transition-transform">
-                  <span>{item.ctaText}</span>
-                  <ArrowRight className="w-4 h-4" />
-                </div>
+                  {/* CTA Link Footer */}
+                  <div className="pt-6 mt-4 flex items-center justify-center space-x-2 text-brand-secondary font-heading font-semibold text-sm group-hover:translate-x-1 transition-transform">
+                    <span>{item.ctaText}</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </div>
 
-              </GlassCard>
-            </Link>
+                </GlassCard>
+              </Link>
+            </motion.div>
           ))}
 
         </div>

@@ -18,20 +18,17 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
       <div className="bg-white rounded-2xl border border-brand-border p-5 shadow-soft hover:shadow-hover hover:border-brand-secondary/40 transition-all duration-300 flex flex-col justify-between h-full">
         <div>
           {/* Product Image Container */}
-          <div className="relative w-full aspect-video rounded-xl overflow-hidden bg-slate-100 mb-4 border border-slate-100">
+          <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden bg-slate-50 mb-4 border border-slate-100 flex items-center justify-center">
             <img
               src={product.image || fallbackImage}
               alt={product.name}
-              className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+              className="w-full h-full object-contain p-1 transform group-hover:scale-105 transition-transform duration-500"
               loading="lazy"
               onError={(e) => {
                 e.currentTarget.onerror = null;
                 e.currentTarget.src = fallbackImage;
               }}
             />
-            <div className="absolute top-3 left-3">
-              <Badge variant="primary">{product.category}</Badge>
-            </div>
           </div>
 
           {/* Product Title */}

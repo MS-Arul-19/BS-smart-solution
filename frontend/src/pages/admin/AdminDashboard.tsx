@@ -5,6 +5,7 @@ import { AdminStats, LeadRecord } from '../../types';
 import { api } from '../../api/client';
 import { Button } from '../../components/ui/Button';
 import { Badge } from '../../components/ui/Badge';
+import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, PieChart, Pie, Cell, CartesianGrid } from 'recharts';
 
 export const AdminDashboard: React.FC = () => {
   const navigate = useNavigate();
@@ -99,26 +100,73 @@ export const AdminDashboard: React.FC = () => {
             </div>
           </div>
 
-          {/* Leads by Status Badges */}
-          <div className="bg-white p-6 rounded-2xl border border-brand-border shadow-soft space-y-4">
-            <h3 className="text-lg font-bold font-heading text-brand-primary">Leads Status Breakdown</h3>
-            <div className="flex flex-wrap gap-4 text-xs font-heading font-semibold">
-              <div className="px-4 py-2 rounded-xl bg-blue-50 text-blue-700 border border-blue-200">
-                NEW: {stats?.leadsByStatus.NEW || 0}
-              </div>
-              <div className="px-4 py-2 rounded-xl bg-amber-50 text-amber-700 border border-amber-200">
-                CONTACTED: {stats?.leadsByStatus.CONTACTED || 0}
-              </div>
-              <div className="px-4 py-2 rounded-xl bg-purple-50 text-purple-700 border border-purple-200">
-                IN PROGRESS: {stats?.leadsByStatus.IN_PROGRESS || 0}
-              </div>
-              <div className="px-4 py-2 rounded-xl bg-emerald-50 text-emerald-700 border border-emerald-200">
-                CONVERTED: {stats?.leadsByStatus.CONVERTED || 0}
-              </div>
-              <div className="px-4 py-2 rounded-xl bg-slate-50 text-slate-700 border border-slate-200">
-                CLOSED: {stats?.leadsByStatus.CLOSED || 0}
+          {/* Recharts Analytics Section */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            
+            {/* Leads Breakdown Bar Chart */}
+            <div className="bg-white p-6 rounded-2xl border border-brand-border shadow-soft space-y-4">
+              <h3 className="text-lg font-bold font-heading text-brand-primary">Leads Status Analytics</h3>
+              <div className="h-64 w-full">
+                <ResponsiveContainer width="100%" height="100%">
+                  <BarChart
+                    data={[
+                      { status: 'NEW', count: stats?.leadsByStatus.NEW || 0, fill: '#3B82F6' },
+                      { status: 'CONTACTED', count: stats?.leadsByStatus.CONTACTED || 0, fill: '#D97706' },
+                      { status: 'IN_PROGRESS', count: stats?.leadsByStatus.IN_PROGRESS || 0, fill: '#9333EA' },
+                      { status: 'CONVERTED', count: stats?.leadsByStatus.CONVERTED || 0, fill: '#10B981' },
+                      { status: 'CLOSED', count: stats?.leadsByStatus.CLOSED || 0, fill: '#64748B' },
+                    ]}
+                    margin={{ top: 10, right: 10, left: -20, bottom: 0 }}
+                  >
+                    <CartesianGrid strokeDasharray="3 3" opacity={0.3} />
+                    <XAxis dataKey="status" tick={{ fontSize: 10, fontWeight: 600 }} />
+                    <YAxis allowDecimals={false} tick={{ fontSize: 10 }} />
+                    <Tooltip contentStyle={{ borderRadius: '12px', border: '1px solid #E2E8F0', boxShadow: '0 4px 12px rgba(0,0,0,0.05)' }} />
+                    <Bar dataKey="count" radius={[6, 6, 0, 0]}>
+                      {['#3B82F6', '#D97706', '#9333EA', '#10B981', '#64748B'].map((color, idx) => (
+                        <Cell key={`cell-${idx}`} fill={color} />
+                      ))}
+                    </Bar>
+                  </BarChart>
+                </ResponsiveContainer>
               </div>
             </div>
+
+            {/* Catalogue Distribution Pie Chart */}
+            <div className="bg-white p-6 rounded-2xl border border-brand-border shadow-soft space-y-4">
+              <h3 className="text-lg font-bold font-heading text-brand-primary">Catalogue Overview</h3>
+              <div className="h-64 w-full flex items-center justify-center">
+                <ResponsiveContainer width="100%" height="100%">
+                  <PieChart>
+                    <Pie
+                      data={[
+                        { name: 'Active Products', value: stats?.activeProducts || 1 },
+                        { name: 'Active Services', value: stats?.activeServices || 1 },
+                      ]}
+                      cx="50%"
+                      cy="50%"
+                      innerRadius={55}
+                      outerRadius={85}
+                      paddingAngle={5}
+                      dataKey="value"
+                    >
+                      <Cell fill="#0A2540" />
+                      <Cell fill="#F58220" />
+                    </Pie>
+                    <Tooltip contentStyle={{ borderRadius: '12px', border: '1px solid #E2E8F0' }} />
+                  </PieChart>
+                </ResponsiveContainer>
+              </div>
+              <div className="flex justify-center space-x-6 text-xs font-semibold">
+                <span className="flex items-center gap-1.5 text-brand-primary">
+                  <span className="w-3 h-3 rounded-full bg-brand-primary inline-block" /> Products ({stats?.activeProducts || 0})
+                </span>
+                <span className="flex items-center gap-1.5 text-brand-secondary">
+                  <span className="w-3 h-3 rounded-full bg-brand-secondary inline-block" /> Services ({stats?.activeServices || 0})
+                </span>
+              </div>
+            </div>
+
           </div>
 
           {/* Recent Leads Table */}

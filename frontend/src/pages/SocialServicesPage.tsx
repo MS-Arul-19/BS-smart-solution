@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSearchParams, Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import { Heart, ArrowLeft, Grid, MapPin, RefreshCw } from 'lucide-react';
 import { Category, Service } from '../types';
 import { api } from '../api/client';
@@ -50,8 +51,14 @@ export const SocialServicesPage: React.FC = () => {
           
           {/* Header */}
           <div className="text-center max-w-3xl mx-auto space-y-3">
-            <span className="px-3.5 py-1.5 rounded-full bg-emerald-100 text-emerald-700 text-xs font-heading font-semibold uppercase tracking-wider inline-flex items-center gap-1.5">
-              <Heart className="w-3.5 h-3.5 fill-emerald-600 text-emerald-600" /> Community & NGO Wing
+            <span className="px-3.5 py-1.5 rounded-full bg-emerald-100 text-emerald-700 text-xs font-heading font-semibold uppercase tracking-wider inline-flex items-center gap-1.5 shadow-sm">
+              <motion.div
+                animate={{ scale: [1, 1.25, 1, 1.25, 1] }}
+                transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
+              >
+                <Heart className="w-3.5 h-3.5 fill-emerald-600 text-emerald-600" />
+              </motion.div>
+              Community & NGO Wing
             </span>
             <h1 className="text-4xl sm:text-5xl font-extrabold font-heading text-brand-primary tracking-tight">
               {selectedCauseSlug && selectedCauseSlug !== 'all'
@@ -165,19 +172,16 @@ export const SocialServicesPage: React.FC = () => {
                     <Link key={init.id} to={`/services/${init.slug}`} className="block h-full group">
                       <div className="bg-white rounded-2xl border border-brand-border p-6 shadow-soft hover:shadow-hover hover:border-emerald-500/40 transition-all flex flex-col justify-between h-full">
                         <div className="space-y-4">
-                          <div className="relative w-full aspect-video rounded-xl overflow-hidden bg-slate-100">
+                          <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden bg-slate-50 flex items-center justify-center border border-slate-100">
                             <img
                               src={init.image || fallbackImage}
                               alt={init.name}
-                              className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+                              className="w-full h-full object-contain p-1 transform group-hover:scale-105 transition-transform duration-500"
                               onError={(e) => {
                                 e.currentTarget.onerror = null;
                                 e.currentTarget.src = fallbackImage;
                               }}
                             />
-                            <div className="absolute top-3 left-3">
-                              <Badge variant="success">{init.category.name}</Badge>
-                            </div>
                           </div>
 
                           <h4 className="text-xl font-bold font-heading text-brand-primary group-hover:text-emerald-600 transition-colors">

@@ -70,11 +70,11 @@ export const ServiceDetailPage: React.FC = () => {
             
             {/* Image & Gallery Column */}
             <div className="lg:col-span-6 space-y-4">
-              <div className="relative w-full aspect-4/3 rounded-2xl overflow-hidden bg-slate-100 border border-brand-border shadow-inner">
+              <div className="relative w-full aspect-4/3 rounded-2xl overflow-hidden bg-slate-50 border border-brand-border shadow-inner">
                 <img
                   src={selectedImage || service.image || galleryImages[0]}
                   alt={service.name}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain p-2"
                 />
                 <div className="absolute top-4 left-4">
                   <Badge variant={isSocial ? 'success' : 'primary'}>
