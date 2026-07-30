@@ -5,6 +5,9 @@ npm-debug.log*
 yarn-debug.log*
 pnpm-debug.log*
 
+# Portable PostgreSQL (runtime data, ~1.3 GB)
+.pg/
+
 # Node modules & build artifacts
 node_modules/
 **/node_modules/
