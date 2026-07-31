@@ -98,7 +98,7 @@ export const Footer: React.FC = () => {
                 <span>102b Venus Nagar, 2nd Main Road, Kolathur, Chennai, Tamil Nadu - 600099</span>
               </li>
               <li className="text-xs text-slate-400 pt-1">
-                <span className="text-emerald-400 font-semibold">Working Hours:</span> Monday to Saturday (9:00 AM – 6:00 PM)
+                <span className="text-emerald-400 font-semibold">Working Hours:</span> Open 24 Hours / 7 Days Service (24/7)
               </li>
             </ul>
           </div>
