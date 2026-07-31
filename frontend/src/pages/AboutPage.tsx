@@ -6,6 +6,7 @@ import {
 } from 'lucide-react';
 import { Button } from '../components/ui/Button';
 import { GlassCard } from '../components/ui/GlassCard';
+import { TestimonialsSection } from '../components/sections/TestimonialsSection';
 
 export const AboutPage: React.FC = () => {
   const pillars = [
@@ -187,6 +188,9 @@ export const AboutPage: React.FC = () => {
               ))}
             </div>
           </div>
+
+          {/* Section 5.5: Customer Testimonials & Reviews */}
+          <TestimonialsSection />
 
           {/* Section 6: CTA Box */}
           <div className="bg-gradient-to-r from-brand-primary via-brand-dark to-brand-primary text-white p-10 sm:p-14 rounded-3xl text-center space-y-6 shadow-xl relative overflow-hidden">

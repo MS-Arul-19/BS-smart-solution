@@ -45,7 +45,7 @@ export const Footer: React.FC = () => {
                 <Instagram className="w-4 h-4" />
               </a>
               <a
-                href="https://wa.me/919876543210"
+                href="https://wa.me/919345838895"
                 target="_blank"
                 rel="noreferrer"
                 className="w-9 h-9 rounded-full bg-slate-800 flex items-center justify-center text-slate-300 hover:bg-[#25D366] hover:text-white transition-colors"
@@ -69,7 +69,7 @@ export const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Column 3: Top Categories */}
+          {/* Column 3: Popular Solutions */}
           <div className="space-y-4">
             <h4 className="font-heading font-semibold text-base text-white tracking-wide">Popular Solutions</h4>
             <ul className="space-y-2.5 text-sm text-slate-300">
@@ -87,15 +87,18 @@ export const Footer: React.FC = () => {
             <ul className="space-y-3 text-sm text-slate-300">
               <li className="flex items-start space-x-3">
                 <Phone className="w-4 h-4 text-brand-secondary flex-shrink-0 mt-0.5" />
-                <span>+91 98765 43210</span>
+                <a href="tel:+919345838895" className="hover:text-brand-secondary transition-colors">+91 93458 38895</a>
               </li>
               <li className="flex items-start space-x-3">
                 <Mail className="w-4 h-4 text-brand-secondary flex-shrink-0 mt-0.5" />
-                <span>info@bssmartsolution.com</span>
+                <a href="mailto:keerthanabagath27@gmail.com" className="hover:text-brand-secondary transition-colors">keerthanabagath27@gmail.com</a>
               </li>
               <li className="flex items-start space-x-3">
                 <MapPin className="w-4 h-4 text-brand-secondary flex-shrink-0 mt-0.5" />
-                <span>123 Business Park, Guindy, Chennai, Tamil Nadu - 600032</span>
+                <span>102b Venus Nagar, 2nd Main Road, Kolathur, Chennai, Tamil Nadu - 600099</span>
+              </li>
+              <li className="text-xs text-slate-400 pt-1">
+                <span className="text-emerald-400 font-semibold">Working Hours:</span> Monday to Saturday (9:00 AM – 6:00 PM)
               </li>
             </ul>
           </div>

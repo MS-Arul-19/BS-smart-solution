@@ -1,11 +1,11 @@
 import { Category, Product, Service, PublicSettings, LeadRecord } from '../types';
 
 export const INITIAL_SETTINGS: PublicSettings = {
-  whatsapp_number: '919876543210',
+  whatsapp_number: '919345838895',
   business_name: 'BS Smart Solution',
-  business_address: '123 Business Park, Guindy, Chennai, Tamil Nadu - 600032',
-  business_email: 'info@bssmartsolution.com',
-  business_phone: '+91 98765 43210',
+  business_address: '102b Venus Nagar, 2nd Main Road, Kolathur, Chennai, Tamil Nadu - 600099',
+  business_email: 'keerthanabagath27@gmail.com',
+  business_phone: '+91 93458 38895',
 };
 
 // ============================================================================

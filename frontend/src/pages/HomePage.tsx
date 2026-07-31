@@ -5,6 +5,7 @@ import { MainOptionCards } from '../components/sections/MainOptionCards';
 import { FeaturedProductsSection } from '../components/sections/FeaturedProductsSection';
 import { FeaturedServicesSection } from '../components/sections/FeaturedServicesSection';
 import { WhyChooseUsSection } from '../components/sections/WhyChooseUsSection';
+import { TestimonialsSection } from '../components/sections/TestimonialsSection';
 import { IndustriesSection } from '../components/sections/IndustriesSection';
 import { CTASection } from '../components/sections/CTASection';
 
@@ -29,10 +30,13 @@ export const HomePage: React.FC = () => {
       {/* 6. Why Choose Us */}
       <WhyChooseUsSection />
 
-      {/* 7. Industries We Serve */}
+      {/* 7. Client Reviews & Feedback */}
+      <TestimonialsSection />
+
+      {/* 8. Industries We Serve */}
       <IndustriesSection />
 
-      {/* 8. Call To Action Banner */}
+      {/* 9. Call To Action Banner */}
       <CTASection />
     </div>
   );
