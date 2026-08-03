@@ -24,7 +24,7 @@ export const INITIAL_TESTIMONIALS: TestimonialItem[] = [
     location: 'Kolathur, Chennai',
     rating: 5,
     comment:
-      'BS Smart Solution delivered 2,000 heavy-duty corrugated packing boxes and stretch films to our Kolathur warehouse within 24 hours. Superior burst strength, exact dimensions, and unbeatable wholesale pricing!',
+      'BS 1 Solutions delivered 2,000 heavy-duty corrugated packing boxes and stretch films to our Kolathur warehouse within 24 hours. Superior burst strength, exact dimensions, and unbeatable wholesale pricing!',
     verified: true,
     category: 'Packaging Materials',
   },
@@ -208,12 +208,12 @@ export const TestimonialsSection: React.FC = () => {
               <p className="text-xs text-slate-300">Connect with our Chennai team for instant quotes and volume discounts.</p>
             </div>
             <a
-              href="https://wa.me/919345838895?text=Hello%20BS%20Smart%20Solution,%20I%20would%20like%20to%20get%20a%20quote."
+              href="https://wa.me/918637634156?text=Hello%20BS%201%20Solutions,%20I%20would%20like%20to%20get%20a%20quote."
               target="_blank"
               rel="noreferrer"
               className="px-5 py-2.5 rounded-xl bg-brand-secondary hover:bg-amber-600 text-white text-xs font-heading font-bold shadow-md transition-colors flex-shrink-0"
             >
-              Chat on WhatsApp: +91 93458 38895
+              Chat on WhatsApp: +91 86376 34156
             </a>
           </div>
 

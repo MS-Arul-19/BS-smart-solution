@@ -1,11 +1,11 @@
 import { Category, Product, Service, PublicSettings, LeadRecord } from '../types';
 
 export const INITIAL_SETTINGS: PublicSettings = {
-  whatsapp_number: '919345838895',
-  business_name: 'BS Smart Solution',
-  business_address: '102b Venus Nagar, 2nd Main Road, Kolathur, Chennai, Tamil Nadu - 600099',
-  business_email: 'keerthanabagath27@gmail.com',
-  business_phone: '+91 93458 38895',
+  whatsapp_number: '918637634156',
+  business_name: 'BS 1 Solutions',
+  business_address: 'Kolathur, Chennai, Tamil Nadu - 600099',
+  business_email: 'tamizhini12enterpriese@gmail.com',
+  business_phone: '+91 86376 34156',
 };
 
 // ============================================================================
@@ -1060,7 +1060,7 @@ export const MOCK_SOCIAL_SERVICES: Service[] = [
 
   // --- 9. Volunteer Services ---
   { id: 'soc-35', slug: 'become-a-volunteer', name: 'Become a Volunteer', category: { name: 'Volunteer Services', slug: 'volunteer-services', kind: 'SOCIAL' }, shortDescription: 'Join our active social impact volunteer squad.', description: 'Register as a volunteer to help in weekend meal drives, beach cleaning, and education.', priceLabel: 'ON_INSPECTION', coverageArea: 'Chennai Only', image: '/images/social-services/become-a-volunteer.jpeg', featured: true },
-  { id: 'soc-36', slug: 'ngo-support', name: 'NGO Support', category: { name: 'Volunteer Services', slug: 'volunteer-services', kind: 'SOCIAL' }, shortDescription: 'Partner your registered NGO with BS Smart Solution platform.', description: 'Connecting local registered trusts and NGOs with donors and logistics.', priceLabel: 'ON_INSPECTION', coverageArea: 'Chennai Only', image: '/images/social-services/ngo-support.jpeg', featured: false },
+  { id: 'soc-36', slug: 'ngo-support', name: 'NGO Support', category: { name: 'Volunteer Services', slug: 'volunteer-services', kind: 'SOCIAL' }, shortDescription: 'Partner your registered NGO with BS 1 Solutions platform.', description: 'Connecting local registered trusts and NGOs with donors and logistics.', priceLabel: 'ON_INSPECTION', coverageArea: 'Chennai Only', image: '/images/social-services/ngo-support.jpeg', featured: false },
   { id: 'soc-37', slug: 'teaching-volunteer', name: 'Teaching Volunteer', category: { name: 'Volunteer Services', slug: 'volunteer-services', kind: 'SOCIAL' }, shortDescription: 'Teach English, Science & Coding on weekend classes.', description: 'Volunteer weekend teachers educating children at local government schools and evening centers.', priceLabel: 'ON_INSPECTION', coverageArea: 'Chennai Only', image: '/images/social-services/teaching-volunteer.jpeg', featured: false },
   { id: 'soc-38', slug: 'event-volunteer', name: 'Event Volunteer', category: { name: 'Volunteer Services', slug: 'volunteer-services', kind: 'SOCIAL' }, shortDescription: 'Assist in blood donation camps & relief food distribution.', description: 'Field volunteer team managing crowd logistics and distribution during charity events.', priceLabel: 'ON_INSPECTION', coverageArea: 'Chennai Only', image: '/images/social-services/event-volunteer.jpeg', featured: false },
 

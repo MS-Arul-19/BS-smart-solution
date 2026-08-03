@@ -36,7 +36,7 @@ export const Footer: React.FC = () => {
                 <Linkedin className="w-4 h-4" />
               </a>
               <a
-                href="https://instagram.com"
+                href="https://instagram.com/bs_smart_solution"
                 target="_blank"
                 rel="noreferrer"
                 className="w-9 h-9 rounded-full bg-slate-800 flex items-center justify-center text-slate-300 hover:bg-brand-secondary hover:text-white transition-colors"
@@ -45,7 +45,7 @@ export const Footer: React.FC = () => {
                 <Instagram className="w-4 h-4" />
               </a>
               <a
-                href="https://wa.me/919345838895"
+                href="https://wa.me/918637634156"
                 target="_blank"
                 rel="noreferrer"
                 className="w-9 h-9 rounded-full bg-slate-800 flex items-center justify-center text-slate-300 hover:bg-[#25D366] hover:text-white transition-colors"
@@ -87,15 +87,15 @@ export const Footer: React.FC = () => {
             <ul className="space-y-3 text-sm text-slate-300">
               <li className="flex items-start space-x-3">
                 <Phone className="w-4 h-4 text-brand-secondary flex-shrink-0 mt-0.5" />
-                <a href="tel:+919345838895" className="hover:text-brand-secondary transition-colors">+91 93458 38895</a>
+                <a href="tel:+918637634156" className="hover:text-brand-secondary transition-colors">+91 86376 34156</a>
               </li>
               <li className="flex items-start space-x-3">
                 <Mail className="w-4 h-4 text-brand-secondary flex-shrink-0 mt-0.5" />
-                <a href="mailto:keerthanabagath27@gmail.com" className="hover:text-brand-secondary transition-colors">keerthanabagath27@gmail.com</a>
+                <a href="mailto:tamizhini12enterpriese@gmail.com" className="hover:text-brand-secondary transition-colors">tamizhini12enterpriese@gmail.com</a>
               </li>
               <li className="flex items-start space-x-3">
                 <MapPin className="w-4 h-4 text-brand-secondary flex-shrink-0 mt-0.5" />
-                <span>102b Venus Nagar, 2nd Main Road, Kolathur, Chennai, Tamil Nadu - 600099</span>
+                <span>Kolathur, Chennai, Tamil Nadu - 600099</span>
               </li>
               <li className="text-xs text-slate-400 pt-1">
                 <span className="text-emerald-400 font-semibold">Working Hours:</span> Open 24 Hours / 7 Days Service (24/7)
@@ -107,7 +107,7 @@ export const Footer: React.FC = () => {
 
         {/* Bottom Copyright */}
         <div className="max-w-[1280px] mx-auto pt-8 flex flex-col md:flex-row items-center justify-between text-xs text-slate-400 gap-4">
-          <p>© 2026 BS Smart Solution. All Rights Reserved.</p>
+          <p>© 2026 BS 1 Solutions. All Rights Reserved.</p>
           <div className="flex items-center space-x-6">
             <Link to="/admin/login" className="hover:text-white transition-colors">Admin Portal</Link>
             <span className="text-slate-700">|</span>

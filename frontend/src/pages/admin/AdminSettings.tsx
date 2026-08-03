@@ -8,11 +8,11 @@ import { Button } from '../../components/ui/Button';
 export const AdminSettings: React.FC = () => {
   const navigate = useNavigate();
   const [settings, setSettings] = useState<PublicSettings>({
-    whatsapp_number: '919876543210',
-    business_name: 'BS Smart Solution',
-    business_address: '123 Business Park, Guindy, Chennai, Tamil Nadu - 600032',
-    business_email: 'info@bssmartsolution.com',
-    business_phone: '+91 98765 43210',
+    whatsapp_number: '918637634156',
+    business_name: 'BS 1 Solutions',
+    business_address: 'Kolathur, Chennai, Tamil Nadu - 600099',
+    business_email: 'tamizhini12enterpriese@gmail.com',
+    business_phone: '+91 86376 34156',
   });
   const [saved, setSaved] = useState(false);
 

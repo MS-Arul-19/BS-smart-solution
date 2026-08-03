@@ -30,9 +30,9 @@ async function seedAdmin() {
 
 async function seedSettings() {
   const settings = [
-    { key: 'business_name', value: 'BS Smart Solution' },
-    { key: 'business_email', value: 'reach@shotzoo.com' },
-    { key: 'business_address', value: 'Update your business address in Admin → Settings' },
+    { key: 'business_name', value: 'BS 1 Solutions' },
+    { key: 'business_email', value: 'tamizhini12enterpriese@gmail.com' },
+    { key: 'business_address', value: 'Kolathur, Chennai, Tamil Nadu - 600099' },
     { key: 'whatsapp_number', value: env.WHATSAPP_NUMBER },
   ];
   for (const s of settings) {

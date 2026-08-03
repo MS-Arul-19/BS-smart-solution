@@ -1,7 +1,7 @@
 import { LeadPayload, PublicSettings } from '../types';
 
 export function generateWhatsAppMessage(payload: LeadPayload, itemTitle?: string): string {
-  const greeting = `Hello BS Smart Solution team,`;
+  const greeting = `Hello BS 1 Solutions team,`;
   let details = `\nI would like to make an enquiry:`;
   
   if (payload.enquiryType === 'PRODUCT') {

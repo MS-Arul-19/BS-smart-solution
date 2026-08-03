@@ -12,7 +12,7 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({ variant = 'light', showTag
 
   return (
     <Link to="/" className={`group inline-flex items-center gap-3 ${className}`}>
-      {/* Official BS Smart Solution Emblem Badge Container */}
+      {/* Official BS 1 Solutions Emblem Badge Container */}
       <div className={`relative flex items-center justify-center p-1 rounded-xl transition-all duration-300 group-hover:scale-105 ${
         isDarkBg 
           ? 'bg-white border border-white/20 shadow-md ring-2 ring-white/10' 
@@ -20,7 +20,7 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({ variant = 'light', showTag
       }`}>
         <img
           src="/logo.jpg"
-          alt="BS Smart Solution Official Logo"
+          alt="BS 1 Solutions Official Logo"
           className="h-10 w-10 object-contain rounded-lg"
         />
       </div>
@@ -28,8 +28,8 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({ variant = 'light', showTag
       {/* Brand Text & Official Tagline */}
       <div className="flex flex-col">
         <div className="flex items-center text-xl font-extrabold font-heading tracking-tight leading-none">
-          <span className={isDarkBg ? 'text-white' : 'text-brand-primary'}>BS Smart</span>
-          <span className="text-brand-secondary ml-1.5">Solution</span>
+          <span className={isDarkBg ? 'text-white' : 'text-brand-primary'}>BS 1</span>
+          <span className="text-brand-secondary ml-1.5">Solutions</span>
         </div>
         {showTagline && (
           <span className={`text-[10px] font-medium tracking-wide mt-1 ${isDarkBg ? 'text-slate-300' : 'text-brand-muted'}`}>
